@@ -1,0 +1,6 @@
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\bin\Debug\Dominio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\obj\Debug\Dominio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Dominio\obj\Debug\Dominio.pdb

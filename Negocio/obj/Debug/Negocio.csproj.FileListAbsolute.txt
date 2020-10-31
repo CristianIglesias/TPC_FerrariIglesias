@@ -1,0 +1,6 @@
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\bin\Debug\Negocio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\obj\Debug\Negocio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\Negocio\obj\Debug\Negocio.pdb

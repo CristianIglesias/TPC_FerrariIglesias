@@ -1,0 +1,6 @@
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\bin\Debug\AccesoaDatos.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\bin\Debug\AccesoaDatos.pdb
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\obj\Debug\AccesoaDatos.csprojAssemblyReference.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\obj\Debug\AccesoaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\obj\Debug\AccesoaDatos.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\AccesoaDatos\obj\Debug\AccesoaDatos.pdb
