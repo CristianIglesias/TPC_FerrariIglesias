@@ -48,15 +48,14 @@
                         <span class="icon-bar"></span>--%>
                     <%--                    </button>--%>
                     <%--<a runat="server" href="~/">Inicio</a>--%>
-                    
-                    <label style="font-weight:bold">Buscá Las remeras, ponele</label>
-                    <input type="text" class="form-control" id="txtBuscador" placeholder="acá tenés que escribir bo'">
-                    <a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>
-                    <a class="navbar-brand" runat="server" href="~/About">Catálogo  &nbsp~</a>
-                    <a class="navbar-brand" runat="server" href="~/Contact">Carrito</a>
-         <p class="text-right">Right aligned text on all viewport sizes.</p>
 
-                        
+                    <label style="font-weight: bold">Buscá Las remeras, ponele</label>
+                    <input type="text" class="form-control" id="txtBuscador" placeholder="acá tenés que escribir bo'">
+                    <asp:Button Text="Buscar" ID="btnBuscar" runat="server" />
+                    <a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>
+                    <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
+                    <a class="navbar-brand" runat="server" href="~/Carrito">Carrito  </a>
+                    <asp:Label Text="" id="lblContadorCarro" runat="server" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -75,7 +74,7 @@
 
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Proyecto Cuatrimestral UTN </p>
             </footer>
         </div>
 
