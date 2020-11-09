@@ -230,3 +230,7 @@ C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Dominio.
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Negocio.dll
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Dominio.pdb
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Negocio.pdb
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\bin\Dominio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\bin\Negocio.dll
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\bin\Dominio.pdb
+C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\bin\Negocio.pdb

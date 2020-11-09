@@ -1,9 +1,9 @@
-﻿<%@ Page Title ="Catalogo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Catalogo.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Catalogo" %>
+﻿<%@ Page Title="Catalogo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Catalogo.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Catalogo" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-   <%-- <p>Acá no calculo que debería haber algun tipo de "dropdown" para filtrar los items por Modelo/Color/estampa?</p>
+    <%-- <p>Acá no calculo que debería haber algun tipo de "dropdown" para filtrar los items por Modelo/Color/estampa?</p>
     <div class="row">
     <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,7 +38,7 @@ Filtrar por Tamaño
   </div>
 </div>
         </div> --%>
-     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://i.pinimg.com/564x/05/5a/76/055a76df0b82356df7a157a8ad038611.jpg" class="d-block w-100" alt="..." style="height: 300px; width: 100px">
@@ -59,25 +59,25 @@ Filtrar por Tamaño
             <span class="sr-only">Next</span>
         </a>
     </div>
-            <div class="row">
-            <%foreach (var item in Listinha)
-                {%>
+    <div class="row">
+        <%foreach (var item in Listinha)
+            {%>
 
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="asd" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><%=item.Nombre %></h5>
-                        <h5 class="card-title"><%=item.Precio %></h5>
-                        <a href="Contact.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
-                        <a href="Agregar.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
+                    <h5 class="card-title"><%=item.Nombre %></h5>
+                    <h5 class="card-title"><%=item.Precio %></h5>
+                    <a href="Contact.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
+                    <a href="Agregar.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
 
-                    </div>
                 </div>
             </div>
-
-            <%  } %>
         </div>
+
+        <%  } %>
+    </div>
 
 
 </asp:Content>

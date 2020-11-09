@@ -11,7 +11,7 @@ namespace Negocio
     public class AccesoDatos
     {
         public SqlDataReader lector { get; set; }
-        public SqlConnection conexion { get; }
+        public SqlConnection conexion { get; set; }
         public SqlCommand comando { get; set; }
 
         public AccesoDatos()

@@ -16,6 +16,8 @@ namespace TPC_Ferrari_Iglesias
         {
             ProductoNegocio CACA = new ProductoNegocio();
             Listinha =  CACA.Listar();
+            Session.Add("ListaArticulos", Listinha);
+
 
         }
     }

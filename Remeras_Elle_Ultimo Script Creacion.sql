@@ -1,12 +1,12 @@
-
+Create Database Remeras_Elle_fg
 --Hola Angel, creo que hicimos todos los cambios correspondientes.
 -- lo que falto es responderte que es TIPO DE PAGO y lo q pensamos es cual vaa ser la forma, por mercado pago, con debito, con credito...
 -- lo que no sabemos y no tenemos idea aun es QUE HACE EL ADMINISTRADOR, lo pusimos y pensamos como un tipo de usuario, pero despues nos dimos cuenta que no sabemos
--- que va a hacer. estamos muy perdidos en cuento a eso
+-- que va a hacer. estamos muy perdidos en cuent
 
 --create database Remeras_Elle
 go
-use  Remeras_Elle
+use  Remeras_Elle_fg
 go
 
 create table TipoUsuario (
@@ -85,11 +85,20 @@ create table Producto (
 Id bigint not null primary Key identity (1,1),
 IdTipo tinyint not null foreign key references TipoProducto (Id),
 Precio money not  null,
+UrlImagen varchar (900),
 Nombre varchar(50) not Null,
 Talle Varchar(20) not null,
 Descripcion varchar (100)
+--agregar estado, para bajas logicas 
+--alter table color producto 
 )
 go
+
+
+--Agregar tabla colores x remera
+
+--agregar tabla imagenes x remera
+
 
 
 create table Factura (
@@ -135,15 +144,3 @@ go
 alter table Pagos
 add constraint FK_Pagos_TipoPagos foreign key (IdTipoPago)  references TipoPagos (Id)
 go
-
-
-
-
-
-
-
-
-
-
-
-

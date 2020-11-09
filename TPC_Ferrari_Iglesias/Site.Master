@@ -56,9 +56,10 @@
                     <input type="text" class="form-control" id="txtBuscador" placeholder="acá tenés que escribir bo'">
                     <button type="button"  ID="btnBuscar" class="btn btn-outline-secondary">Buscar</button>
                     <%--<asp:Button Text="Buscar" ID="btnBuscar" runat="server" />--%>
-                    <%--<a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>--%>
+                    <a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>
                     <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
                     <a class="navbar-brand" runat="server" href="~/Carrito">Carrito  </a>
+                    <a class="navbar-brand" runat="server" href="~/AbmProductos"> Abm Productos </a>
                     <asp:Label Text="" id="lblContadorCarro" runat="server" />
                 </div>
                 <div class="navbar-collapse collapse">
@@ -69,12 +70,8 @@
         </div>
         <div class="container body-content">
 
-
-
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-
-
 
             <hr />
             <footer>
