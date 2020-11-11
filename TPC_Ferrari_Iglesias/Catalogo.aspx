@@ -69,8 +69,8 @@ Filtrar por Tamaño
                     <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                     <h5 class="card-title"><%=item.Nombre %></h5>
                     <h5 class="card-title"><%=item.Precio %></h5>
-                    <a href="Contact.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
-                    <a href="Agregar.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
+                    <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
+                    <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
 
                 </div>
             </div>

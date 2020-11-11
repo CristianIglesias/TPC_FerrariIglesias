@@ -18,7 +18,7 @@
 
 
                     <div class="card-body">
-                        <%-- HACER FUNCIONAR LAS IMAGENES --%>
+                    
                         <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title" style="font-weight: bold"><% = item.Nombre %></h5>
                         <h5 class="card-title" style="font-weight: bold"><% = item.Precio %></h5>

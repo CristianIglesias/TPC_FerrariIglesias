@@ -55,7 +55,7 @@ namespace Negocio
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
-            { throw ex; }
+            {   throw ex; }
             finally { conexion.Close(); }
         }
 

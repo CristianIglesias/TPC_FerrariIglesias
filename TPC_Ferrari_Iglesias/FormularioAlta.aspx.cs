@@ -41,6 +41,9 @@ namespace TPC_Ferrari_Iglesias
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (productin == null)
+                productin = new Productos();
+
             productin.IdTipo = Convert.ToByte(txtIdTipo.Text.ToString());
             productin.Nombre = txtNombre.Text;
             productin.Descripcion = txtDescripcion.Text;
