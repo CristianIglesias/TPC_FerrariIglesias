@@ -3,42 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-    <%-- <p>Acá no calculo que debería haber algun tipo de "dropdown" para filtrar los items por Modelo/Color/estampa?</p>
-    <div class="row">
-    <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Filtrar por Modelo 
-  </button>
-       
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Cuello redondo</a>
-    <a class="dropdown-item" href="#">Escote en "v"</a>
-    <a class="dropdown-item" href="#">Musculosas</a>
-  </div>
-</div>
-       <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Filtrar por Color 
-  </button>
-       
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Cuello redondo</a>
-    <a class="dropdown-item" href="#">Escote en "v"</a>
-    <a class="dropdown-item" href="#">Musculosas</a>
-  </div>
-</div>
-       <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Filtrar por Tamaño 
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Cuello redondo</a>
-    <a class="dropdown-item" href="#">Escote en "v"</a>
-    <a class="dropdown-item" href="#">Musculosas</a>
-  </div>
-</div>
-        </div> --%>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+ <%--   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://i.pinimg.com/564x/05/5a/76/055a76df0b82356df7a157a8ad038611.jpg" class="d-block w-100" alt="..." style="height: 300px; width: 100px">
@@ -58,25 +23,54 @@ Filtrar por Tamaño
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
-    <div class="row">
-        <%foreach (var item in Listinha)
-            {%>
+    </div>--%>
 
+    <div class ="form-group">
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
+                        <%-- todo eso queda de ejemplo de las cositas que tenemos que tocar :) --%>
+                       
+                    </asp:DropDownList>
+        <asp:DropDownList runat="server" >
+        </asp:DropDownList>
+                    </div>
+    <div class="row">
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
+            <table>
+                <%foreach (var item in Listinha)
+                    {%>
+
+                <tr>
+                    <td>
+                        <img src="<%=item.Imagen%>" class="card-img-top" alt="..." width="50px">
+                    </td>
+                    <td>
+                        <%=item.Nombre %>
+                    </td>
+                    <td></td>
+                    <td></td>
+
+                    <td>
+                        <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
+
+                    </td>
+
+                </tr>
+
+                <%--            <div class="card" style="width: 18rem;">--%>
+                <%-- <div class="card-body">
                     <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                     <h5 class="card-title"><%=item.Nombre %></h5>
                     <h5 class="card-title"><%=item.Precio %></h5>
                     <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
                     <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
 
-                </div>
-            </div>
-        </div>
+                </div>--%>
+                <%--       </div>--%>
 
-        <%  } %>
+
+                <%  } %>
+            </table>
+        </div>
     </div>
 
 

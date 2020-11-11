@@ -44,17 +44,18 @@
         <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: skyblue">
             <div class="container">
                 <div class="navbar-header">
-                    <%--                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">--%>
-                    <%-- <span class="icon-bar"></span>
+                    <%--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">--%>
+                    <%--<span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>--%>
-                    <%--                    </button>--%>
+                    <%--</button>--%>
                     <%--<a runat="server" href="~/">Inicio</a>--%>
 
                    <%-- <label style="font-weight: bold">Buscá Las remeras, ponele</label>--%>
                     <h3 >Buscá Las remeras</h3>
                     <input type="text" class="form-control" id="txtBuscador" placeholder="acá tenés que escribir bo'">
                     <button type="button"  ID="btnBuscar" class="btn btn-outline-secondary">Buscar</button>
+                    
                     <%--<asp:Button Text="Buscar" ID="btnBuscar" runat="server" />--%>
                     <a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>
                     <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
