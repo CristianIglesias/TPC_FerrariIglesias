@@ -1,26 +1,49 @@
 ﻿<%@ Page Title ="Carrito" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Carrito" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+     <a  href="Catalogo.aspx"   class="btn btn-primary">Volver</a>
+ <div class="container">
+    <div class="row">
+       <div class="col">
+            <table class="table">
+               <tr>
+                   <td> <strong> Nombre:</strong> </td>
+                   
+                    <td> <strong> Precio:</strong>  </td>
+                   <td><strong> Imagen:</strong> </td>
+                 
 
-  <div class="row">
+                   </tr>
+               
         <%foreach (var item in ListaAux)
             {%>
+            
+                 <tr>
+                    <td>
+                        <%=item.Nombre %>
+                    </td>
+                      <td><%=item.Precio %></td>
+                    <td>
+                       <img src="<%=item.Imagen%>"style="width:60px; height:60px;" class="card-img-top" alt="..." > 
+                    </td>
+                   
+                    <td></td>
 
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
-                    <h5 class="card-title"><%=item.Nombre %></h5>
-                    <h5 class="card-title"><%=item.Precio %></h5>
-                    <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
-                    <a  href="Catalogo.aspx"   class="btn-primary">Volver   </a>
+                    <td>
+                        <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Detalle</a>
+                         <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-danger">Eliminar</a>
 
-                </div>
-            </div>
-        </div>
+                    </td>
+
+                </tr>
+
+    
 
         <%  } %>
-    </div>
+                 </table>
+                </div>
+                </div>
+       </div>
 
 
 </asp:Content>

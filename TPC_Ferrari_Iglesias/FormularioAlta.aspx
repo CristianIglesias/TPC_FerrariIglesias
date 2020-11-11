@@ -5,16 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Formulariesito de altas vistescomoes </title>
+    <title>Formulario de alta </title>
     <%--esto es es cdn para poder usar bootstrap--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="jumbotron">
+        <div class="jumbotron" >
             <div>
                 <asp:Label Text="Nombre" runat="server" />
-                <asp:TextBox runat="server" ID="txtNombre" />
+                <asp:TextBox runat="server" style="height:30px; width:180px; font-size:10px"  ID="txtNombre" />
             </div>
             <div>
                 <asp:Label Text="idTipo" runat="server" />
@@ -40,7 +40,7 @@
 
         <div>   
             <asp:Button Text="Guardar" id="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
-            <a  href="AbmProductos.aspx"class="btn-primary">Cancelar    </a>
+            <a  href="AbmProductos.aspx"class="btn btn-primary">Cancelar    </a>
 
         </div>
 

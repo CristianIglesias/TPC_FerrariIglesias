@@ -13,14 +13,18 @@
                     
                         <img src="<%=Producto.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title" style="font-weight: bold"><% = Producto.Nombre %></h5>
-                        <h5 class="card-title" style="font-weight: bold"><% = Producto.Precio %></h5>
-                        <a  href="Catalogo.aspx"   class="btn-primary">Volver   </a>
+                        <h5 class="card-title" style="font-weight: bold">$ <% = Producto.Precio %></h5>
+                        <h5 class="card-title" style="font-weight: bold">Descripción:  <% = Producto.Descripcion %></h5>
+                        <h5 class="card-title" style="font-weight: bold">Color: <% = Producto.Color %></h5>
+                   
                       
 
                     </div>
 
 
                 </div>
+                    
+                 <a href="Catalogo.aspx" class="btn btn-primary">Continuar comprando</a>
             </div>
           
         </div>

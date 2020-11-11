@@ -33,45 +33,32 @@
         <asp:DropDownList runat="server" >
         </asp:DropDownList>
                     </div>
+    <div class="container"> 
     <div class="row">
+
+       
+        <%foreach (var item in Listinha)
+            {%>
+
+      
         <div class="col-md-4">
-            <table>
-                <%foreach (var item in Listinha)
-                    {%>
-
-                <tr>
-                    <td>
-                        <img src="<%=item.Imagen%>" class="card-img-top" alt="..." width="50px">
-                    </td>
-                    <td>
-                        <%=item.Nombre %>
-                    </td>
-                    <td></td>
-                    <td></td>
-
-                    <td>
-                        <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
-
-                    </td>
-
-                </tr>
-
-                <%--            <div class="card" style="width: 18rem;">--%>
-                <%-- <div class="card-body">
-                    <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
-                    <h5 class="card-title"><%=item.Nombre %></h5>
-                    <h5 class="card-title"><%=item.Precio %></h5>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <img src="<%=item.Imagen%>" class="card-img-top"width="280" alt="...">
+                    <h5 class="card-title">Producto: <%=item.Nombre %></h5>
+                    <h5 class="card-title">Precio: $<%=item.Precio %></h5>
                     <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
                     <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
 
-                </div>--%>
-                <%--       </div>--%>
+                </div>
+            </div>
+            </div>
 
 
-                <%  } %>
-            </table>
+            <%  } %>
+           
         </div>
-    </div>
+          </div>
 
 
 </asp:Content>

@@ -14,9 +14,9 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> Listinha;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio CACA = new ProductoNegocio();
-            Listinha =  CACA.Listar();
-            Session.Add("ListaArticulos", Listinha);
+            ProductoNegocio negocio = new ProductoNegocio();
+            Listinha =  negocio.Listar();
+            Session.Add("ListaArticulos", Listinha);// para que sirve??
 
 
         }

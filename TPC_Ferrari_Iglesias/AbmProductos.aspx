@@ -22,7 +22,7 @@
                         <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title" style="font-weight: bold"><% = item.Nombre %></h5>
                         <h5 class="card-title" style="font-weight: bold"><% = item.Precio %></h5>
-                        <a  href="FormularioAlta.aspx?idArticulo=<%= item.Id.ToString()%>"   class="btn-primary">Editar Articulo    </a>
+                        <a  href="FormularioAlta.aspx?idArticulo=<%= item.Id.ToString()%>"   class="btn btn-primary">Editar Articulo    </a>
                         <a  href="FormularioAlta.aspx?idArticulo=<%= item.Id.ToString()%>"   class="btn btn-danger">Eliminar Articulo  </a>
 
                     </div>
@@ -42,7 +42,7 @@
         </div>--%>
     </div>
 
-    <a runat="server" href="/FormularioAlta" class="btn-primary">Nuevo Articulo     </a>
+    <a runat="server" href="/FormularioAlta" class="btn btn-primary">Nuevo Articulo     </a>
 
 
 
