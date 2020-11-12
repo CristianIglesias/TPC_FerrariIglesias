@@ -11,12 +11,12 @@ namespace TPC_Ferrari_Iglesias
 {
     public partial class Catalogo : System.Web.UI.Page
     {
-        public List<Productos> Listinha;
+        //public List<Productos> Listinha;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
-            Listinha =  negocio.Listar();
-            Session.Add("ListaArticulos", Listinha);// para que sirve??
+            //ProductoNegocio negocio = new ProductoNegocio();
+            //Listinha =  negocio.Listar();
+            //Session.Add("ListaArticulos", Listinha);// para que sirve??
 
 
         }

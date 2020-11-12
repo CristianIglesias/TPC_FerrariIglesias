@@ -37,7 +37,7 @@
     <div class="row">
 
        
-        <%foreach (var item in Listinha)
+        <%foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
             {%>
 
       

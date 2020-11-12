@@ -9,7 +9,8 @@
             </asp:GridView>
             <br />--%>
         <div class="row">
-            <%foreach (var item in listaABM)
+            <%//foreach (var item in listaABM)
+                foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
                 {
             %>
 

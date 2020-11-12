@@ -26,17 +26,17 @@ namespace TPC_Ferrari_Iglesias
                 IdAux = Convert.ToInt32(Request.QueryString["idArticulo"]);
                 Producto = Liston.Find(x => x.Id == IdAux);
                 
-                if (Session ["ListaAux"]== null)
+                if (Session ["ListaCarrito"]== null)
                 {
                     ListaAux = new List<Productos>();
                     ListaAux.Add(Producto);
-                    Session["ListaAux"] = ListaAux;
+                    Session["ListaCarrito"] = ListaAux;
                 }
                 else
                 {
-                     ListaAux = (List<Productos>)Session["ListaAux"];// mi lista con los productos q agregue en session
+                     ListaAux = (List<Productos>)Session["ListaCarrito"];// mi lista con los productos q agregue en session
                     ListaAux.Add(Producto); // le agrego un producto/obj
-                    Session.Add("ListaAux", ListaAux);
+                    Session.Add("ListaCarrito", ListaAux);
                 //Session["ListaCarrito"] = ListCarritoaux; esto es lo mismo que Session["ListaAux"] = ListaAux;
                 }
                    
@@ -44,7 +44,7 @@ namespace TPC_Ferrari_Iglesias
             }
             catch (Exception)
             {
-
+                //HAY QUE REDIRECCIONARLO A UNA PAG DE ERROR
                 throw;
             }
         }
