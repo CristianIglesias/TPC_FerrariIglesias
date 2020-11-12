@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="Carrito" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Carrito" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+   <%-- ESTO ES PARA LINKEARLO CON CSS, EL TEM ES QUE DESPUES LA TABLA HAY QUE HACERLA DESDE CERO
+    <asp:Content ContentPlaceHolderID="Style" runat="server">
+ <link href="../css/Carrito.css" rel="stylesheet" type="text/css" />
+    </asp:Content>--%>
+
+
     <a href="Catalogo.aspx" class="btn btn-primary">Volver</a>
     <div class="container">
         <div class="row">

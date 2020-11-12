@@ -20,6 +20,11 @@
 
 </head>
 <body  style="background-image: url('https://images.unsplash.com/photo-1560780552-ba54683cb263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'); background-size: cover; ">
+  <%-- esto es para relacionarlo con la hoja de estilo de css
+    <asp:ContentPlaceHolder ID="Style" runat="server">
+                <link href="../css/FormAlta.css" rel="stylesheet" type="text/css" />
+            </asp:ContentPlaceHolder>--%>
+    
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -57,7 +62,7 @@
                     <button type="button"  ID="btnBuscar" class="btn btn-outline-secondary">Buscar</button>
                     
                     <%--<asp:Button Text="Buscar" ID="btnBuscar" runat="server" />--%>
-                    <a class="navbar-brand" runat="server" href="~/">Cualquier Cosa &nbsp ~</a>
+                    <a class="navbar-brand" runat="server" href="~/">Home &nbsp ~</a>
                     <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
                     <a class="navbar-brand" runat="server" href="~/Carrito">Carrito  </a>
                     <a class="navbar-brand" runat="server" href="~/AbmProductos"> Abm Productos </a>
@@ -73,6 +78,8 @@
 
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+          
+            
 
             <hr />
             <footer>
