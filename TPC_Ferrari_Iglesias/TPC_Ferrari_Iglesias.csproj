@@ -120,6 +120,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\Carrito.css" />
     <Content Include="css\FormAlta.css" />
+    <Content Include="css\popup.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="favicon.ico" />
