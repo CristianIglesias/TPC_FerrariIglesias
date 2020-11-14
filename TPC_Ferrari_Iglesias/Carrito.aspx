@@ -58,7 +58,7 @@
                         </td>
                         <td>
                             <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Detalle</a>
-                            <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-danger">Eliminar</a>
+                            <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>&extra=<%=1.ToString()%>" class="btn btn-danger">Eliminar</a>
 
                         </td>
 

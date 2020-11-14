@@ -13,7 +13,9 @@ namespace TPC_Ferrari_Iglesias
     {
         public List<Productos> Liston;
         public Productos Producto;
-        int IdAux;
+        long IdAux;
+        //int IdAux;
+        int extra ;
         public List<Productos> ListaAux;
 
 
@@ -24,6 +26,7 @@ namespace TPC_Ferrari_Iglesias
             try
             {
                 IdAux = Convert.ToInt32(Request.QueryString["idArticulo"]);
+                extra= Convert.ToInt32(Request.QueryString["extra"]);
                 Liston = negocio.Listar();
                 Producto = Liston.Find(x => x.Id == IdAux);
                 //parche para que acceder directo al carrito funcione, que es lo que me está haciendo pinchar ahora.
@@ -50,22 +53,40 @@ namespace TPC_Ferrari_Iglesias
 
 
                 //fin del parche/toqueteo
-
-
-                if (Session ["ListaCarrito"]== null)
+                if (IdAux > 0 && extra == 1)
                 {
-                    ListaAux = new List<Productos>();
-                    ListaAux.Add(Producto);
-                    Session["ListaCarrito"] = ListaAux; 
+                   
+                            ListaAux = (List<Productos>)Session["ListaCarrito"];//traeme lo que tenemos en session
+                    foreach (var item in ListaAux)
+                    {
+                        if (IdAux == item.Id)
+
+                        { 
+                            ListaAux.Remove(item);
+                            Session["ListaCarrito"] = ListaAux;
+                            Response.Redirect("Carrito.aspx");
+                            
+                        }
+                    }
+
+
                 }
                 else
                 {
-                    ListaAux = (List<Productos>)Session["ListaCarrito"];// mi lista con los productos q agregue en session
-                    ListaAux.Add(Producto); // le agrego un producto/obj----ACÁ ESTÁ EL ERROR, EL ITEM PODÍA LLEGAR NULO AHRE LE GRITABA HOLA CHIVI
-                    Session.Add("ListaCarrito", ListaAux);
-                //Session["ListaCarrito"] = ListCarritoaux; esto es lo mismo que Session["ListaAux"] = ListaAux;
-                }
-                   
+                    if (Session["ListaCarrito"] == null)
+                    {
+                        ListaAux = new List<Productos>();
+                        ListaAux.Add(Producto);
+                        Session["ListaCarrito"] = ListaAux;
+                    }
+                    else
+                    {
+                        ListaAux = (List<Productos>)Session["ListaCarrito"];// mi lista con los productos q agregue en session
+                        ListaAux.Add(Producto); // le agrego un producto/obj----ACÁ ESTÁ EL ERROR, EL ITEM PODÍA LLEGAR NULO AHRE LE GRITABA HOLA CHIVI
+                        Session.Add("ListaCarrito", ListaAux);
+                        //Session["ListaCarrito"] = ListCarritoaux; esto es lo mismo que Session["ListaAux"] = ListaAux;
+                    }
+                }   
 
             }
             catch (Exception)
