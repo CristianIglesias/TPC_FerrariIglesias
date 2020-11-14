@@ -37,22 +37,14 @@ namespace TPC_Ferrari_Iglesias
         {
 
             ProductoNegocio negocio = new ProductoNegocio();
-
-            try
-            {
-
      
                     Listinha = ((List<Productos>)Session.Contents["listaCatalogo"]).FindAll(X => X.Nombre.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) 
                     /*|| X.Codigo.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X..Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Marca.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()*/);
                     Session.Add("listaCatalogo", Listinha);
                     Response.Redirect("Catalogo.aspx");
-                
-            }
-            catch (Exception ex)
-            {
+           
 
-                // throw ex;
-            }
+             
 
         }
     }
