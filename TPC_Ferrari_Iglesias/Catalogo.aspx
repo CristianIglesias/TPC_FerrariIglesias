@@ -40,7 +40,8 @@
         <div class="row">
 
 
-            <%foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
+            <%      
+                foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
                 {%>
 
 

@@ -11,24 +11,27 @@ namespace TPC_Ferrari_Iglesias
 {
     public partial class Catalogo : System.Web.UI.Page
     {
-        public List<Productos> Listinha;
+        public List<Productos> ListaCatalogo;
+        public List<Productos> ListaBuscada;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if ( Session["ListaBuscada"]==null)//si está apagada, carga la lista de la base de datos 
             {
+                
                 //Listinha = ((List<Productos>)Session.Contents["ListaCatalogo"]);
                 ProductoNegocio negocio = new ProductoNegocio();
-                Listinha = negocio.Listar();
-                Session.Add("ListaCatalogo", Listinha);// para que sirve??
+                ListaCatalogo= negocio.Listar();
+                Session.Add("ListaCatalogo", ListaCatalogo);
 
             }
-            else
+            else//PERO SI ESTÁ PRENDIDA, usa los datos que cargó en base al filtro
             {
-
-            //ProductoNegocio negocio = new ProductoNegocio();
-            //Listinha =  negocio.Listar();
-            //Session.Add("ListaCatalogo", Listinha);// para que sirve??
-            Listinha = ((List<Productos>)Session.Contents["ListaCatalogo"]);
+                //ProductoNegocio negocio = new ProductoNegocio();
+                //Listinha = negocio.Listar();
+                //Session.Add("ListaCatalogo", Listinha);// para que sirve??
+                Session.Add("ListaCatalogo", Session["ListaBuscada"]);
+                Session["ListaBuscada"] = null;//la apagamos para que no esté prendida
             }
 
         }
@@ -36,12 +39,11 @@ namespace TPC_Ferrari_Iglesias
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            ProductoNegocio negocio = new ProductoNegocio();
-     
-                    Listinha = ((List<Productos>)Session.Contents["listaCatalogo"]).FindAll(X => X.Nombre.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) 
-                    /*|| X.Codigo.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X..Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Marca.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()*/);
-                    Session.Add("listaCatalogo", Listinha);
-                    Response.Redirect("Catalogo.aspx");
+            ListaBuscada = new List<Productos>();
+            ListaBuscada = ((List<Productos>)Session.Contents["listaCatalogo"]).FindAll(X => X.Nombre.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) 
+             /*|| X.Codigo.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X..Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Marca.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()*/);
+             Session.Add("listaBuscada", ListaBuscada);
+             Response.Redirect("Catalogo.aspx");
            
 
              
