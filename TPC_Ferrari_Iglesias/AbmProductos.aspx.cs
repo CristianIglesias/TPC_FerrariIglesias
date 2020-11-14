@@ -14,8 +14,8 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> listaABM { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ProductoNegocio negocio = new ProductoNegocio();
-            //listaABM = negocio.Listar();
+            ProductoNegocio negocio = new ProductoNegocio();
+            listaABM = negocio.Listar();
 
             
             

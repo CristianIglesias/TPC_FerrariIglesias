@@ -17,7 +17,8 @@ namespace TPC_Ferrari_Iglesias
             string idItem = Request.QueryString["idArticulo"];
             if (idItem != null)
             {
-                if(Session.Contents ["ListaCatalogo"]==null)// SERÍA COMO UNA BARRA DE SEGURIDAD PARA QUE NO PINCHE, onda, si la lista de la session no existe todavía, Carlos la carga.
+                if(Session.Contents ["ListaCatalogo"]==null)// SERÍA COMO UNA BARRA DE SEGURIDAD PARA QUE NO PINCHE, 
+                                                            //onda, si la lista de la session no existe todavía, Carlos la carga.
                 {
                     ProductoNegocio carlos = new ProductoNegocio();
                     Session.Add("ListaCatalogo", carlos.Listar());// en vez de hacer un pasamanos con una lista auxiliar, la lleva directo de la base de datos a la session

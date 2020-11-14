@@ -3,7 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <%-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="https://i.pinimg.com/564x/05/5a/76/055a76df0b82356df7a157a8ad038611.jpg" class="d-block w-100" alt="..." style="height: 500px; width: 100px">
@@ -23,42 +24,43 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div>--%>
+    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" placeholder="acá tenés que escribir bo'" />
 
-    <div class ="form-group">
-                    <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
-                        <%-- todo eso queda de ejemplo de las cositas que tenemos que tocar :) --%>
-                       
-                    </asp:DropDownList>
-        <asp:DropDownList runat="server" >
+    <asp:Button runat="server" ID="btnBuscar" OnClick="btnBuscar_Click"/>
+
+    <div class="form-group">
+        <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
+            <%-- todo eso queda de ejemplo de las cositas que tenemos que tocar :) --%>
         </asp:DropDownList>
+        <asp:DropDownList runat="server">
+        </asp:DropDownList>
+    </div>
+    <div class="container">
+        <div class="row">
+
+
+            <%foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
+                {%>
+
+
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="<%=item.Imagen%>" class="card-img-top" width="280" alt="...">
+                        <h5 class="card-title">Producto: <%=item.Nombre %></h5>
+                        <h5 class="card-title">Precio: $<%=item.Precio %></h5>
+                        <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
+                        <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
+
                     </div>
-    <div class="container"> 
-    <div class="row">
-
-       
-        <%foreach (var item in ((List<Dominio.Productos>)Session["ListaCatalogo"]))
-            {%>
-
-      
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <img src="<%=item.Imagen%>" class="card-img-top"width="280" alt="...">
-                    <h5 class="card-title">Producto: <%=item.Nombre %></h5>
-                    <h5 class="card-title">Precio: $<%=item.Precio %></h5>
-                    <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
-                    <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
-
                 </div>
-            </div>
             </div>
 
 
             <%  } %>
-           
         </div>
-          </div>
+    </div>
 
 
 </asp:Content>

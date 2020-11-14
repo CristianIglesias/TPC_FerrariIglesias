@@ -42,13 +42,13 @@ namespace TPC_Ferrari_Iglesias
         protected global::System.Web.UI.WebControls.TextBox txtIdTipo;
 
         /// <summary>
-        /// Control txtDescripción.
+        /// Control txtDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripción;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
         /// <summary>
         /// Control txtTalle.

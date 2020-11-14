@@ -26,7 +26,7 @@
                 <asp:TextBox runat="server" ID="txtIdTipo" CssClass="caja" />
             </div>
             <asp:Label Text="Descripcion" runat="server" CssClass="label" />
-            <asp:TextBox runat="server" ID="txtDescripción" CssClass="caja" />
+            <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
             <div>
                 <asp:Label Text="Talle" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtTalle" CssClass="caja" />
