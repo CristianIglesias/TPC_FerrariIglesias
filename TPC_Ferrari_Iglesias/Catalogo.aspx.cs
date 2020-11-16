@@ -16,12 +16,13 @@ namespace TPC_Ferrari_Iglesias
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ( Session["ListaBuscada"]==null)//si está apagada, carga la lista de la base de datos 
+
+            if (Session["ListaBuscada"] == null)//si está apagada, carga la lista de la base de datos 
             {
-                
+
                 //Listinha = ((List<Productos>)Session.Contents["ListaCatalogo"]);
                 ProductoNegocio negocio = new ProductoNegocio();
-                ListaCatalogo= negocio.Listar();
+                ListaCatalogo = negocio.Listar();
                 Session.Add("ListaCatalogo", ListaCatalogo);
 
             }
@@ -40,13 +41,13 @@ namespace TPC_Ferrari_Iglesias
         {
 
             ListaBuscada = new List<Productos>();
-            ListaBuscada = ((List<Productos>)Session.Contents["listaCatalogo"]).FindAll(X => X.Nombre.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) 
+            ListaBuscada = ((List<Productos>)Session.Contents["listaCatalogo"]).FindAll(X => X.Nombre.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper())
              /*|| X.Codigo.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X..Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()) || X.Marca.Descripcion.ToUpper().Contains(txtBuscador.Text.ToUpper()*/);
-             Session.Add("listaBuscada", ListaBuscada);
-             Response.Redirect("Catalogo.aspx");
-           
+            Session.Add("listaBuscada", ListaBuscada);
+            Response.Redirect("Catalogo.aspx");
 
-             
+
+
 
         }
     }

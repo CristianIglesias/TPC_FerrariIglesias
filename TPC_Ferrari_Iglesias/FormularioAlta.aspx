@@ -21,6 +21,13 @@
                 <asp:Label Text="Nombre" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
             </div>
+        <%--    <div>   
+        <asp:Label Text="idTipo" runat="server" CssClass="label" />
+        <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
+            
+        </asp:DropDownList>
+    </div>--%>
+            
             <div>
                 <asp:Label Text="idTipo" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtIdTipo" CssClass="caja" />

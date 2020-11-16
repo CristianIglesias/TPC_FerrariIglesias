@@ -14,6 +14,26 @@ namespace TPC_Ferrari_Iglesias
         public Productos productin = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ProductoNegocio negocio = new ProductoNegocio();
+            //try
+            //{
+            //    if (!IsPostBack)
+            //    {
+            //        List<Productos> listaParaDropdown = negocio.Listar();
+            //        DdlTipo.DataSource = listaParaDropdown;
+            //        DdlTipo.DataBind();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+
+
+
+
+
             string idItem = Request.QueryString["idArticulo"];
             if (idItem != null)
             {

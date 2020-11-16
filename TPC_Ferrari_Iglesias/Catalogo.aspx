@@ -29,13 +29,21 @@
 
     <asp:Button runat="server" ID="btnBuscar" OnClick="btnBuscar_Click"/>
 
-    <div class="form-group">
+   <%-- <div class="form-group">
         <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
-            <%-- todo eso queda de ejemplo de las cositas que tenemos que tocar :) --%>
+            
         </asp:DropDownList>
         <asp:DropDownList runat="server">
         </asp:DropDownList>
+    </div>--%>
+
+    <div>   
+        <asp:Label Text="alguito" runat="server" />
+        <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
+            
+        </asp:DropDownList>
     </div>
+
     <div class="container">
         <div class="row">
 
