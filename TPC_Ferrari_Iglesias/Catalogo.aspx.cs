@@ -16,17 +16,14 @@ namespace TPC_Ferrari_Iglesias
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["ListaBuscada"] == null)//si está apagada, carga la lista de la base de datos 
+            if (Session["ListaBuscada"] == null)
             {
-
-                //Listinha = ((List<Productos>)Session.Contents["ListaCatalogo"]);
                 ProductoNegocio negocio = new ProductoNegocio();
                 ListaCatalogo = negocio.Listar();
                 Session.Add("ListaCatalogo", ListaCatalogo);
-
+                //si está apagada, carga la lista de la base de datos 
             }
-            else//PERO SI ESTÁ PRENDIDA, usa los datos que cargó en base al filtro
+            else if (Session["ListaBuscada"] != null)//PERO SI ESTÁ PRENDIDA, usa los datos que cargó en base al filtro
             {
                 //ProductoNegocio negocio = new ProductoNegocio();
                 //Listinha = negocio.Listar();
@@ -34,8 +31,8 @@ namespace TPC_Ferrari_Iglesias
                 Session.Add("ListaCatalogo", Session["ListaBuscada"]);
                 Session["ListaBuscada"] = null;//la apagamos para que no esté prendida
             }
-
         }
+
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {

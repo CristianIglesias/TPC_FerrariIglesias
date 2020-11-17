@@ -29,34 +29,49 @@ namespace TPC_Ferrari_Iglesias
 
             //    throw;
             //}
+            ///Me agarró la inspiración, 
+            ///Vamos a empezar a declarar lo que podemos llegar a necesitar durante el evento, al principio del evento
+            ///llegar al punto de necesitarla para ahí instanciar, me parece medio -poco razonado- nose si tiene sentido... Si, Fumé.
 
-
-
+            //        protected void Page_Load(object sender, EventArgs e)  // esto lo necesité porque dije, esto donde empieza?!?! muchas veces, ahora se que arranca acá
 
 
             string idItem = Request.QueryString["idArticulo"];
+            ProductoNegocio ProdNegocio = new ProductoNegocio();
+            TipoRemeNegocio TipoNegocio = new TipoRemeNegocio();
+            List<TipoReme> listaParaDropdown = TipoNegocio.Listar();
+            DdlTipo.DataSource = listaParaDropdown;
+            DdlTipo.DataBind();
+            
+
             if (idItem != null)
             {
-                if(Session.Contents ["ListaCatalogo"]==null)// SERÍA COMO UNA BARRA DE SEGURIDAD PARA QUE NO PINCHE, 
-                                                            //onda, si la lista de la session no existe todavía, Carlos la carga.
+                
+                if (Session.Contents["ListaCatalogo"] == null)// SERÍA COMO UNA BARRA DE SEGURIDAD PARA QUE NO PINCHE, 
+                                                              //onda, si la lista de la session no existe todavía, ProdNegocio la carga.
                 {
-                    ProductoNegocio carlos = new ProductoNegocio();
-                    Session.Add("ListaCatalogo", carlos.Listar());// en vez de hacer un pasamanos con una lista auxiliar, la lleva directo de la base de datos a la session
+                    Session.Add("ListaCatalogo", ProdNegocio.Listar());// en vez de hacer un pasamanos con una lista auxiliar, la lleva directo de la base de datos a la session
                 }
                 try
                 {   // productin se carga, gracias a la session, y al id de articulo que se pasa por la querystring.
                     //Si la session no tiene instanciada la lista, pincha. Pero Gracias a carlos, no pincha más :)
                     productin = ((List<Productos>)Session.Contents["ListaCatalogo"]).Find(X => X.Id.ToString().Contains(idItem));
-                    txtColor.Text = productin.Color.ToString();
-                    txtDescripcion.Text =productin.Descripcion.ToString();
-                    txtIdTipo.Text =productin.IdTipo.ToString();
-                    txtImagen.Text =productin.Imagen.ToString();
-                    txtNombre.Text =productin.Nombre.ToString();
-                    txtPrecio.Text =productin.Precio.ToString();
-                    txtTalle.Text  =productin.Talle.ToString();
+
+                    if (!IsPostBack)
+                    {
+                       
+                        txtColor.Text = productin.Color.ToString();
+                        txtDescripcion.Text = productin.Descripcion.ToString();
+                        //txtIdTipo.Text = productin.TipoRemera.Id.ToString();
+
+                        txtImagen.Text = productin.Imagen.ToString();
+                        txtNombre.Text = productin.Nombre.ToString();
+                        txtPrecio.Text = productin.Precio.ToString();
+                        txtTalle.Text = productin.Talle.ToString();
+                    }
                 }
                 catch (Exception) { }
-                
+
             }
         }
 
@@ -64,8 +79,10 @@ namespace TPC_Ferrari_Iglesias
         {
             if (productin == null)
                 productin = new Productos();
-
-            productin.IdTipo = Convert.ToByte(txtIdTipo.Text.ToString());
+            //NO SE COMO ACCEDER A ESTE DATO Y ESTO ES LO QUE NOS PINCHA EL PROGRAMA
+            //DEBE SER ALGO SUPER ESPECIFICO PERO YA ME QUEMÉ
+//PD        te paso el programa sin que compile pero comentando la linea de acá abajo funca. pero bueno si, no va a guardar bien la remera :/
+            productin.TipoRemera = DdlTipo.SelectedValue;
             productin.Nombre = txtNombre.Text;
             productin.Descripcion = txtDescripcion.Text;
             productin.Color = txtColor.Text;
@@ -81,6 +98,6 @@ namespace TPC_Ferrari_Iglesias
 
         }
 
-       
+
     }
 }

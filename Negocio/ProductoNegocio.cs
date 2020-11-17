@@ -29,7 +29,7 @@ namespace Negocio
                     Productos Aux = new Productos();
 
                     Aux.Id = Acceso.lector.GetInt64(0);
-                    Aux.IdTipo = Acceso.lector.GetByte(1);
+                    Aux.TipoRemera.Id = Acceso.lector.GetByte(1);
                     Aux.Precio = Acceso.lector.GetSqlMoney(2);
                     Aux.Nombre = Acceso.lector.GetString(3);
                     Aux.Talle = (string)Acceso.lector["Talle"];
@@ -61,7 +61,7 @@ namespace Negocio
 
             Acceso.setearQuery("insert into Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio)");
 
-            Acceso.agregarParametro("@idTipo", productin.IdTipo);
+            Acceso.agregarParametro("@idTipo", productin.TipoRemera.Id);
             Acceso.agregarParametro("@Nombre", productin.Nombre);
             Acceso.agregarParametro("@Descripcion", productin.Descripcion);
             Acceso.agregarParametro("@Color", productin.Color);
@@ -81,7 +81,7 @@ namespace Negocio
 
             Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio  where id=@Id");
             Acceso.agregarParametro("@Id", productin.Id);
-            Acceso.agregarParametro("@IdTipo", productin.IdTipo);
+            Acceso.agregarParametro("@IdTipo", productin.TipoRemera.Id);
             Acceso.agregarParametro("@Nombre", productin.Nombre);
             Acceso.agregarParametro("@Descripcion", productin.Descripcion);
             Acceso.agregarParametro("@Color", productin.Color);

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace TPC_Ferrari_Iglesias
 {
     public partial class ABM : System.Web.UI.Page
@@ -14,11 +15,11 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> listaABM { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio negocio = new ProductoNegocio();
-            listaABM = negocio.Listar();
 
-            
-            
+                ProductoNegocio Carlos = new ProductoNegocio();
+                listaABM = Carlos.Listar();
+                Session.Add("ListaCatalogo", listaABM);
+           
             //DgvProductos.DataSource = negocio.Listar();
             //DgvProductos.DataBind();
         }

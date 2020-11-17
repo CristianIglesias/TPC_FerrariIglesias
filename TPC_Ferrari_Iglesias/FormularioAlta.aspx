@@ -21,18 +21,17 @@
                 <asp:Label Text="Nombre" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
             </div>
-        <%--    <div>   
-        <asp:Label Text="idTipo" runat="server" CssClass="label" />
-        <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
-            
-        </asp:DropDownList>
-    </div>--%>
-            
             <div>
+                <asp:Label Text="idTipo" runat="server" CssClass="label" />
+                <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
+                </asp:DropDownList>
+            </div>
+
+         <%--               <div>
                 <asp:Label Text="idTipo" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtIdTipo" CssClass="caja" />
             </div>
-            <asp:Label Text="Descripcion" runat="server" CssClass="label" />
+         --%>   <asp:Label Text="Descripcion" runat="server" CssClass="label" />
             <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
             <div>
                 <asp:Label Text="Talle" runat="server" CssClass="label" />
@@ -55,7 +54,7 @@
             <a href="AbmProductos.aspx" class="btn btn-primary">Cancelar    </a>
 
         </div>
-       <%-- <div>
+        <%-- <div>
             <p><a href="#popup">Abrir Popup</a></p>
         </div>
         <div id="popup" class="overlay">
@@ -67,7 +66,6 @@
                 </div>
             </div>
         </div>--%>
-
     </form>
 </body>
 </html>
