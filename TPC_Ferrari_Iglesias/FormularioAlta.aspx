@@ -16,7 +16,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="jumbotron">
             <div>
                 <asp:Label Text="Nombre" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
