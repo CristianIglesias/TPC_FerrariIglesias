@@ -15,17 +15,12 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> listaABM { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
                 ProductoNegocio Carlos = new ProductoNegocio();
                 listaABM = Carlos.Listar();
-                Session.Add("ListaCatalogo", listaABM);
-           
+                Session.Add("ListaCatalogo", listaABM);           
             //DgvProductos.DataSource = negocio.Listar();
             //DgvProductos.DataBind();
         }
-
         // TODO: resolver tema gridview  y sus cosas  
-        
-
     }
 }

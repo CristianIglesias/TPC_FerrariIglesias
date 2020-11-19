@@ -14,12 +14,9 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> Listita;
         public Productos Producto;
         int IdAux;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
-
-
             try
             {
                 Listita = negocio.Listar(); // lista lo que hay
@@ -28,10 +25,8 @@ namespace TPC_Ferrari_Iglesias
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
     }
 }

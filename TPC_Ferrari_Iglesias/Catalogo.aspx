@@ -27,7 +27,7 @@
     </div>--%>
     <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" placeholder="acá tenés que escribir bo'" />
 
-    <asp:Button runat="server" ID="btnBuscar" OnClick="btnBuscar_Click"/>
+    <asp:Button runat="server" CssClass="rounded; btn-primary" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
 
    <%-- <div class="form-group">
         <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">

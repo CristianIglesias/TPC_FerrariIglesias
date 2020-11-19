@@ -28,4 +28,19 @@ use Remeras_Elle_fg
 
  Update Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio) where id = @id
 
- 
+
+ --TRAER LOS REGISTROS --Deberíamos armar una vista para esto... o incluso un procedimiento almacenado--
+Select p.id, Tipos.id, Tipos.Nombre as NombreTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion from Producto as P
+join TipoProducto as Tipos on P.IdTipo = tipos.Id
+
+
+
+--Meter registros nuevos -- Debería ser un procedimiento almacenado que use parametros -- 
+ insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg' )
+
+
+
+ --Actualizar registros -- también debería ser un procedimiento almacenado -- 
+  Update Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio) where id = @id
+
+  create procedure  BajaLogica (

@@ -19,7 +19,7 @@ namespace Negocio
             List<Productos> Lista = new List<Productos>();
 
             //A modificar cuando tengamos mas cancha, tipo, eso
-            Acceso.setearQuery("select id, idtipo, precio, nombre, talle, descripcion, Color, urlImagen from Producto");
+            Acceso.setearQuery("Select p.id, Tipos.id, Tipos.Nombre , p.Precio, p.Nombre, p.Talle, p.Descripcion, P.Color, P.UrlImagen from Producto as P join TipoProducto as Tipos on P.IdTipo = tipos.Id ");
             try
             {
                 Acceso.ejecutarLector();
@@ -30,12 +30,13 @@ namespace Negocio
 
                     Aux.Id = Acceso.lector.GetInt64(0);
                     Aux.TipoRemera.Id = Acceso.lector.GetByte(1);
-                    Aux.Precio = Acceso.lector.GetSqlMoney(2);
-                    Aux.Nombre = Acceso.lector.GetString(3);
+                    Aux.TipoRemera.Descripcion = Acceso.lector.GetString(2);
+                    Aux.Precio = Acceso.lector.GetSqlMoney(3);
+                    Aux.Nombre = Acceso.lector.GetString(4);
                     Aux.Talle = (string)Acceso.lector["Talle"];
                     Aux.Descripcion = (string)Acceso.lector["Descripcion"];
                     Aux.Color = (string)Acceso.lector["Color"];
-                    Aux.Imagen = Acceso.lector.GetString(7);
+                    Aux.Imagen = Acceso.lector.GetString(8);
 
                     Lista.Add(Aux);
                 }
@@ -46,8 +47,9 @@ namespace Negocio
             }
             catch (Exception)
             {
-
+                //throw ex;
                 return Lista;
+                //obviamente hay que hacer una redireccion a una pagina de error  :)
             }
 
 
@@ -70,15 +72,13 @@ namespace Negocio
             Acceso.agregarParametro("@Precio", productin.Precio);
 
             Acceso.ejecutarAccion();
-
+            Acceso.cerrarConexion();
         }
 
         public void Modificar(Productos productin)
         {
             //update
             AccesoDatos Acceso = new AccesoDatos();
-
-
             Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio  where id=@Id");
             Acceso.agregarParametro("@Id", productin.Id);
             Acceso.agregarParametro("@IdTipo", productin.TipoRemera.Id);
@@ -89,7 +89,7 @@ namespace Negocio
             Acceso.agregarParametro("@Talle", productin.Talle);
             Acceso.agregarParametro("@Precio", productin.Precio);
             Acceso.ejecutarAccion();
-
+            Acceso.cerrarConexion();
         }
 
         public void Eliminar(Productos productin)
@@ -97,7 +97,8 @@ namespace Negocio
             AccesoDatos Acceso = new AccesoDatos();
             Acceso.setearQuery("delete from Producto where Id = @id");
             Acceso.agregarParametro("@id", productin.Id);
-            Acceso.ejecutarAccion();
+            Acceso.ejecutarAccion(); 
+            Acceso.cerrarConexion();
 
         }
     }
