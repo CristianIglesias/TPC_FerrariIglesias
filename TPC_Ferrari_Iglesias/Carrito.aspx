@@ -7,7 +7,6 @@
     </asp:Content>--%>
 
 
-    <a href="Catalogo.aspx" class="btn btn-primary">Volver</a>
     <div class="container">
 
 
@@ -50,11 +49,12 @@
                         <td></td>
 
 
-                        <td>Cantidad unidades
+                        <td>Cantidad unidades:
                             <%-- Sumar unidades --%>
 
                         </td>
-                        <td>Importe total
+                        <td>SubTotal
+                            <%--Calcular Unidades * precio Unitario --%>
                         </td>
                         <td>
                             <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Detalle</a>
@@ -70,6 +70,8 @@
                         }//Esta llave cierra el else
                     %>
                 </table>
+                <a href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
+
             </div>
         </div>
     </div>

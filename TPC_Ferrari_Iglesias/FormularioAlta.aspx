@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormularioAlta.aspx.cs" Inherits="TPC_Ferrari_Iglesias.FormularioAlta" %>
+﻿<%@ Page  Title="FormularioAlta" Language="C#" AutoEventWireup="true" CodeBehind="FormularioAlta.aspx.cs" Inherits="TPC_Ferrari_Iglesias.FormularioAlta" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +12,7 @@
     <%--ESTO (de arribe) ES PARA CONECTARLO CON LA CARPETA DE CSS Q CREE LLAMADA FORMALTA--%>
 
     <link href="popup.css" rel="stylesheet" type="text/css" />
+
     <%--esto es para probar si podemos hacer una ventanita de pop up de mensaje de exito--%>
 </head>
 <body>
@@ -21,9 +22,11 @@
                 <asp:Label Text="Nombre" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
             </div>
+
+            
             <div>
                 <asp:Label Text="idTipo" runat="server" CssClass="label" />
-                <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
+                <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control" AutoPostBack="false">
                 </asp:DropDownList>
             </div>
 

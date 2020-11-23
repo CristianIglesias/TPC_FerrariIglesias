@@ -15,9 +15,10 @@ namespace TPC_Ferrari_Iglesias
         public Productos Producto;
         long IdAux;
         //int IdAux;
-        int extra ;
+        public int extra ;
         public List<Productos> ListaAux;
-
+        public int CantUnidades;
+        public Decimal Subtotal;
 
         protected void Page_Load(object sender, EventArgs e)
         {

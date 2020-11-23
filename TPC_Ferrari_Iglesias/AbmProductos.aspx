@@ -18,6 +18,7 @@
                         <td><strong>Color: </strong></td>
                         <td><strong>Talle:</strong>   </td>
                         <td><strong>Descripción:</strong>  </td>
+                        <td><strong>TipoRemera</strong></td>
                         <td><strong>Imagen:</strong>  </td>
                         <td><strong>Acciones: </strong></td>
                     </tr>
@@ -34,6 +35,7 @@
                         <td><%=item.Color%> </td>
                         <td><%=item.Talle %></td>
                         <td><%=item.Descripcion%> </td>
+                       <td><%=item.TipoRemera.Descripcion %></td>
                         <td>
                             <img src="<%=item.Imagen%>" class="card-img-top" alt="..." style="width: 50px">
                         </td>
