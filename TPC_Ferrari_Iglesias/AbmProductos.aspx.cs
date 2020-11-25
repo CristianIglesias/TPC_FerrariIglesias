@@ -18,9 +18,8 @@ namespace TPC_Ferrari_Iglesias
                 ProductoNegocio Carlos = new ProductoNegocio();
                 listaABM = Carlos.Listar();
                 Session.Add("ListaCatalogo", listaABM);           
-            //DgvProductos.DataSource = negocio.Listar();
-            //DgvProductos.DataBind();
+           
         }
-        // TODO: resolver tema gridview  y sus cosas  
+        
     }
 }

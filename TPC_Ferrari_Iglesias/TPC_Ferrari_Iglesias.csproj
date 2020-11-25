@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AbmProductos.aspx" />
+    <Content Include="AbmUsuarios.aspx" />
     <Content Include="Administrador.css" />
     <Content Include="Carrito.aspx" />
     <Content Include="Catalogo.aspx" />
@@ -120,12 +121,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\Carrito.css" />
     <Content Include="css\FormAlta.css" />
+    <Content Include="css\FormAltaUsuarios.css" />
     <Content Include="css\popup.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FormularioAlta.aspx" />
+    <Content Include="FormularioAltaUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -272,6 +275,13 @@
     <Compile Include="AbmProductos.aspx.designer.cs">
       <DependentUpon>AbmProductos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AbmUsuarios.aspx.cs">
+      <DependentUpon>AbmUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AbmUsuarios.aspx.designer.cs">
+      <DependentUpon>AbmUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Carrito.aspx.cs">
@@ -315,6 +325,13 @@
     </Compile>
     <Compile Include="FormularioAlta.aspx.designer.cs">
       <DependentUpon>FormularioAlta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioAltaUsuario.aspx.cs">
+      <DependentUpon>FormularioAltaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioAltaUsuario.aspx.designer.cs">
+      <DependentUpon>FormularioAltaUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

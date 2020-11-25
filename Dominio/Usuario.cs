@@ -10,12 +10,14 @@ namespace Dominio
     {
         public int Id { get; set; }
         public string NombreUsuario { get; set; }
-        public string Contraseña { get; set; }
+        public string Contrasenia { get; set; }
+        public byte TipoUsuario { get; set; }
 
-        public int Estado { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string Email { get; set; }
+        //public int Estado { get; set; } HA Y QUE AGREGARLO A LA BASE DE DATOS
+        //public string Email { get; set; } HAY QUE AGREGARLO EN LA BASE DE DATOS
+        
         public int DNI { get; set; }
 
     }

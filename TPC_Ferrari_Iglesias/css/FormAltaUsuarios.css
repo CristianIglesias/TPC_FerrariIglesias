@@ -1,0 +1,21 @@
+﻿body {
+}
+
+
+
+.label {
+    font-size: 30px;
+    color:lavender;
+  
+    
+}
+
+.caja {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.contenedor{
+
+}
