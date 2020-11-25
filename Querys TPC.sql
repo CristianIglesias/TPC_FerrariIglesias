@@ -61,6 +61,11 @@ select * from TipoUsuario
  
   insert into DatosPersonales (IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) 
   values (1, 'Chivi', 'Ferrari', 29753593, '20/05/1983', 'F', 1531790514,1676, 'L','S')
+ 
+ 
+ 
+ 
+ 
  --Meter registros nuevos -- Debería ser un procedimiento almacenado que use parametros -- 
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg' )
 
