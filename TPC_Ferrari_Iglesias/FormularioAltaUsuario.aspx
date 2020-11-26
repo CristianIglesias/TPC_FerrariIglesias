@@ -6,12 +6,14 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>FORMULARIO DE ALTA PARA USUARIOS</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/FormAltaUsuarios.css" />
 
 </head>
-<body style="background-image: url(' https://image.freepik.com/foto-gratis/3d-render-mesa-madera-rustica-fondo-luces-bokeh_1048-6341.jpg'); background-size: cover;">
+<body >
+    <div class="recuadro">
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="container" style="align-content: center">
 
             <div>
                 <asp:Label Text="Nombre" runat="server" CssClass="label" />
@@ -30,9 +32,9 @@
                 <asp:TextBox runat="server" ID="txtNombreUsuario" CssClass="caja" />
             </div>
 
-            <div>
+            <div class="form-group">
                 <asp:Label Text="TipoUsuario" runat="server" CssClass="label" />
-                <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control" AutoPostBack="false">
+                <asp:DropDownList runat="server" ID="DdlTipo"  CssClass="caja" AutoPostBack="false">
                 </asp:DropDownList>
             </div>
 
@@ -45,13 +47,14 @@
             </div>--%>
             </div>
 
-            <div>
-                <asp:Button Text="Guardar" ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
-                <a href="AbmUsuarios.aspx" class="btn btn-primary">Cancelar    </a>
+            <div style="margin-top: 30px; margin-bottom: 20px">
+                <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button"  OnClick="btnGuardar_Click" runat="server" />
+                <a href="AbmUsuarios.aspx" class="btn btn-primary">Cancelar</a>
 
 
             </div>
         </div>
     </form>
+        </div>
 </body>
 </html>

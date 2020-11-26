@@ -1,21 +1,75 @@
 ﻿body {
+    background-image: url(' https://image.freepik.com/foto-gratis/3d-render-mesa-madera-rustica-fondo-luces-bokeh_1048-6341.jpg');
+    background-size: cover;
 }
-
-
 
 .label {
     font-size: 30px;
-    color:lavender;
-  
-    
+    color: lavender;
 }
 
 .caja {
-    width: 300px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
 }
 
-.contenedor{
-
+.recuadro {
+    background-color: rgb(128, 128, 128, 0.8); /* el 0.8 es el grado de transparencia
+    background-color:dimgrey; ESTO ES OTRA FORMA DE VOLVERLO TRANSPARENTE
+    opacity:0.6;*/
+    width: 35%;
+    height: 70%;
+    margin: 100px;
+    border-radius: 5px;
+    padding-bottom: 30px;
 }
+
+/*.button {
+    background-color: #007aff;*/ /* Green */
+/*border: none;
+    color: white;
+    padding: 8px 8px;*/ /* //es el espacio que hay entre la palabra y el margen del boton*/
+/*text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:5px;
+    -webkit-transition-duration: 0.4s;*/ /* Safari */
+/*transition-duration: 0.4s;
+}*/
+
+/*.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}*/
+
+.button {
+    background-color: #007aff; /* Green */
+    /* border: 1px solid red;*/
+    color: white;
+    /* padding: 2px 2px 10px 10px;*/
+    width: 90px;
+    height: 39px;
+    text-align: center;
+    /* text-decoration: none;*/
+    font-size: 16px;
+    cursor: pointer;
+    /*  width: 150px;*/
+    /* display: block;*/
+    border-radius: 5px;
+    border: none;
+}
+
+    /*.button:not(:last-child) {
+        border-bottom: none;*/ /* Prevent double borders */
+    /*}*/
+
+    .button:hover {
+        background-color: #006bd7;
+    }

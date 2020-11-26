@@ -25,10 +25,11 @@
             <span class="sr-only">Next</span>
         </a>
     </div>--%>
-    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" placeholder="acá tenés que escribir bo'" />
+    <div>
+    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" placeholder="Buscá la remera que querés" />
 
-    <asp:Button runat="server" CssClass="rounded; btn-primary" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
-
+    <asp:Button runat="server"  CssClass="btn-primary" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
+    </div>
    <%-- <div class="form-group">
         <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
             
@@ -37,12 +38,12 @@
         </asp:DropDownList>
     </div>--%>
 
-    <div>   
+   <%-- <div>   
         <asp:Label Text="alguito" runat="server" />
         <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
             
         </asp:DropDownList>
-    </div>
+    </div>--%>
 
     <div class="container">
         <div class="row">
@@ -53,10 +54,10 @@
                 {%>
 
 
-            <div class="col-md-4">
+            <div class="col-lg-4 d-flex align-items-stretch">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <img src="<%=item.Imagen%>" class="card-img-top" width="280" alt="...">
+                        <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title">Producto: <%=item.Nombre %></h5>
                         <h5 class="card-title">Precio: $<%=item.Precio %></h5>
                         <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>

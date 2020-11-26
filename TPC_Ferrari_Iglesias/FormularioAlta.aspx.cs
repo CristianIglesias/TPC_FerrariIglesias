@@ -91,6 +91,7 @@ namespace TPC_Ferrari_Iglesias
             if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtColor.Text == "" || txtImagen.Text == "" || txtTalle.Text == "" || txtPrecio.Text == "")
             {
                 // Cambiar color a las cajas de texto y tirar alguna alerta 
+
             }
             else
             {

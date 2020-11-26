@@ -1,4 +1,4 @@
-﻿<%@ Page  Title="FormularioAlta" Language="C#" AutoEventWireup="true" CodeBehind="FormularioAlta.aspx.cs" Inherits="TPC_Ferrari_Iglesias.FormularioAlta" %>
+﻿<%@ Page Title="FormularioAlta" Language="C#" AutoEventWireup="true" CodeBehind="FormularioAlta.aspx.cs" Inherits="TPC_Ferrari_Iglesias.FormularioAlta" %>
 
 <!DOCTYPE html>
 
@@ -16,49 +16,53 @@
     <%--esto es para probar si podemos hacer una ventanita de pop up de mensaje de exito--%>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="jumbotron">
-            <div>
-                <asp:Label Text="Nombre" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
-            </div>
+    <div class="recuadro">
+        <form id="form1" runat="server">
+            <div class="container" style="align-content: center">
+                <div>
+                    <asp:Label Text="Nombre:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
+                </div>
 
-            
-            <div>
-                <asp:Label Text="idTipo" runat="server" CssClass="label" />
-                <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control" AutoPostBack="false">
-                </asp:DropDownList>
-            </div>
 
-         <%--               <div>
+                <div class="form-group">
+                    <asp:Label Text="Tipo:" runat="server" CssClass="label" />
+                    <asp:DropDownList runat="server" CssClass="caja" ID="DdlTipo" AutoPostBack="false">
+                    </asp:DropDownList>
+                </div>
+
+                <%--               <div>
                 <asp:Label Text="idTipo" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtIdTipo" CssClass="caja" />
             </div>
-         --%>   
-            <asp:Label Text="Descripcion" runat="server" CssClass="label" />
-            <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
-            <div>
-                <asp:Label Text="Talle" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtTalle" CssClass="caja" />
-            </div>
-            <asp:Label Text="Color" runat="server" CssClass="label" />
-            <asp:TextBox runat="server" ID="txtColor" CssClass="caja" />
-            <div>
-                <asp:Label Text="Imagen" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtImagen" CssClass="caja" />
-            </div>
-            <div>
-                <asp:Label Text="Precio" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtPrecio" CssClass="caja" />
-            </div>
-        </div>
+                --%>
+                <div>
+                    <asp:Label Text="Descripción:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
+                </div>
+                <div>
+                    <asp:Label Text="Talle:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtTalle" CssClass="caja"  />
+                </div>
+                <asp:Label Text="Color:" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtColor" CssClass="caja" />
+                <div>
+                    <asp:Label Text="Imagen:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtImagen" CssClass="caja" />
+                </div>
+                <div>
+                    <asp:Label Text="Precio:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtPrecio" CssClass="caja" />
+                </div>
+                <div style="margin-top: 30px; margin-bottom: 20px">
+                    <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button" OnClick="btnGuardar_Click" runat="server" />
+                    <a href="AbmProductos.aspx" class="btn btn-primary">Cancelar    </a>
 
-        <div>
-            <asp:Button Text="Guardar" ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
-            <a href="AbmProductos.aspx" class="btn btn-primary">Cancelar    </a>
+                </div>
+            </div>
 
-        </div>
-        <%-- <div>
+
+            <%-- <div>
             <p><a href="#popup">Abrir Popup</a></p>
         </div>
         <div id="popup" class="overlay">
@@ -70,6 +74,7 @@
                 </div>
             </div>
         </div>--%>
-    </form>
+        </form>
+    </div>
 </body>
 </html>

@@ -87,6 +87,6 @@ namespace Negocio
         public void Modificar()
         {
         
-        };
+        }
     }
 }

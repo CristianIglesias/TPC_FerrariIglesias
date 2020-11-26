@@ -82,7 +82,7 @@ namespace TPC_Ferrari_Iglesias
                 if (pepito.Id == 0) { }
                 //negocio.Agregar(pepito);
                 else { }
-                    //negocio.Modificar(pepito);
+            }        //negocio.Modificar(pepito);
         }
     }
 }
