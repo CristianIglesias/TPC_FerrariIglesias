@@ -49,7 +49,11 @@ select * from TipoUsuario
   insert into TipoUsuario (Nombre) values ('Cliente')
 
 
- insert into Usuarios ( NombreUsuario, Contraseña, IdTipoUsuario) values('SoyAdmin','SoyAdmin',1 )
+ insert into Usuarios ( 
+ NombreUsuario, Contraseña, IdTipoUsuario
+ ) values('SoyAdmin','SoyAdmin',1 )
+
+
  select Id, NombreUsuario, Contraseña, IdTipoUsuario from Usuarios
 
  select IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad from DatosPersonales
@@ -59,7 +63,7 @@ select * from TipoUsuario
 
  set dateformat dmy
  
-  insert into DatosPersonales (IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) 
+  insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad  ) 
   values (1, 'Chivi', 'Ferrari', 29753593, '20/05/1983', 'F', 1531790514,1676, 'L','S')
  
  

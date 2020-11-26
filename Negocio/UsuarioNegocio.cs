@@ -47,5 +47,46 @@ namespace Negocio
 
 
         }
+
+        public void AgregarUsuario(Usuario pepito)
+        {
+            AccesoDatos Acceso = new AccesoDatos();
+
+            //insert.
+
+            Acceso.setearQuery("insert into Usuario (NombreUsuario, Contraseña, IdTipoUsuario) values (@NombreUsuario,@Contraseña,@IdTipoUsuario");
+            
+            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+            Acceso.agregarParametro("@Contraseña",    pepito.Contrasenia);
+            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+
+            Acceso.ejecutarAccion();
+
+
+            Acceso.cerrarConexion();
+        }
+
+        public void AgregarDatosPersonales()
+            //como son cosas de dos tablas diferentes, 
+            //Deberíamos agregar, primero el usuario y después los datos personales 
+        {
+            AccesoDatos Acceso = new AccesoDatos();
+
+            Acceso.setearQuery("insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido,@DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)");
+
+            //Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+            //Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
+            //Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+
+            Acceso.ejecutarAccion();
+
+
+            Acceso.cerrarConexion();
+        }
+
+        public void Modificar()
+        {
+        
+        };
     }
 }

@@ -82,7 +82,7 @@ namespace TPC_Ferrari_Iglesias
         {
             if (productin == null)
                 productin = new Productos();
-            else
+            else//si el productin vino cargado, se hace este parche feo para que el ddl se cargue bien.
             {
                 listaParaDropdown = TipoNegocio.Listar();
                 productin.TipoRemera.Id = listaParaDropdown.Find(x => x.Descripcion.Contains(productin.TipoRemera.Descripcion)).Id;
@@ -94,7 +94,6 @@ namespace TPC_Ferrari_Iglesias
             }
             else
             {
-                //Validar que todos los campos estén cargados.
                 if (IsPostBack)
                 {
                     //productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);

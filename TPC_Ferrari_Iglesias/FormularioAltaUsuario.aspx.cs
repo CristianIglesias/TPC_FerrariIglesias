@@ -37,6 +37,7 @@ namespace TPC_Ferrari_Iglesias
 
             }
             if (IdUser!=null) //Si viene a editar un usuario...
+                //Siento que estamos haciendo rara la edición de los usuarios... Como que no lo veo siendo tan simple en una página web real...
             {
                 if(Session.Contents["ListaUsuarios"]==null)
                 {
@@ -48,30 +49,40 @@ namespace TPC_Ferrari_Iglesias
                 txtDNI.Text = pepito.DNI.ToString();
                 txtNombreUsuario.Text = pepito.NombreUsuario;
                 txtContraseña.Text = pepito.Contrasenia;
-                
+                //Desarrollarle la ddl al tipoUsuario.
 
 
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }//Si viene a editar un usuario...
 
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            if (pepito == null)
+                pepito = new Usuario();
+            else
+            {
+                //pedacito de código para cargar el dropdown de la manera fea :)
+            }
+            if (txtNombre.Text == "" || txtApellido.Text == "" || txtDNI.Text == "" || txtNombreUsuario.Text == "" || txtContraseña.Text == "")//Validaciones de los campos 
+            {
+                //Cambiar de color los controles y tirar algun tipo de alerta :)
+            }
+            else
+            {
+                if (IsPostBack)
+                {
+                    pepito.Nombre = txtNombre.Text;
+                    pepito.Apellido = txtApellido.Text;
+                    //pepito.DNI=txtDNI.Text;
+                    pepito.NombreUsuario = txtNombreUsuario.Text;
+                    pepito.Contrasenia = txtContraseña.Text;
+                }
+                UsuarioNegocio negocio = new UsuarioNegocio();
+                if (pepito.Id == 0) { }
+                //negocio.Agregar(pepito);
+                else { }
+                    //negocio.Modificar(pepito);
         }
     }
 }
