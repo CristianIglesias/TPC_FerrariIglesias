@@ -101,6 +101,10 @@ namespace Negocio
             Acceso.cerrarConexion();
 
         }
+        public void BajaLogica(Productos productin)
+        { 
+        
+        }
     }
 }
 
