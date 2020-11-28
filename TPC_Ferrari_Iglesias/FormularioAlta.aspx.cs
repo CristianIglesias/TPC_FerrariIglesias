@@ -43,7 +43,6 @@ namespace TPC_Ferrari_Iglesias
                     DdlTipo.DataValueField = "Id";
                     DdlTipo.DataTextField = "Descripcion";
                     DdlTipo.DataBind();
-
                 }
 
 
@@ -66,7 +65,7 @@ namespace TPC_Ferrari_Iglesias
                 txtNombre.Text = productin.Nombre.ToString();
                 txtColor.Text = productin.Color.ToString();
                 txtDescripcion.Text = productin.Descripcion.ToString();
-                DdlTipo.SelectedValue = productin.TipoRemera.Descripcion;
+                DdlTipo.SelectedValue = productin.TipoRemera.Id.ToString();
                 //txtIdTipo.Text = productin.TipoRemera.Id.ToString();
 
                 txtImagen.Text = productin.Imagen.ToString();
@@ -81,12 +80,7 @@ namespace TPC_Ferrari_Iglesias
         {
             if (productin == null)
                 productin = new Productos();
-            else//si el productin vino cargado, se hace este parche feo para que el ddl se cargue bien.
-            {
-             //   listaParaDropdown = TipoNegocio.Listar();
-              //  productin.TipoRemera.Id = listaParaDropdown.Find(x => x.Descripcion.Contains(productin.TipoRemera.Descripcion)).Id;
-
-            }
+           
             if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtColor.Text == "" || txtImagen.Text == "" || txtTalle.Text == "" || txtPrecio.Text == "")
             {
                 // Cambiar color a las cajas de texto y tirar alguna alerta 
@@ -96,7 +90,7 @@ namespace TPC_Ferrari_Iglesias
             {
                 if (IsPostBack)
                 {
-                    //productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);
+                    productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);
                     productin.Nombre = txtNombre.Text;
                     productin.Descripcion = txtDescripcion.Text;
                     productin.Color = txtColor.Text;
