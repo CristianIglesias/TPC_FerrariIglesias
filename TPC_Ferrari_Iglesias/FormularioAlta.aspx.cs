@@ -35,6 +35,9 @@ namespace TPC_Ferrari_Iglesias
                     productin.Talle = txtTalle.Text;
                     productin.Precio = Convert.ToDecimal(txtPrecio.Text);
                     productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);
+                    //productin.Estado = Convert.ToBoolean(txtEstado.Text);
+                    productin.StockActual = Convert.ToInt32(txtStockActual.Text);
+                    productin.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
                 }
                 else///Primera Vuelta
@@ -71,6 +74,10 @@ namespace TPC_Ferrari_Iglesias
                 txtImagen.Text = productin.Imagen.ToString();
                 txtPrecio.Text = productin.Precio.ToString();
                 txtTalle.Text = productin.Talle.ToString();
+                txtEstado.Text = productin.Estado.ToString();
+                txtStockActual.Text= productin.StockActual.ToString();
+                txtStockMinimo.Text = productin.StockMinimo.ToString();
+
 
             }//si viene por el lado de Editar...
 
@@ -97,6 +104,9 @@ namespace TPC_Ferrari_Iglesias
                     productin.Imagen = txtImagen.Text;
                     productin.Talle = txtTalle.Text;
                     productin.Precio = Convert.ToDecimal(txtPrecio.Text);
+                    productin.Estado = Convert.ToBoolean(txtEstado.Text);
+                    productin.StockActual = Convert.ToInt32(txtStockActual.Text);
+                    productin.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
                 }
                 ProductoNegocio negocio = new ProductoNegocio();
 

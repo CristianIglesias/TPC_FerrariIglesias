@@ -14,7 +14,7 @@ namespace Negocio
         {
             AccesoDatos datos = new AccesoDatos();
             List<Usuario> Lista = new List<Usuario>();
-            datos.setearQuery("select u.Id, u.Contraseña,  u.IdTipoUsuario, u.NombreUsuario, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario");
+            datos.setearQuery("select u.Id, u.Contraseña,  u.IdTipoUsuario, u.NombreUsuario, u.Estado, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario");
 
             try
             {
@@ -30,7 +30,9 @@ namespace Negocio
                     aux.NombreUsuario = (string)datos.lector["NombreUsuario"];
                     aux.Nombre = (string)datos.lector["Nombre"];
                     aux.Apellido = (string)datos.lector["Apellido"];
-                    aux.DNI = (int)datos.lector.GetInt32(6);
+                    aux.DNI = (int)datos.lector.GetInt32(7);
+                    aux.Estado = datos.lector.GetSqlBoolean(4);
+
 
                     Lista.Add(aux);
 

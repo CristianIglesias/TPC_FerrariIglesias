@@ -54,6 +54,18 @@
                     <asp:Label Text="Precio:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtPrecio" CssClass="caja" />
                 </div>
+                 <div>
+                    <asp:Label Text="Estado:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtEstado" CssClass="caja" />
+                </div>
+                 <div>
+                    <asp:Label Text="Stock actual:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtStockActual" CssClass="caja" />
+                </div>
+                 <div>
+                    <asp:Label Text="Stock mínimo:" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtStockMinimo" CssClass="caja" />
+                </div>
                 <div style="margin-top: 30px; margin-bottom: 20px">
                     <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button" OnClick="btnGuardar_Click" runat="server" />
                     <a href="AbmProductos.aspx" class="btn btn-primary">Cancelar    </a>

@@ -19,7 +19,7 @@ namespace Negocio
             List<Productos> Lista = new List<Productos>();
 
             //A modificar cuando tengamos mas cancha, tipo, eso
-            Acceso.setearQuery("Select p.id, Tipos.id, Tipos.Nombre , p.Precio, p.Nombre, p.Talle, p.Descripcion, P.Color, P.UrlImagen from Producto as P join TipoProducto as Tipos on P.IdTipo = tipos.Id ");
+            Acceso.setearQuery(" Select p.Id, p.IdTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion, p.Color, p.UrlImagen, Estado, StockMinimo, StockActual, tp.Id, tp.Nombre as TipoNombre  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id ");
             try
             {
                 Acceso.ejecutarLector();
@@ -37,6 +37,9 @@ namespace Negocio
                     Aux.Descripcion = (string)Acceso.lector["Descripcion"];
                     Aux.Color = (string)Acceso.lector["Color"];
                     Aux.Imagen = Acceso.lector.GetString(8);
+                    Aux.Estado = Acceso.lector.GetSqlBoolean(9);
+                    Aux.StockActual = Acceso.lector.GetInt32(10);
+                    Aux.StockMinimo = Acceso.lector.GetInt32(11);
 
                     Lista.Add(Aux);
                 }
@@ -61,7 +64,7 @@ namespace Negocio
 
             //insert.
 
-            Acceso.setearQuery("insert into Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio)");
+            Acceso.setearQuery("insert into Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio,  Estado, StockMinimo, StockActual ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @Precio, @Estado, @StockMinimo, @StockActual)");
 
             Acceso.agregarParametro("@idTipo", productin.TipoRemera.Id);
             Acceso.agregarParametro("@Nombre", productin.Nombre);
@@ -82,7 +85,7 @@ namespace Negocio
         {
             //update
             AccesoDatos Acceso = new AccesoDatos();
-            Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio  where id=@Id");
+            Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio, Estado =@Estado, StockMinimo =@StockMinimo, StockActual =@StockActual  where id=@Id");
             Acceso.agregarParametro("@Id", productin.Id);
             Acceso.agregarParametro("@IdTipo", productin.TipoRemera.Id);
             Acceso.agregarParametro("@Nombre", productin.Nombre);

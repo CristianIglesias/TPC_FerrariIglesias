@@ -46,6 +46,10 @@
                 <asp:TextBox runat="server" ID="" CssClass="caja" />
             </div>--%>
             </div>
+            <div>
+                <asp:Label Text="Estado" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtEstado" CssClass="caja" />
+            </div>
 
             <div style="margin-top: 30px; margin-bottom: 20px">
                 <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button"  OnClick="btnGuardar_Click" runat="server" />
