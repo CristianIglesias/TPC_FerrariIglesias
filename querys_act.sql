@@ -11,8 +11,8 @@ use Remeras_Elle_CC
  delete from TipoUsuario 
  where id = 3
  
- insert into TipoPagos(Nombre ) values ('MercadoLibre' )
  
+ insert into TipoPagos(Nombre ) values ('MercadoLibre' )
  insert into Estados(NombreEstado ) values ('En proceso' )
  
  
@@ -67,11 +67,11 @@ select * from TipoUsuario
 
  set dateformat dmy
  
-  insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad  ) 
-  values (1, 'Chivi', 'Ferrari', 29753593, '20/05/1983', 'F', 1531790514,1676, 'L','S')
+
  
  
- 
+ insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email  ) 
+  values (1, 'Chivi', 'Ferrari', 29753593, '20/05/1983', 'F', 1531790514,1676, 'L','S', 'chivi@chivi.com')
  
  
  --Meter registros nuevos -- Debería ser un procedimiento almacenado que use parametros -- 
@@ -82,4 +82,5 @@ select * from TipoUsuario
  --Actualizar registros -- también debería ser un procedimiento almacenado -- 
   Update Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio) where id = @id
 
-  create procedure  BajaLogica (
+
+ UPDATE Producto SET Estado = 0 WHERE id = @id

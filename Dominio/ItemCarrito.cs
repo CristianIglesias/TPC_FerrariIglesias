@@ -14,7 +14,7 @@ namespace Dominio
         public string NombreActual { get; set; }
         public byte CantidadPedida { get; set; }
         public long idProducto { get; set; }
-
+        public string UrlImagen { get; set; }
     }
 
 }

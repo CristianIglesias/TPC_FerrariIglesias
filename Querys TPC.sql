@@ -1,4 +1,4 @@
-use Remeras_Elle_fg
+use  Remeras_Elle_CC
 
  insert into TipoUsuario (Nombre ) values ('Administrador' )
  insert into TipoUsuario (Nombre ) values ('Cliente' )

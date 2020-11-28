@@ -1,7 +1,7 @@
 --Create Database Remeras_Elle_CC
 
 --go
---use  Remeras_Elle_CC
+use  Remeras_Elle_CC
 --go
 
 create table TipoUsuario (
@@ -110,8 +110,6 @@ go
 alter table Detalle
 add constraint FK_Detalle_IdProducto foreign key (IdProducto) references Producto (Id)
 go
-
-
 
 create table Pagos (
 IdPedido bigint not null primary Key,

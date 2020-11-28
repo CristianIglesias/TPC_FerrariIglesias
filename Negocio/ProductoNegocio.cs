@@ -70,6 +70,9 @@ namespace Negocio
             Acceso.agregarParametro("@Imagen", productin.Imagen);
             Acceso.agregarParametro("@Talle", productin.Talle);
             Acceso.agregarParametro("@Precio", productin.Precio);
+            Acceso.agregarParametro("@Estado", productin.Estado);
+            Acceso.agregarParametro("@StockActual", productin.StockActual);
+            Acceso.agregarParametro("@StockMinimo", productin.StockMinimo);
 
             Acceso.ejecutarAccion();
             Acceso.cerrarConexion();
@@ -88,6 +91,10 @@ namespace Negocio
             Acceso.agregarParametro("@Imagen", productin.Imagen);
             Acceso.agregarParametro("@Talle", productin.Talle);
             Acceso.agregarParametro("@Precio", productin.Precio);
+            Acceso.agregarParametro("@Estado", 1);
+            Acceso.agregarParametro("@StockActual", productin.StockActual);
+            Acceso.agregarParametro("@StockMinimo", productin.StockMinimo);
+
             Acceso.ejecutarAccion();
             Acceso.cerrarConexion();
         }
@@ -102,8 +109,12 @@ namespace Negocio
 
         }
         public void BajaLogica(Productos productin)
-        { 
-        
+        {
+            AccesoDatos Acceso = new AccesoDatos();
+            Acceso.setearQuery("delete from Producto where Id = @id");
+            Acceso.agregarParametro("@id", productin.Id);
+            Acceso.ejecutarAccion();
+            Acceso.cerrarConexion();
         }
     }
 }

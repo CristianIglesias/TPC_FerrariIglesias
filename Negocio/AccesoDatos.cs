@@ -16,7 +16,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("data source = .\\SQLEXPRESS; initial catalog = Remeras_Elle_fg ; integrated security = sspi");
+            conexion = new SqlConnection("data source = .\\SQLEXPRESS; initial catalog = Remeras_Elle_CC ; integrated security = sspi");
             comando = new SqlCommand();
             comando.Connection = conexion;
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.SqlTypes;
 namespace Dominio
 {
     public class Usuario
@@ -12,11 +12,14 @@ namespace Dominio
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
         public byte TipoUsuario { get; set; }
+        public SqlBoolean Estado { get; set; }
 
+
+        //Clase DatosPersonales?
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        //public int Estado { get; set; } HA Y QUE AGREGARLO A LA BASE DE DATOS
-        //public string Email { get; set; } HAY QUE AGREGARLO EN LA BASE DE DATOS
+        
+        public string Email { get; set; } 
         
         public int DNI { get; set; }
 
