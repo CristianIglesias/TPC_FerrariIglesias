@@ -34,16 +34,15 @@ namespace TPC_Ferrari_Iglesias
                     productin.Imagen = txtImagen.Text;
                     productin.Talle = txtTalle.Text;
                     productin.Precio = Convert.ToDecimal(txtPrecio.Text);
-                    productin.TipoRemera.Descripcion = (DdlTipo.SelectedValue.ToString());
+                    productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);
 
                 }
                 else///Primera Vuelta
                 {
                     DdlTipo.DataSource = listaParaDropdown;
-                    DdlTipo.DataBind();
                     DdlTipo.DataValueField = "Id";
                     DdlTipo.DataTextField = "Descripcion";
-                    DdlTipo.SelectedIndex = -1;
+                    DdlTipo.DataBind();
 
                 }
 
@@ -84,8 +83,8 @@ namespace TPC_Ferrari_Iglesias
                 productin = new Productos();
             else//si el productin vino cargado, se hace este parche feo para que el ddl se cargue bien.
             {
-                listaParaDropdown = TipoNegocio.Listar();
-                productin.TipoRemera.Id = listaParaDropdown.Find(x => x.Descripcion.Contains(productin.TipoRemera.Descripcion)).Id;
+             //   listaParaDropdown = TipoNegocio.Listar();
+              //  productin.TipoRemera.Id = listaParaDropdown.Find(x => x.Descripcion.Contains(productin.TipoRemera.Descripcion)).Id;
 
             }
             if (txtNombre.Text == "" || txtDescripcion.Text == "" || txtColor.Text == "" || txtImagen.Text == "" || txtTalle.Text == "" || txtPrecio.Text == "")
@@ -93,7 +92,7 @@ namespace TPC_Ferrari_Iglesias
                 // Cambiar color a las cajas de texto y tirar alguna alerta 
 
             }
-            else
+             else
             {
                 if (IsPostBack)
                 {

@@ -25,7 +25,6 @@ namespace Negocio
 
                     Aux.Id = Acceso.lector.GetByte(0);
                     Aux.Descripcion = Acceso.lector.GetString(1);
-                  
                     Lista.Add(Aux);
                 }
                 return Lista;

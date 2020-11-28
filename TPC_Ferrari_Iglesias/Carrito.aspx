@@ -70,7 +70,8 @@
                         }//Esta llave cierra el else
                     %>
                 </table>
-                <a href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
+                <asp:Button Class="" Text="Comprar" runat="server" />
+                <a style= href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
 
             </div>
         </div>

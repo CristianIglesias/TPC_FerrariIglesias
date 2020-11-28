@@ -55,9 +55,9 @@ namespace Negocio
             //insert.
 
             Acceso.setearQuery("insert into Usuario (NombreUsuario, Contraseña, IdTipoUsuario) values (@NombreUsuario,@Contraseña,@IdTipoUsuario");
-            
+
             Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            Acceso.agregarParametro("@Contraseña",    pepito.Contrasenia);
+            Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
             Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
 
             Acceso.ejecutarAccion();
@@ -67,8 +67,8 @@ namespace Negocio
         }
 
         public void AgregarDatosPersonales()
-            //como son cosas de dos tablas diferentes, 
-            //Deberíamos agregar, primero el usuario y después los datos personales 
+        //como son cosas de dos tablas diferentes, 
+        //Deberíamos agregar, primero el usuario y después los datos personales 
         {
             AccesoDatos Acceso = new AccesoDatos();
 
@@ -86,6 +86,11 @@ namespace Negocio
 
         public void Modificar()
         {
+
+        }
+
+        public void BajaLogica()
+        { 
         
         }
     }
