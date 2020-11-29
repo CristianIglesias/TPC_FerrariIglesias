@@ -54,10 +54,10 @@
                     <asp:Label Text="Precio:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtPrecio" CssClass="caja" />
                 </div>
-                 <div>
+              <%--   <div>
                     <asp:Label Text="Estado:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtEstado" CssClass="caja" />
-                </div>
+                </div>--%>
                  <div>
                     <asp:Label Text="Stock actual:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtStockActual" CssClass="caja" />

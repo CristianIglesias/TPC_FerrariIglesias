@@ -24,7 +24,20 @@ use Remeras_Elle_CC
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('2','500','Remera 3', 'M', 'Remerita divertidita', 'Blanca','https://risataweb.com.ar/wp-content/uploads/2018/07/remera-gaa.jpg', 1,10, 100 )								
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg', 1,10, 100  )
 
- 
+ Select p.Id, --0
+ p.IdTipo,--1
+ p.Precio, --2
+ p.Nombre,--3
+ p.Talle,--4
+ p.Descripcion,--5
+ p.Color,--6
+ p.UrlImagen,--7
+ Estado, --8
+ StockMinimo,--9
+ StockActual, --10
+ tp.Id, --12
+ tp.Nombre as TipoNombre  --13
+ from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id 
 
   select * from TipoProducto
  select * from Producto
@@ -63,6 +76,8 @@ select * from TipoUsuario
  select IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad from DatosPersonales
 
  select * from Usuarios
+
+
  select * from DatosPersonales
 
  set dateformat dmy

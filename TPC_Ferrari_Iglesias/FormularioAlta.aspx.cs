@@ -45,6 +45,7 @@ namespace TPC_Ferrari_Iglesias
                     DdlTipo.DataSource = listaParaDropdown;
                     DdlTipo.DataValueField = "Id";
                     DdlTipo.DataTextField = "Descripcion";
+                    DdlTipo.SelectedIndex = -1;
                     DdlTipo.DataBind();
                 }
 
@@ -74,7 +75,7 @@ namespace TPC_Ferrari_Iglesias
                 txtImagen.Text = productin.Imagen.ToString();
                 txtPrecio.Text = productin.Precio.ToString();
                 txtTalle.Text = productin.Talle.ToString();
-                txtEstado.Text = productin.Estado.ToString();
+                //txtEstado.Text = productin.Estado.ToString();
                 txtStockActual.Text= productin.StockActual.ToString();
                 txtStockMinimo.Text = productin.StockMinimo.ToString();
 
