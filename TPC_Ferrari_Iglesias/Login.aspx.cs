@@ -18,23 +18,23 @@ namespace TPC_Ferrari_Iglesias
 
         
 
-        protected void btnIngresar_Click(object sender, EventArgs e)
-        {
-            Usuario user = new Usuario();
-            UsuarioNegocio negocio = new UsuarioNegocio();
-            user.NombreUsuario = txtUser.Text;
-            user.Contrasenia = txtPass.Text;
+        //protected void btnIngresar_Click(object sender, EventArgs e)
+        //{
+        //    Usuario user = new Usuario();
+        //    UsuarioNegocio negocio = new UsuarioNegocio();
+        //    user.NombreUsuario = txtUser.Text;
+        //    user.Contrasenia = txtPass.Text;
 
-            user = negocio.Login(user);
-            if (user.Id !=0)
-            {
-                Response.Redirect("Catalogo.aspx"); //aca deberia ir a la pagina de pago?
-            }
-            else
-            {
-                Response.Redirect("Login.aspx");
-            }
+        //    user = negocio.Login(user);
+        //    if (user.Id !=0)
+        //    {
+        //        Response.Redirect("Catalogo.aspx"); //aca deberia ir a la pagina de pago?
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("Login.aspx");
+        //    }
 
-        }
+        //}
     }
 }

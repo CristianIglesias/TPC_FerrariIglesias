@@ -105,7 +105,7 @@ namespace TPC_Ferrari_Iglesias
                     productin.Imagen = txtImagen.Text;
                     productin.Talle = txtTalle.Text;
                     productin.Precio = Convert.ToDecimal(txtPrecio.Text);
-                    productin.Estado = Convert.ToBoolean(txtEstado.Text);
+                    productin.Estado =true;
                     productin.StockActual = Convert.ToInt32(txtStockActual.Text);
                     productin.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
                 }
