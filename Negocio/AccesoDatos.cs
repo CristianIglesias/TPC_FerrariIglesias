@@ -13,7 +13,6 @@ namespace Negocio
         public SqlDataReader lector { get; set; }
         public SqlConnection conexion { get; set; }
         public SqlCommand comando { get; set; }
-
         public AccesoDatos()
         {
             conexion = new SqlConnection("data source = .\\SQLEXPRESS; initial catalog = Remeras_Elle_CC ; integrated security = sspi");
@@ -33,8 +32,7 @@ namespace Negocio
         public void ejecutarLector()
         {
         try {
-                conexion.Open();
-                
+                conexion.Open();   
             }
         catch (Exception ex)
             { throw ex; }
@@ -42,7 +40,6 @@ namespace Negocio
             {
                 //conexion.Close();
             }
-
         }
         public void cerrarConexion() 
         {
