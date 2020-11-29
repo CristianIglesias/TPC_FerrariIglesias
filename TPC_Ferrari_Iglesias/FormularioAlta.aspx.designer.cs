@@ -87,15 +87,6 @@ namespace TPC_Ferrari_Iglesias
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
         /// <summary>
-        /// Control txtEstado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
-
-        /// <summary>
         /// Control txtStockActual.
         /// </summary>
         /// <remarks>
