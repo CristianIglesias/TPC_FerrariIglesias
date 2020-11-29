@@ -95,5 +95,15 @@ namespace Negocio
         { 
         
         }
+
+        public Usuario Login (Usuario user)
+        {
+            //va a ir a la db y va a buscar al usuario por user y por pass
+            // si devuelve hay que traer el id
+            //maxi para comprobar q esto funcionaba puso aca abao esto:
+            //user.Id = 3;
+
+            return user;
+        }
     }
 }
