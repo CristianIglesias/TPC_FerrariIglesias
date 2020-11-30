@@ -28,27 +28,45 @@
                 <asp:TextBox runat="server" ID="txtDNI" CssClass="caja" />
             </div>
             <div>
-                <asp:Label Text="NombreUsuario" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtNombreUsuario" CssClass="caja" />
+                <asp:Label Text="Email" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtEmail" CssClass="caja" />
             </div>
 
-            <div class="form-group">
-                <asp:Label Text="TipoUsuario" runat="server" CssClass="label" />
-                <asp:DropDownList runat="server" ID="DdlTipo"  CssClass="caja" AutoPostBack="false">
-                </asp:DropDownList>
+            <div>
+                <asp:Label Text="NombreUsuario" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtNombreUsuario" CssClass="caja" />
             </div>
 
             <div>
                 <asp:Label Text="Contraseña" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtContraseña" CssClass="caja" />
-                <%-- <div>
-                <asp:Label Text="" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="" CssClass="caja" />
-            </div>--%>
             </div>
-            <div>
-                <asp:Label Text="Estado" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtEstado" CssClass="caja" />
+
+                  <div>
+                <asp:Label Text="Fecha de Nacimiento" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtFechaNac" CssClass="caja" />
+            </div>
+
+                  <div>
+                <asp:Label Text="Género" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtGenero" CssClass="caja" />
+            </div>
+
+                  <div>
+                <asp:Label Text="Nro De Teléfono" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtTelefono" CssClass="caja" />
+            </div>
+                  <div>
+                <asp:Label Text="Código Postal" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtCodPost" CssClass="caja" />
+            </div>
+                  <div>
+                <asp:Label Text="Direccion" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtDireccion" CssClass="caja" />
+            </div>
+                  <div>
+                <asp:Label Text="Ciudad" runat="server" CssClass="label" />
+                <asp:TextBox runat="server" ID="txtCiudad" CssClass="caja" />
             </div>
 
             <div style="margin-top: 30px; margin-bottom: 20px">

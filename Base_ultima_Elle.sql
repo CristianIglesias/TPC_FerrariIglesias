@@ -1,7 +1,7 @@
 --Create Database Remeras_Elle_CC
 
 --go
-use  Remeras_Elle_CC
+--use  Remeras_Elle_CC
 --go
 
 create table TipoUsuario (
@@ -45,7 +45,7 @@ create table DatosPersonales (
 IdUsuario bigint not null primary Key,
 Nombre varchar(100) not Null,
 Apellido varchar(100) not Null,
-DNI int not null,
+DNI varchar (10) not null,
 FechaNac date not null,
 Genero varchar (20) null,
 Telefono int not null,

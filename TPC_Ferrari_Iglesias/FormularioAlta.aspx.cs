@@ -35,7 +35,7 @@ namespace TPC_Ferrari_Iglesias
                     productin.Talle = txtTalle.Text;
                     productin.Precio = Convert.ToDecimal(txtPrecio.Text);
                     productin.TipoRemera.Id = Convert.ToByte(DdlTipo.SelectedValue);
-                    //productin.Estado = Convert.ToBoolean(txtEstado.Text);
+                    productin.Estado = true;
                     productin.StockActual = Convert.ToInt32(txtStockActual.Text);
                     productin.StockMinimo = Convert.ToInt32(txtStockMinimo.Text);
 
@@ -66,16 +66,14 @@ namespace TPC_Ferrari_Iglesias
                 productin = ((List<Productos>)Session.Contents["ListaCatalogo"]).Find(X => X.Id.ToString().Contains(idItem));
                 // productin se carga, gracias a la session, y al id de articulo que se pasa por la querystring.
                 //Si la session no tiene instanciada la lista, pincha. Pero Gracias a ProdNegocio.listar(), no pincha más :)
+                
                 txtNombre.Text = productin.Nombre.ToString();
                 txtColor.Text = productin.Color.ToString();
                 txtDescripcion.Text = productin.Descripcion.ToString();
                 DdlTipo.SelectedValue = productin.TipoRemera.Id.ToString();
-                //txtIdTipo.Text = productin.TipoRemera.Id.ToString();
-
                 txtImagen.Text = productin.Imagen.ToString();
                 txtPrecio.Text = productin.Precio.ToString();
                 txtTalle.Text = productin.Talle.ToString();
-                //txtEstado.Text = productin.Estado.ToString();
                 txtStockActual.Text= productin.StockActual.ToString();
                 txtStockMinimo.Text = productin.StockMinimo.ToString();
 

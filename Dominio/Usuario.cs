@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class Usuario
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
         public byte TipoUsuario { get; set; }
@@ -16,12 +16,18 @@ namespace Dominio
 
 
         //Clase DatosPersonales?
+
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        
         public string Email { get; set; } 
-        
-        public int DNI { get; set; }
+        public string DNI { get; set; }
 
+        public DateTime FechaNacimiento { get; set; } 
+        public string Genero { get; set; }
+        public string NroTelefono { get; set; }
+        public string CodigoPost { get; set; }
+        public string Direccion { get; set; }
+        public string Ciudad { get; set; }
+        
     }
 }

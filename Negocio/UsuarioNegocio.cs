@@ -24,25 +24,24 @@ namespace Negocio
                 {
                     Usuario aux = new Usuario();
 
+                    aux.Estado = datos.lector.GetSqlBoolean(4);
+                    if(aux.Estado==true)
+                    { 
                     aux.Id = (int)datos.lector.GetInt64(0);
                     aux.Contrasenia = (string)datos.lector["Contraseña"];
                     aux.TipoUsuario = (byte)datos.lector.GetByte(2);
                     aux.NombreUsuario = (string)datos.lector["NombreUsuario"];
                     aux.Nombre = (string)datos.lector["Nombre"];
                     aux.Apellido = (string)datos.lector["Apellido"];
-                    aux.DNI = (int)datos.lector.GetInt32(7);
-                    aux.Estado = datos.lector.GetSqlBoolean(4);
-
-
+                    aux.DNI = datos.lector.GetString(7);
                     Lista.Add(aux);
-
+                    }
                 }
 
                 return Lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -56,44 +55,84 @@ namespace Negocio
 
             //insert.
 
-            Acceso.setearQuery("insert into Usuario (NombreUsuario, Contraseña, IdTipoUsuario) values (@NombreUsuario,@Contraseña,@IdTipoUsuario");
+            Acceso.setearQuery("insert into Usuarios (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado)");
 
             Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
             Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
             Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
-
+            Acceso.agregarParametro("@Estado",pepito.Estado);
             Acceso.ejecutarAccion();
 
 
             Acceso.cerrarConexion();
         }
-
-        public void AgregarDatosPersonales()
+ 
+        public void AgregarDatosPersonales(Usuario pepito)
         //como son cosas de dos tablas diferentes, 
         //Deberíamos agregar, primero el usuario y después los datos personales 
         {
             AccesoDatos Acceso = new AccesoDatos();
+            Acceso.setearQuery("insert into DatosPersonales (   IdUsuario, Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@ID,@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)");
+            Acceso.agregarParametro("@ID       ",pepito.Id);
+            Acceso.agregarParametro("@Nombre   ",pepito.Nombre );
+            Acceso.agregarParametro("@Apellido ",pepito.Apellido );
+            Acceso.agregarParametro("@Email    ",pepito.Email );
+            Acceso.agregarParametro("@DNI      ",pepito.DNI );
+            Acceso.agregarParametro("@FechaNac ",pepito.FechaNacimiento );
+            Acceso.agregarParametro("@Genero   ",pepito.Genero );
+            Acceso.agregarParametro("@Telefono ",pepito.NroTelefono );
+            Acceso.agregarParametro("@CP       ",pepito.CodigoPost );
+            Acceso.agregarParametro("@Direccion",pepito.Direccion );
+            Acceso.agregarParametro("@Ciudad   ",pepito.Ciudad );
+            Acceso.ejecutarAccion();
 
-            Acceso.setearQuery("insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido,@DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)");
+            Acceso.cerrarConexion();
+        }
 
-            //Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            //Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
-            //Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+        public void ModificarUsuario(Usuario pepito)
+        {
+            AccesoDatos Acceso = new AccesoDatos();
 
+            //insert.
+
+            Acceso.setearQuery("Update  Usuarios set (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado) where id = @idUsuario");
+
+            Acceso.agregarParametro("@idUsuario", pepito.Id);
+            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+            Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
+            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+            Acceso.agregarParametro("@Estado", pepito.Estado);
             Acceso.ejecutarAccion();
 
 
             Acceso.cerrarConexion();
         }
-
-        public void Modificar()
+        public void ModificarDatosPersonales(Usuario pepito)
         {
+            AccesoDatos Acceso = new AccesoDatos();
+            Acceso.setearQuery("update  DatosPersonales set (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad) where idUsuario =  @id");
+            Acceso.agregarParametro("@ID       ", pepito.Id);
+            Acceso.agregarParametro("@Nombre   ", pepito.Nombre);
+            Acceso.agregarParametro("@Apellido ", pepito.Apellido);
+            Acceso.agregarParametro("@Email    ", pepito.Email);
+            Acceso.agregarParametro("@DNI      ", pepito.DNI);
+            Acceso.agregarParametro("@FechaNac ", pepito.FechaNacimiento);
+            Acceso.agregarParametro("@Genero   ", pepito.Genero);
+            Acceso.agregarParametro("@Telefono ", pepito.NroTelefono);
+            Acceso.agregarParametro("@CP       ", pepito.CodigoPost);
+            Acceso.agregarParametro("@Direccion", pepito.Direccion);
+            Acceso.agregarParametro("@Ciudad   ", pepito.Ciudad);
+            Acceso.ejecutarAccion();
 
+            Acceso.cerrarConexion();
         }
-
-        public void BajaLogica()
-        { 
-        
+        public void BajaLogica(Usuario pepito)
+        {
+            pepito.Estado = false;
+            AccesoDatos Acceso = new AccesoDatos();
+            Acceso.setearQuery("Update  Usuarios set (Estado) values (@Estado) where id = @idUsuario");
+            Acceso.agregarParametro("@ID", pepito.Id);
+            Acceso.agregarParametro("@Estado", pepito.Estado);
         }
 
         public Usuario Login (Usuario user)
@@ -105,5 +144,21 @@ namespace Negocio
 
             return user;
         }
+        public long UbicarUltimoID(Usuario pepito)
+        {
+            AccesoDatos acceso = new AccesoDatos();
+            acceso.setearQuery("select id from Usuarios where NombreUsuario = @NombreUsuario and Contraseña = @contrasenia");
+            acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+            acceso.agregarParametro("@Contrasenia", pepito.Contrasenia);
+            acceso.ejecutarLector();
+            acceso.lector = acceso.comando.ExecuteReader();
+            while (acceso.lector.Read())
+            {
+                pepito.Id = acceso.lector.GetInt64(0);
+            }
+            return pepito.Id;
+        }
+    
+    
     }
 }

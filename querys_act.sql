@@ -1,5 +1,8 @@
 use Remeras_Elle_CC
 
+
+
+
  insert into TipoUsuario (Nombre ) values ('Administrador' )
  insert into TipoUsuario (Nombre ) values ('Cliente' )
  select nombre from TipoUsuario
@@ -39,11 +42,7 @@ use Remeras_Elle_CC
  tp.Nombre as TipoNombre  --13
  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id 
 
-  select * from TipoProducto
- select * from Producto
-
- --deberíamos hacer una tabla "imagenes por producto, simple, que guarde los varchares de la url y los id producto, ponele que tenga un id propio--
- 
+ select * from TipoProducto 
  Select * from Producto 
  select * FROM Producto AS P join TipoProducto as t on t.Id=p.IdTipo
  select id, idtipo, precio, nombre, talle, descripcion from Producto
@@ -60,15 +59,9 @@ use Remeras_Elle_CC
 Select p.id, Tipos.id, Tipos.Nombre as NombreTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion from Producto as P
 join TipoProducto as Tipos on P.IdTipo = tipos.Id
 
-
-select * from TipoUsuario
- insert into TipoUsuario (Nombre) values ('Administrador')
-  insert into TipoUsuario (Nombre) values ('Cliente')
-
-
  insert into Usuarios ( 
  NombreUsuario, Contraseña, IdTipoUsuario, Estado
- ) values('SoyAdmin','SoyAdmin',1,1 )
+ ) values('SoyAdmin','SoyAdmin',1, )
 
 
  select Id, NombreUsuario, Contraseña, IdTipoUsuario from Usuarios
@@ -77,18 +70,29 @@ select * from TipoUsuario
 
  select * from Usuarios
 
+  set dateformat dmy
 
- select * from DatosPersonales
+  insert into DatosPersonales (  IdUsuario
+ , Nombre
+ , Apellido,
+   Email ,
+   DNI,
+   FechaNac,
+   Genero, 
+   Telefono, 
+   CP, 
+   Direccion,
+   Ciudad
+   ) 
+--query usada en la app ~
+insert into DatosPersonales (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)
+--query usada en la app ~
+insert into Usuarios (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado)
 
- set dateformat dmy
- 
+select * from Usuarios left join DatosPersonales on Usuarios.id = DatosPersonales.IdUsuario
 
- 
- 
- insert into DatosPersonales (  IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email  ) 
-  values (1, 'Chivi', 'Ferrari', 29753593, '20/05/1983', 'F', 1531790514,1676, 'L','S', 'chivi@chivi.com')
- 
- 
+select * from DatosPersonales
+
  --Meter registros nuevos -- Debería ser un procedimiento almacenado que use parametros -- 
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg' )
 
@@ -99,3 +103,10 @@ select * from TipoUsuario
 
 
  UPDATE Producto SET Estado = 0 WHERE id = @id
+ );
+ select * from usuarios 
+ 
+update Productos set estado= 0 where id=@id
+
+select * from Usuarios
+select id from Usuarios where NombreUsuario=@NombreUsuario and Contraseña = @contrasenia

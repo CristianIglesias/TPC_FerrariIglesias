@@ -125,6 +125,8 @@
     <Content Include="css\popup.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
+    <Content Include="EliminarProducto.aspx" />
+    <Content Include="EliminarUsuario.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FormularioAlta.aspx" />
@@ -312,6 +314,20 @@
     </Compile>
     <Compile Include="Detalle.aspx.designer.cs">
       <DependentUpon>Detalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProducto.aspx.cs">
+      <DependentUpon>EliminarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarProducto.aspx.designer.cs">
+      <DependentUpon>EliminarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarUsuario.aspx.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarUsuario.aspx.designer.cs">
+      <DependentUpon>EliminarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>

@@ -23,11 +23,18 @@ namespace TPC_Ferrari_Iglesias
             {
                 if (IsPostBack)
                 {
-                    pepito.Nombre = txtNombre.Text;
-                    pepito.Apellido = txtApellido.Text;
-                    //pepito.DNI=txtDNI.Text;
-                    pepito.NombreUsuario = txtNombreUsuario.Text;
-                    pepito.Contrasenia = txtContraseña.Text;
+                    pepito.Nombre          = txtNombre.Text;
+                    pepito.Apellido        = txtApellido.Text;
+                    pepito.NombreUsuario   = txtNombreUsuario.Text;
+                    pepito.Contrasenia     = txtContraseña.Text;
+                    pepito.DNI             = txtDNI.Text;
+                    pepito.Email           = txtEmail.Text;
+                    pepito.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
+                    pepito.Genero          = txtGenero.Text;
+                    pepito.NroTelefono     = txtTelefono.Text;
+                    pepito.CodigoPost      = txtTelefono.Text;
+                    pepito.Direccion       = txtDireccion.Text;
+                    pepito.Ciudad          = txtCiudad.Text;
                 }
                 
 
@@ -44,14 +51,19 @@ namespace TPC_Ferrari_Iglesias
                     Session.Add("ListaUsuarios", negocio.Listar());
                 }
                 pepito = ((List<Usuario>)Session.Contents["ListaUsuarios"]).Find(X => X.Id.ToString().Contains(IdUser));
+
                 txtNombre.Text = pepito.Nombre;
                 txtApellido.Text = pepito.Apellido;
-                txtDNI.Text = pepito.DNI.ToString();
                 txtNombreUsuario.Text = pepito.NombreUsuario;
                 txtContraseña.Text = pepito.Contrasenia;
-                //Desarrollarle la ddl al tipoUsuario.
-
-
+                txtDNI.Text= pepito.DNI;
+                txtEmail.Text = pepito.Email;
+                txtFechaNac.Text = Convert.ToString(pepito.FechaNacimiento);
+                txtGenero.Text = pepito.Genero;
+                txtTelefono.Text = pepito.NroTelefono; 
+                txtTelefono.Text = pepito.CodigoPost;
+                txtDireccion.Text = pepito.Direccion;
+                txtCiudad.Text = pepito.Ciudad;
             }//Si viene a editar un usuario...
 
         }
@@ -74,15 +86,34 @@ namespace TPC_Ferrari_Iglesias
                 {
                     pepito.Nombre = txtNombre.Text;
                     pepito.Apellido = txtApellido.Text;
-                    //pepito.DNI=txtDNI.Text;
                     pepito.NombreUsuario = txtNombreUsuario.Text;
                     pepito.Contrasenia = txtContraseña.Text;
+                    pepito.DNI = txtDNI.Text;
+                    pepito.Email = txtEmail.Text;
+                    pepito.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
+                    pepito.Genero = txtGenero.Text;
+                    pepito.NroTelefono = txtTelefono.Text;
+                    pepito.CodigoPost = txtTelefono.Text;
+                    pepito.Direccion = txtDireccion.Text;
+                    pepito.Ciudad = txtCiudad.Text;
+                    pepito.Estado = true;
+                    pepito.TipoUsuario = 1;
                 }
                 UsuarioNegocio negocio = new UsuarioNegocio();
-                if (pepito.Id == 0) { }
-                //negocio.Agregar(pepito);
-                else { }
-            }        //negocio.Modificar(pepito);
+                if (pepito.Id == 0) 
+                {
+                    negocio.AgregarUsuario(pepito);
+                    pepito.Id=negocio.UbicarUltimoID(pepito); //Ubica el id del usuario que se acaba de agregar a la base de datos, para que sea el id de usuario en DatosPersonales     
+                    negocio.AgregarDatosPersonales(pepito); 
+                }
+                else 
+                {
+                    negocio.ModificarUsuario(pepito);
+                    negocio.ModificarDatosPersonales(pepito);
+                }
+               
+
+            }
         }
     }
 }

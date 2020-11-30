@@ -41,7 +41,7 @@
                         </td>
 
                         <td><a href="FormularioAlta.aspx?idArticulo=<%= item.Id.ToString()%>" class="btn btn-primary">Editar Articulo </a></td>
-                        <td><a href="FormularioAlta.aspx?idArticulo=<%= item.Id.ToString()%>" class="btn btn-danger">Eliminar Articulo</a></td>
+                        <td><a href="EliminarProducto.aspx?idArticulo=<%= item.Id.ToString()%>" class="btn btn-danger" >Eliminar Articulo</a></td>
                     </tr>
 
 

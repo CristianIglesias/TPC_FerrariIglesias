@@ -41,10 +41,11 @@
                         <td><%=item.DNI%></td>
                         <td><%=item.TipoUsuario%></td>
                     <td><a href="FormularioAltaUsuario.aspx?idUsuario=<%= item.Id.ToString()%>" class="btn btn-primary">Editar Datos del Usuario </a></td>
-                    <td><a href="FormularioAltaUsuario.aspx?idUsuario=<%= item.Id.ToString()%>" class="btn btn-danger">Eliminar del listado.(Baja Lógica)</a></td>
+                    <td><a href="EliminarUsuario.aspx?idUsuario=<%= item.Id.ToString()%>" class="btn btn-danger">Eliminar del listado.(Baja Lógica)</a></td>
                     </tr>
                     <% } %>
                 </table>
+                                        <a  href="FormularioAltaUsuario.aspx"   class="btn btn-primary">Nuevo Usuario</a>
 
             </div>
 
