@@ -19,6 +19,7 @@ namespace Negocio
             List<Productos> Lista = new List<Productos>();
 
             //A modificar cuando tengamos mas cancha, tipo, eso
+            
             Acceso.setearQuery(" Select p.Id, p.IdTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion, p.Color, p.UrlImagen, Estado, StockMinimo, StockActual, tp.Id, tp.Nombre as TipoNombre  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id ");
             try
             {
@@ -65,14 +66,14 @@ namespace Negocio
             AccesoDatos Acceso = new AccesoDatos();
 
             //insert.
-
-            Acceso.setearQuery("insert into Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio,  Estado, StockMinimo, StockActual ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @Precio, @Estado, @StockMinimo, @StockActual)");
-
+            Acceso.setearQuery_conPa("sp_InsertarRegistro");
+            //Acceso.setearQuery("insert into Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio,  Estado, StockMinimo, StockActual ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @Precio, @Estado, @StockMinimo, @StockActual)");
+            
             Acceso.agregarParametro("@idTipo", productin.TipoRemera.Id);
             Acceso.agregarParametro("@Nombre", productin.Nombre);
             Acceso.agregarParametro("@Descripcion", productin.Descripcion);
             Acceso.agregarParametro("@Color", productin.Color);
-            Acceso.agregarParametro("@Imagen", productin.Imagen);
+            Acceso.agregarParametro("@UrlImagen", productin.Imagen);
             Acceso.agregarParametro("@Talle", productin.Talle);
             Acceso.agregarParametro("@Precio", productin.Precio);
             Acceso.agregarParametro("@Estado", productin.Estado);

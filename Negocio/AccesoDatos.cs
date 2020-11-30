@@ -25,10 +25,17 @@ namespace Negocio
             comando.CommandText = consulta;
 
         }
+        public void setearQuery_conPa(string consulta)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = consulta;
+
+        }
         public void agregarParametro (string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
         }
+
         public void ejecutarLector()
         {
         try {
