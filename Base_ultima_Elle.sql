@@ -125,3 +125,7 @@ go
 alter table Pagos
 add constraint FK_Pagos_TipoPagos foreign key (IdTipoPago)  references TipoPagos (Id)
 go
+
+alter table Usuarios 
+add constraint NombreUsuario  unique (NombreUsuario)
+

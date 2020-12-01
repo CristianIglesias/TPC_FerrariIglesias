@@ -158,7 +158,33 @@ namespace Negocio
             }
             return pepito.Id;
         }
-    
-    
+
+        public void AgregarUsuarioCompletoConPa(Usuario pepito)
+        {
+            AccesoDatos Acceso = new AccesoDatos();
+
+
+            Acceso.setearQuery_conPa("sp_InsertarUsuario");
+
+            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+            Acceso.agregarParametro("@Contraseña   ", pepito.Contrasenia);
+            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+            Acceso.agregarParametro("@Estado       ", pepito.Estado);
+            Acceso.agregarParametro("@IdUsuario    ", pepito.Id);
+            Acceso.agregarParametro("@Nombre       ", pepito.Nombre);
+            Acceso.agregarParametro("@Apellido     ", pepito.Apellido);
+            Acceso.agregarParametro("@Email        ", pepito.Email);
+            Acceso.agregarParametro("@DNI          ", pepito.DNI);
+            Acceso.agregarParametro("@FechaNac     ", pepito.FechaNacimiento);
+            Acceso.agregarParametro("@Genero       ", pepito.Genero);
+            Acceso.agregarParametro("@Telefono     ", pepito.NroTelefono);
+            Acceso.agregarParametro("@CP           ", pepito.CodigoPost);
+            Acceso.agregarParametro("@Direccion    ", pepito.Direccion);
+            Acceso.agregarParametro("@Ciudad       ", pepito.Ciudad);
+            Acceso.ejecutarAccion();
+
+            Acceso.cerrarConexion();
+        }
+
     }
 }

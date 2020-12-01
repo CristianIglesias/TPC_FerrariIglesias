@@ -102,9 +102,10 @@ namespace TPC_Ferrari_Iglesias
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 if (pepito.Id == 0) 
                 {
-                    negocio.AgregarUsuario(pepito);
-                    pepito.Id=negocio.UbicarUltimoID(pepito); //Ubica el id del usuario que se acaba de agregar a la base de datos, para que sea el id de usuario en DatosPersonales     
-                    negocio.AgregarDatosPersonales(pepito); 
+                    //negocio.AgregarUsuario(pepito);
+                    //pepito.Id=negocio.UbicarUltimoID(pepito); //Ubica el id del usuario que se acaba de agregar a la base de datos, para que sea el id de usuario en DatosPersonales     
+                    //negocio.AgregarDatosPersonales(pepito); 
+                    negocio.AgregarUsuarioCompletoConPa(pepito);
                 }
                 else 
                 {

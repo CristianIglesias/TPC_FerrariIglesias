@@ -1,5 +1,4 @@
-CREATE PROCEDURE sp_InsertarRegistro(
- @Id bigint,
+alter PROCEDURE sp_InsertarRegistro(
 @IdTipo tinyint,
 @Precio money,
 @UrlImagen varchar(900),
@@ -14,8 +13,46 @@ CREATE PROCEDURE sp_InsertarRegistro(
 )
 AS
 BEGIN
-  INSERT INTO Producto(Id,IdTipo,Precio,UrlImagen,Nombre,Talle,Descripcion,Estado,Color,StockMinimo,StockActual) 
-  VALUES(@Id,@IdTipo,@Precio,@UrlImagen,@Nombre,@Talle,@Descripcion,@Estado,@Color,@StockMinimo,@StockActual)
+  INSERT INTO Producto(IdTipo,Precio,UrlImagen,Nombre,Talle,Descripcion,Estado,Color,StockMinimo,StockActual) 
+  VALUES(@IdTipo,@Precio,@UrlImagen,@Nombre,@Talle,@Descripcion,@Estado,@Color,@StockMinimo,@StockActual)
 END
 
 
+
+
+
+
+create procedure sp_InsertarUsuario(
+--tabla usuarios--
+@NombreUsuario varchar (100),
+@Contraseña varchar (15),
+@IdTipoUsuario tinyint,
+@Estado bit,
+--Tabla Datos Personales--
+
+@IdUsuario Bigint,
+@Nombre varchar(100),
+@Apellido varchar(100),
+@Dni varchar(20),
+@FechaNac date,
+@Genero varchar(20),
+@Telefono int,
+@CP int ,
+@Direccion varchar(100),
+@Ciudad varchar(100),
+@Email varchar(100)
+)as 
+begin
+
+insert into Usuarios (NombreUsuario,Contraseña,IdTipoUsuario,Estado) 
+values (@NombreUsuario, @Contraseña ,@IdTipoUsuario ,@Estado)
+
+select @idUsuario = Usuarios.Id from Usuarios where @NombreUsuario = Usuarios.NombreUsuario
+
+insert into DatosPersonales(IdUsuario, Nombre,Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email) 
+values (@IdUsuario, @Nombre, @Apellido ,@Dni,@FechaNac,@Genero,@Telefono, @CP, @Direccion, @Ciudad, @Email)
+
+
+end 
+
+select * from Usuarios left join DatosPersonales on Usuarios.id = DatosPersonales.IdUsuario
