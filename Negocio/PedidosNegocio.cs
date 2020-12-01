@@ -17,7 +17,7 @@ namespace Negocio
         {
             AccesoDatos Acceso = new AccesoDatos();
             List<Pedido> Lista = new List<Pedido>();
-            Acceso.setearQuery("Select  select * from Pedidos");
+            Acceso.setearQuery("Select Id, IdUsuario, IdEstado, Fecha, Importe from Pedidos");
             try
             {
                 Acceso.ejecutarLector();
@@ -33,10 +33,11 @@ namespace Negocio
                 }
                 return Lista;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               
-                return Lista;
+                // amigo intenta no hacer este parche porque sino nunca vamos a saber los errores reales que nos tira
+                //return Lista;
+                throw ex;
                 
             }
         }

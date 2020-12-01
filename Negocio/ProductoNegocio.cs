@@ -18,11 +18,12 @@ namespace Negocio
             AccesoDatos Acceso = new AccesoDatos();
             List<Productos> Lista = new List<Productos>();
 
-            //A modificar cuando tengamos mas cancha, tipo, eso
-            
-            Acceso.setearQuery(" Select p.Id, p.IdTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion, p.Color, p.UrlImagen, Estado, StockMinimo, StockActual, tp.Id, tp.Nombre as TipoNombre  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id ");
+
+
             try
             {
+                //Acceso.setearQuery(" Select p.Id, p.IdTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion, p.Color, p.UrlImagen, Estado, StockMinimo, StockActual, tp.Id, tp.Nombre as TipoNombre  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id ");
+                Acceso.setearQuery("select * from VW_ListaProductos");
                 Acceso.ejecutarLector();
                 Acceso.lector = Acceso.comando.ExecuteReader();
                 while (Acceso.lector.Read())
@@ -51,10 +52,10 @@ namespace Negocio
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //throw ex;
-                return Lista;
+                throw ex;
+               // return Lista;
                 //obviamente hay que hacer una redireccion a una pagina de error  :)
             }
 
@@ -125,5 +126,3 @@ namespace Negocio
     }
 }
 
-//TODO: COMPLETAR ELIMINAR PRODUCTO - QUE DEBERÍA SER BAJA LÓGICA.
-//TODO: ARMAR CARRITO COMPLETO Y VER DETALLES DE PRODUCTOS.
