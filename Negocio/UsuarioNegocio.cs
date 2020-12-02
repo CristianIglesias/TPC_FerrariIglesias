@@ -15,7 +15,6 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             List<Usuario> Lista = new List<Usuario>();
             datos.setearQuery("select u.Id, u.Contraseña,  u.IdTipoUsuario, u.NombreUsuario, u.Estado, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario");
-
             try
             {
                 datos.ejecutarLector();
@@ -23,7 +22,6 @@ namespace Negocio
                 while (datos.lector.Read())
                 {
                     Usuario aux = new Usuario();
-
                     aux.Estado = datos.lector.GetSqlBoolean(4);
                     if(aux.Estado==true)
                     { 
@@ -37,16 +35,12 @@ namespace Negocio
                     Lista.Add(aux);
                     }
                 }
-
                 return Lista;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
-
-
         }
 
         public void AgregarUsuario(Usuario pepito)
@@ -67,28 +61,6 @@ namespace Negocio
             Acceso.cerrarConexion();
         }
  
-        public void AgregarDatosPersonales(Usuario pepito)
-        //como son cosas de dos tablas diferentes, 
-        //Deberíamos agregar, primero el usuario y después los datos personales 
-        {
-            AccesoDatos Acceso = new AccesoDatos();
-            Acceso.setearQuery("insert into DatosPersonales (   IdUsuario, Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@ID,@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)");
-            Acceso.agregarParametro("@ID       ",pepito.Id);
-            Acceso.agregarParametro("@Nombre   ",pepito.Nombre );
-            Acceso.agregarParametro("@Apellido ",pepito.Apellido );
-            Acceso.agregarParametro("@Email    ",pepito.Email );
-            Acceso.agregarParametro("@DNI      ",pepito.DNI );
-            Acceso.agregarParametro("@FechaNac ",pepito.FechaNacimiento );
-            Acceso.agregarParametro("@Genero   ",pepito.Genero );
-            Acceso.agregarParametro("@Telefono ",pepito.NroTelefono );
-            Acceso.agregarParametro("@CP       ",pepito.CodigoPost );
-            Acceso.agregarParametro("@Direccion",pepito.Direccion );
-            Acceso.agregarParametro("@Ciudad   ",pepito.Ciudad );
-            Acceso.ejecutarAccion();
-
-            Acceso.cerrarConexion();
-        }
-
         public void ModificarUsuario(Usuario pepito)
         {
             AccesoDatos Acceso = new AccesoDatos();
@@ -144,20 +116,7 @@ namespace Negocio
 
             return user;
         }
-        public long UbicarUltimoID(Usuario pepito)
-        {
-            AccesoDatos acceso = new AccesoDatos();
-            acceso.setearQuery("select id from Usuarios where NombreUsuario = @NombreUsuario and Contraseña = @contrasenia");
-            acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            acceso.agregarParametro("@Contrasenia", pepito.Contrasenia);
-            acceso.ejecutarLector();
-            acceso.lector = acceso.comando.ExecuteReader();
-            while (acceso.lector.Read())
-            {
-                pepito.Id = acceso.lector.GetInt64(0);
-            }
-            return pepito.Id;
-        }
+
 
         public void AgregarUsuarioCompletoConPa(Usuario pepito)
         {
@@ -186,5 +145,42 @@ namespace Negocio
             Acceso.cerrarConexion();
         }
 
+
+        //public void AgregarDatosPersonales(Usuario pepito)
+        ////como son cosas de dos tablas diferentes, 
+        ////Deberíamos agregar, primero el usuario y después los datos personales 
+        //{
+        //    AccesoDatos Acceso = new AccesoDatos();
+        //    Acceso.setearQuery("insert into DatosPersonales (   IdUsuario, Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@ID,@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)");
+        //    Acceso.agregarParametro("@ID       ", pepito.Id);
+        //    Acceso.agregarParametro("@Nombre   ", pepito.Nombre);
+        //    Acceso.agregarParametro("@Apellido ", pepito.Apellido);
+        //    Acceso.agregarParametro("@Email    ", pepito.Email);
+        //    Acceso.agregarParametro("@DNI      ", pepito.DNI);
+        //    Acceso.agregarParametro("@FechaNac ", pepito.FechaNacimiento);
+        //    Acceso.agregarParametro("@Genero   ", pepito.Genero);
+        //    Acceso.agregarParametro("@Telefono ", pepito.NroTelefono);
+        //    Acceso.agregarParametro("@CP       ", pepito.CodigoPost);
+        //    Acceso.agregarParametro("@Direccion", pepito.Direccion);
+        //    Acceso.agregarParametro("@Ciudad   ", pepito.Ciudad);
+        //    Acceso.ejecutarAccion();
+
+        //    Acceso.cerrarConexion();
+        //}
+
+        //public long UbicarUltimoID(Usuario pepito)
+        //{
+        //    AccesoDatos acceso = new AccesoDatos();
+        //    acceso.setearQuery("select id from Usuarios where NombreUsuario = @NombreUsuario and Contraseña = @contrasenia");
+        //    acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+        //    acceso.agregarParametro("@Contrasenia", pepito.Contrasenia);
+        //    acceso.ejecutarLector();
+        //    acceso.lector = acceso.comando.ExecuteReader();
+        //    while (acceso.lector.Read())
+        //    {
+        //        pepito.Id = acceso.lector.GetInt64(0);
+        //    }
+        //    return pepito.Id;
+        //}
     }
 }

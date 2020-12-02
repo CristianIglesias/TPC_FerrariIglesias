@@ -9,12 +9,14 @@ namespace Dominio
 {
     public class ItemCarrito
     {
+    
+        public long IdProducto { get; set; }
         public long IdPedido { get; set; }
         public SqlMoney PrecioActual { get; set; }
-        public string NombreActual { get; set; }
         public byte CantidadPedida { get; set; }
-        public long idProducto { get; set; }
         public string UrlImagen { get; set; }
+        public string NombreActual { get; set; }
+    
     }
 
 }

@@ -17,9 +17,6 @@ namespace Negocio
         {
             AccesoDatos Acceso = new AccesoDatos();
             List<Productos> Lista = new List<Productos>();
-
-
-
             try
             {
                 //Acceso.setearQuery(" Select p.Id, p.IdTipo, p.Precio, p.Nombre, p.Talle, p.Descripcion, p.Color, p.UrlImagen, Estado, StockMinimo, StockActual, tp.Id, tp.Nombre as TipoNombre  from Producto as p join TipoProducto as tp on p.IdTipo = tp.Id ");

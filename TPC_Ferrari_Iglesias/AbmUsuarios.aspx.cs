@@ -17,6 +17,8 @@ namespace TPC_Ferrari_Iglesias
             UsuarioNegocio negocioUsuario = new UsuarioNegocio();
             ListaUsuarios = negocioUsuario.Listar();
             Session.Add("ListaUsuarios", ListaUsuarios);
+
+
         }
     }
 }

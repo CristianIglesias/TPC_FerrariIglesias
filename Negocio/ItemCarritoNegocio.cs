@@ -24,7 +24,7 @@ namespace Negocio
                 {
                     ItemCarrito Aux = new ItemCarrito();
 
-                    Aux.idProducto = Acceso.lector.GetByte(0);
+                    Aux.IdProducto = Acceso.lector.GetByte(0);
                     Aux.IdPedido = Acceso.lector.GetInt64(1);
                     Aux.PrecioActual = Acceso.lector.GetSqlMoney(2);
                     Aux.CantidadPedida = Acceso.lector.GetByte(3);
