@@ -84,6 +84,10 @@ namespace TPC_Ferrari_Iglesias
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+            if (!Page.IsValid)
+                return;
+            
             if (productin == null)
                 productin = new Productos();
            

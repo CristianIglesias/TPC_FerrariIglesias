@@ -39,13 +39,15 @@
                 <div>
                     <asp:Label Text="Descripción:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
+
                 </div>
                 <div>
                     <asp:Label Text="Talle:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtTalle" CssClass="caja"  />
                 </div>
                 <asp:Label Text="Color:" runat="server" CssClass="label" />
-                <asp:TextBox runat="server" ID="txtColor" CssClass="caja" />
+                <asp:TextBox runat="server" ID="txtColor" maxlegth="20" CssClass="caja" />
+                <asp:RangeValidator ErrorMessage="El valor es incorrecto" MaximumValue="20" MinimumValue="0" ControlToValidate="txtColor" runat="server" />
                 <div>
                     <asp:Label Text="Imagen:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtImagen" CssClass="caja" />

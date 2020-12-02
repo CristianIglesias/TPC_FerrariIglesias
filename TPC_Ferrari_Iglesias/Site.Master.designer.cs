@@ -15,6 +15,15 @@ namespace TPC_Ferrari_Iglesias
     {
 
         /// <summary>
+        /// Control NombreUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NombreUsuario;
+
+        /// <summary>
         /// Control lblContadorCarro.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace TPC_Ferrari_Iglesias
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblContadorCarro;
+
+        /// <summary>
+        /// Control btnLogOut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogOut;
 
         /// <summary>
         /// Control MainContent.

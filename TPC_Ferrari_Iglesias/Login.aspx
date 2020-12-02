@@ -30,6 +30,8 @@
                    
 
                 </div>
+
+             <%--importante PONER UN ANCHOR O LO QUE SEA POR SI NO TIENE USUARIO QUE LO LLEVE A LA PAGINA DE ALTA DE USUARIO--%>
             </div>
     </form>
         </div>

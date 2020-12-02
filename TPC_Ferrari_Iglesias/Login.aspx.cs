@@ -25,9 +25,13 @@ namespace TPC_Ferrari_Iglesias
             user.NombreUsuario = txtUser.Text;
             user.Contrasenia = txtPass.Text;
 
-            user = negocio.Login(user);
-            if (user.Id !=0)
+            //user = negocio.Login(user);
+            Usuario alguienNuevo;
+            alguienNuevo= negocio.Login(user);
+            if (alguienNuevo.Id !=0) // es el valor que hicimos que asuma en el else de negocio
             {
+                Session.Add("alguienNuevo", alguienNuevo);
+                
                 Response.Redirect("Catalogo.aspx"); //aca deberia ir a la pagina de pago?
             }
             else

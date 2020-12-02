@@ -26,7 +26,7 @@
         </a>
     </div>--%>
     <div>
-    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" placeholder="Buscá la remera que querés" />
+    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" style="margin-bottom:10px; margin-top:20px;" placeholder="Buscá la remera que querés" />
 
     <asp:Button runat="server"  CssClass="btn-primary" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
     </div>
@@ -55,7 +55,7 @@
 
 
             <div class="col-lg-4 d-flex align-items-stretch">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; margin-top:30px;">
                     <div class="card-body">
                         <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title">Producto: <%=item.Nombre %></h5>

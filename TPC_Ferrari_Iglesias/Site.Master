@@ -65,7 +65,11 @@
                     <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
                     <a class="navbar-brand" runat="server" href="~/Carrito">Carrito  </a>
                     <a class="navbar-brand" runat="server" href="~/AbmProductos">Abm Productos </a>
-                    <asp:Label Text="" ID="lblContadorCarro" runat="server" />
+                    <%--este nombreusuario lo usamos en el codigo para, si hay alguien logueado lo diga en el nav bar  --%>
+                    <p id="NombreUsuario" class="navbar-brand" runat="server"> </p>
+                    <asp:Label Text="" ID="lblContadorCarro" runat="server" /> 
+<%--                    UN BOTON QUE CUANDO LO CLICKEO A SESSION SE POINGA EN NULL--%>
+                    <asp:Button Text="Good Bye" id="btnLogOut" onclick="btnLogOut_Click" runat="server" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

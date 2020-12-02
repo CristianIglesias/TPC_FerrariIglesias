@@ -24,7 +24,18 @@ namespace TPC_Ferrari_Iglesias
             //    Session.Add("ListaCatalogo", ListaCatalogo);
             //    Session.Add("ListaCarrito", ListaCarrito);
             //}
+            if(Session["alguienNuevo"] != null)
+            {
+                Usuario usuario;
+                usuario = (Usuario) Session["alguienNuevo"];
+                NombreUsuario.InnerText = usuario.NombreUsuario;
+                //nombreUsuario es el id que tiene la p el  el front en el nav bar
+            }
+        }
 
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Session["alguienNuevo"] = null;
         }
     }
 }

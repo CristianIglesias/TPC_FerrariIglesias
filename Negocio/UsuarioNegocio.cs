@@ -109,12 +109,35 @@ namespace Negocio
 
         public Usuario Login (Usuario user)
         {
+            AccesoDatos datos = new AccesoDatos();
             //va a ir a la db y va a buscar al usuario por user y por pass
-            // si devuelve hay que traer el id
-            //maxi para comprobar q esto funcionaba puso aca abao esto:
-            //user.Id = 3;
+            datos.setearQuery("select Id, Contraseña, NombreUsuario, IdTipoUsuario, Estado  from Usuarios where NombreUsuario = @NombreUsuario and Contraseña =@Contraseña ");
+            Usuario usuario  = new Usuario();
+            // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
+            datos.agregarParametro("@Contraseña", user.Contrasenia); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
+            datos.agregarParametro("@NombreUsuario", user.NombreUsuario);
 
-            return user;
+            datos.ejecutarLector();
+            datos.lector = datos.comando.ExecuteReader();
+            // si devuelve hay que traer el id
+            if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+            {
+                usuario.NombreUsuario = (string)datos.lector["NombreUsuario"];
+                usuario.Contrasenia = (string)datos.lector["Contraseña"];
+                usuario.Estado = (Boolean)datos.lector["Estado"];
+                usuario.TipoUsuario = (byte)datos.lector["IdTipoUsuario"];
+                usuario.Id = (long)datos.lector["Id"];
+
+            }
+            else
+            {
+                usuario.Id = 0;
+            }
+
+            
+         
+
+            return usuario;
         }
 
 

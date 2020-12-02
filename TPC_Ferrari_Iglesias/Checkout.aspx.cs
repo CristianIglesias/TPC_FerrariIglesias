@@ -18,6 +18,14 @@ namespace TPC_Ferrari_Iglesias
                 ListaAux = new List<ItemCarrito>();
                 Session["ListaCarrito"] = ListaAux;
             }
+
+            if(Session["alguienNuevo"]== null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            
+            // aca iria la pregunta, si se logueo sigue y sino es un response.redirect al login
+            // esta pregunta se hace a traves de la session
         }
     }
 }
