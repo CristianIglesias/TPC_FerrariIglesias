@@ -74,25 +74,31 @@
                   <div>
                 <asp:Label Text="Nro De Teléfono" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtTelefono" CssClass="caja" />
-                      <asp:RequiredFieldValidator ErrorMessage="El NÚMERO DE TÉLEFONO es un campo obligatorio" ValidationExpression="^[0-9)*$" ControlToValidate="txtTelefono" runat="server" />
-                      <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números"  ControlToValidate="txtTelefono" runat="server" />
-    
+                      <asp:RequiredFieldValidator ErrorMessage="El NÚMERO DE TÉLEFONO es un campo obligatorio"  ForeColor="Red" ControlToValidate="txtTelefono" runat="server" />
+                      <%--<asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números"  ValidationExpression="^[0-9]{1,10}$"  ControlToValidate="txtTelefono" runat="server" />--%>
+                      <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red"  ControlToValidate="txtTelefono" runat="server" ValidationExpression="^[0-9]{1,10}$"   />
                   </div>
                   <div>
                 <asp:Label Text="Código Postal" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtCodPost" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="El CÓDIGO POSTAL es un campo obligatorio"  ForeColor="Red" ControlToValidate="txtCodPost" runat="server" />
-            </div>
+             <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red"  ControlToValidate="txtCodPost" runat="server" ValidationExpression="^[0-9]{1,6}$"   />
+                  </div>
                   <div>
                 <asp:Label Text="Direccion" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtDireccion" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtDireccion" runat="server" />
-            </div>
+            <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :(" ForeColor="Red"  ControlToValidate="txtDireccion" runat="server" ValidationExpression=""   />
+                    
+                  </div>
                   <div>
                 <asp:Label Text="Ciudad" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtCiudad" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtCiudad" runat="server" />
-            </div>
+                      <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :("  ForeColor="Red" ControlToValidate="txtCiudad" runat="server" ValidationExpression="" />     
+                   
+
+                      </div>
 
             <div style="margin-top: 30px; margin-bottom: 20px">
                 <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button"  OnClick="btnGuardar_Click" runat="server" />

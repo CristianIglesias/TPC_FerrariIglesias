@@ -7,7 +7,7 @@
     </asp:Content>--%>
 
 
-    <div class="container">
+    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;">
 
 
 
@@ -70,12 +70,11 @@
                         }//Esta llave cierra el else
                     %>
                 </table>
-                <a href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
-                <a href="Checkout.aspx"  class="btn btn-primary">Comprar</a>
-                
             </div>
         </div>
     </div>
-
-
+    <div style="margin-top:30px;">
+    <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>
+    <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>
+    </div>
 </asp:Content>

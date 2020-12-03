@@ -6,7 +6,7 @@
         
 
             <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem; margin-top:30px;">
 
 
                     <div class="card-body">
@@ -24,7 +24,7 @@
 
                 </div>
                     
-                 <a href="Catalogo.aspx" class="btn btn-primary">Continuar comprando</a>
+                 <a href="Catalogo.aspx" class="btn btn-primary" style="margin-top:40px;">Continuar comprando</a>
             </div>
           
         </div>
