@@ -102,11 +102,6 @@ select * from DatosPersonales
   Update Producto (idTipo, Nombre, Descripcion,Color, UrlImagen ,Talle,  Precio ) values (@idTipo,@Nombre,@Descripcion,@Color,@Imagen,@Talle, @precio) where id = @id
 
 
- UPDATE Producto SET Estado = 0 WHERE id = @id
- );
- select * from usuarios 
- 
-update Productos set estado= 0 where id=@id
+ select * from DatosPersonales
 
-select * from Usuarios
-select id from Usuarios where NombreUsuario=@NombreUsuario and Contraseña = @contrasenia
+  select u.Contraseña, u.Id, u.IdTipoUsuario, u.NombreUsuario, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario

@@ -25,7 +25,7 @@ namespace Dominio
         public DateTime FechaNacimiento { get; set; } 
         public string Genero { get; set; }
         public string NroTelefono { get; set; }
-        public string CodigoPost { get; set; }
+        public Int32 CodigoPost { get; set; }
         public string Direccion { get; set; }
         public string Ciudad { get; set; }
         

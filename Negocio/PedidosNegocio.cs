@@ -11,9 +11,9 @@ using System.ComponentModel.Design;
 
 namespace Negocio
 {
-    class PedidosNegocio
+    public class PedidosNegocio
     {
-        public List <Pedido> Listar()
+        public List<Pedido> Listar()
         {
             AccesoDatos Acceso = new AccesoDatos();
             List<Pedido> Lista = new List<Pedido>();
@@ -38,13 +38,30 @@ namespace Negocio
                 // amigo intenta no hacer este parche porque sino nunca vamos a saber los errores reales que nos tira
                 //return Lista;
                 throw ex;
-                
+
             }
         }
-        public void Agregar()
+        public void Agregar(Pedido pedido, List<ItemCarrito> carro)
         {
-            // insert into Pedidos (IdUsuario, IdEstado, Fecha) values (1,1,'2020/11/28')
+
+            AccesoDatos Acceso = new AccesoDatos();
+
+
+            Acceso.setearQuery("ProcedimientoAlmacenadoconlacosayelrollbackyeso");
+
+            Acceso.agregarParametro("@idUsuario  ",);
+            Acceso.agregarParametro("@ImporteTotal  ",);
+            Acceso.agregarParametro("@Fecha  ",);
+            Acceso.agregarParametro("@Estado  ",);
+            Acceso.ejecutarAccion();
+
+
+            Acceso.cerrarConexion();
 
         }
+
+
+
+
     }
 }

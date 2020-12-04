@@ -32,7 +32,13 @@ namespace Negocio
                     aux.Nombre = (string)datos.lector["Nombre"];
                     aux.Apellido = (string)datos.lector["Apellido"];
                     aux.DNI = datos.lector.GetString(7);
+                    
+
+
                     Lista.Add(aux);
+
+
+//El tema es que hay que rearmar la query, capaz incluso hacer una vista y asignar bien todos los datos, no es que no está mostrando... Directamente no están cargandose los datos.
                     }
                 }
                 return Lista;
@@ -43,24 +49,6 @@ namespace Negocio
             }
         }
 
-        public void AgregarUsuario(Usuario pepito)
-        {
-            AccesoDatos Acceso = new AccesoDatos();
-
-            //insert.
-
-            Acceso.setearQuery("insert into Usuarios (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado)");
-
-            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
-            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
-            Acceso.agregarParametro("@Estado",pepito.Estado);
-            Acceso.ejecutarAccion();
-
-
-            Acceso.cerrarConexion();
-        }
- 
         public void ModificarUsuario(Usuario pepito)
         {
             AccesoDatos Acceso = new AccesoDatos();
@@ -134,11 +122,33 @@ namespace Negocio
                 usuario.Id = 0;
             }
 
-            
-         
-
             return usuario;
         }
+
+        public Usuario CargarDatosEnvio (Usuario pepito)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
+            //va a ir a la db y va a buscar al usuario por user y por pass
+            datos.setearQuery("select Direccion, CP, Ciudad, Telefono from DatosPersonales where @idUsuario = idUsuario ");
+            
+            // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
+            datos.agregarParametro("@idUsuario", pepito.Id); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
+
+            datos.ejecutarLector();
+            datos.lector = datos.comando.ExecuteReader();
+            // si devuelve hay que traer el id
+            if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+            {
+                pepito.Direccion    = (string)datos.lector["Direccion"];
+                pepito.CodigoPost   = Convert.ToInt32(datos.lector["CP"]);
+                pepito.Ciudad    = (String)datos.lector["Ciudad"];
+                pepito.NroTelefono = (String)datos.lector["Telefono"];
+            }
+
+            return pepito;
+        }
+
 
 
         public void AgregarUsuarioCompletoConPa(Usuario pepito)
@@ -167,6 +177,26 @@ namespace Negocio
 
             Acceso.cerrarConexion();
         }
+
+
+
+        //public void AgregarUsuario(Usuario pepito)
+        //{
+        //    AccesoDatos Acceso = new AccesoDatos();
+
+        //    //insert.
+
+        //    Acceso.setearQuery("insert into Usuarios (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado)");
+
+        //    Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+        //    Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
+        //    Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+        //    Acceso.agregarParametro("@Estado", pepito.Estado);
+        //    Acceso.ejecutarAccion();
+
+
+        //    Acceso.cerrarConexion();
+        //}
 
 
         //public void AgregarDatosPersonales(Usuario pepito)

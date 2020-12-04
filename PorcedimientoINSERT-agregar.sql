@@ -47,7 +47,8 @@ begin
 insert into Usuarios (NombreUsuario,Contraseña,IdTipoUsuario,Estado) 
 values (@NombreUsuario, @Contraseña ,@IdTipoUsuario ,@Estado)
 
-select @idUsuario = Usuarios.Id from Usuarios where @NombreUsuario = Usuarios.NombreUsuario
+--select @idUsuario = Usuarios.Id from Usuarios where @NombreUsuario = Usuarios.NombreUsuario
+
 
 insert into DatosPersonales(IdUsuario, Nombre,Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email) 
 values (@IdUsuario, @Nombre, @Apellido ,@Dni,@FechaNac,@Genero,@Telefono, @CP, @Direccion, @Ciudad, @Email)

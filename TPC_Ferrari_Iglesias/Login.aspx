@@ -28,6 +28,7 @@
                 <div style="margin-top: 30px; margin-bottom: 20px">
                     <asp:Button Text="Ingresar" ID="btnIngresar" CssClass="button" OnClick="btnIngresar_Click" runat="server" />
                    
+             <a href="FormularioAltaUsuario.aspx"  class="btn btn-primary" >No tenés Cuenta? Registrate!</a>
 
                 </div>
 

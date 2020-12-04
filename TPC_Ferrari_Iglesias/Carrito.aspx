@@ -64,7 +64,6 @@
                     </tr>
 
 
-
                     <%  } //Esta llave cierra el forEach
 
                         }//Esta llave cierra el else

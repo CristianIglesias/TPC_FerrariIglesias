@@ -63,17 +63,50 @@
 
 
                     <%  } //Esta llave cierra el forEach %>
-
-      
-
-                    <%}//Esta llave cierra el else
-                    %>
                 </table>
-                           <a href="" class="btn btn-primary">Comprar Para Mí</a>
-                    <a href="Catalogo.aspx" class="btn btn-danger">Cancelar</a>
+                <%-- SE CIERRA LA TABLE  --%>
+                <%-- Se abre el form de Datos de envío. --%>
+                
 
+                <p>Te lo mandamos acá Rey?</p>
+                
+                <div>
+                    <asp:Label Text="Direccion" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtDireccion" CssClass="caja" />
+                    <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtDireccion" runat="server" />
+                    <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :(" ForeColor="Red" ControlToValidate="txtDireccion" runat="server" ValidationExpression="" />
+                </div>
+                <div>
+                    <asp:Label Text="Ciudad" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtCiudad" CssClass="caja" />
+                    <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtCiudad" runat="server" />
+                    <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :(" ForeColor="Red" ControlToValidate="txtCiudad" runat="server" ValidationExpression="" />
+                </div>
+                <div>
+                    <asp:Label Text="Código Postal" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtCodPost" CssClass="caja" />
+                    <asp:RequiredFieldValidator ErrorMessage="El CÓDIGO POSTAL es un campo obligatorio" ForeColor="Red" ControlToValidate="txtCodPost" runat="server" />
+                    <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red" ControlToValidate="txtCodPost" runat="server" ValidationExpression="^[0-9]{1,6}$" />
+                </div>
+
+                <p>Este sigue siendo tu Número de teléfono?</p>
+                <div>
+                    <asp:Label Text="Numero de Teléfono" runat="server" CssClass="label" />
+                    <asp:TextBox runat="server" ID="txtNroTelefono" CssClass="caja" />
+                    <asp:RequiredFieldValidator ErrorMessage="Lo necesitamos si o si!" ForeColor="Red" ControlToValidate="txtCodPost" runat="server" />
+                    <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red" ControlToValidate="txtCodPost" runat="server" ValidationExpression="^[0-9]{1,6}$" />
+                </div>
+
+
+                <%}//Esta llave cierra el else
+                %>
             </div>
+
+
         </div>
+        <asp:Button Text="Comprar." runat="server" ID="btnComprar" OnClick="btnComprar_Click" />
+        <a href="Catalogo.aspx" class="btn btn-danger">Cancelar</a>
+
     </div>
 
 
