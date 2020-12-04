@@ -154,6 +154,8 @@ C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FER
 C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csproj.CopyComplete
 C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.dll
 C:\Users\Cristian\Desktop\Cosas de la facultad\-Programación 3\GIT PROG\TPC FERRARIIGLESIAS\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.pdb
+C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csproj.CoreCompileInputs.cache
+C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csprojAssemblyReference.cache
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\TPC_Ferrari_Iglesias.dll.config
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\TPC_Ferrari_Iglesias.dll
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\TPC_Ferrari_Iglesias.pdb
@@ -229,8 +231,6 @@ C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Microsof
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\es\System.Web.Optimization.resources.dll
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
-C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csprojAssemblyReference.cache
-C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csproj.CoreCompileInputs.cache
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.csproj.CopyComplete
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.dll
 C:\Users\Chivi\Desktop\TPF\TPC_FerrariIglesias\TPC_Ferrari_Iglesias\obj\Debug\TPC_Ferrari_Iglesias.pdb

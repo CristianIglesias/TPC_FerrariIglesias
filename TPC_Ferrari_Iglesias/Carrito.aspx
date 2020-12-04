@@ -15,8 +15,10 @@
             if (((List<Dominio.ItemCarrito>)Session.Contents["ListaCarrito"]).Count == 0)
             {
         %>
-        <p>Ups, tu carrito está vacío </p>
+        <%--<p>Ups, tu carrito está vacío </p>--%>
+     
         <%
+                Response.Redirect("Catalogo.aspx");
             }
             else
             { %>

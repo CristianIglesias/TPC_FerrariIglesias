@@ -88,14 +88,14 @@
                 <asp:Label Text="Direccion" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtDireccion" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtDireccion" runat="server" />
-            <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :(" ForeColor="Red"  ControlToValidate="txtDireccion" runat="server" ValidationExpression=""   />
+            <%--<asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :(" ForeColor="Red"  ControlToValidate="txtDireccion" runat="server" ValidationExpression=""   />--%>
                     
                   </div>
                   <div>
                 <asp:Label Text="Ciudad" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtCiudad" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="La DIRECCIÓN es un campo obligatorio" ForeColor="Red" ControlToValidate="txtCiudad" runat="server" />
-                      <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :("  ForeColor="Red" ControlToValidate="txtCiudad" runat="server" ValidationExpression="" />     
+                     <%-- <asp:RegularExpressionValidator ErrorMessage="Ups, hay algo que salió mal :("  ForeColor="Red" ControlToValidate="txtCiudad" runat="server" ValidationExpression="" />     --%>
                    
 
                       </div>
@@ -103,6 +103,7 @@
             <div style="margin-top: 30px; margin-bottom: 20px">
                 <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button"  OnClick="btnGuardar_Click" runat="server" />
                 <a href="AbmUsuarios.aspx" class="btn btn-primary">Cancelar</a>
+                <a href="AbmUsuarios.aspx" class="btn btn-primary">Volver</a>
 
 
             </div>

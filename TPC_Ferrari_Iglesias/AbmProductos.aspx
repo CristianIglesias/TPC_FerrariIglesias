@@ -8,7 +8,7 @@
             <asp:GridView ID="DgvProductos" CssClass="table-primary" runat="server">
             </asp:GridView>
             <br />--%>
-    <div class="container">
+    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;">
         <div class="row">
             <div class="col">
                 <table class="table">
@@ -66,11 +66,11 @@
                     <%} %>
 
                 </table>
-                        <a  href="FormularioAlta.aspx"   class="btn btn-primary">Nuevo Producto!</a>
             </div>
         </div>
 
     </div>
+                        <a  href="FormularioAlta.aspx"   class="btn btn-primary" style="margin-top:30px;" >Nuevo Producto!</a>
 
 
 

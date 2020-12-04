@@ -45,11 +45,11 @@
                     </tr>
                     <% } %>
                 </table>
-                                        <a  href="FormularioAltaUsuario.aspx"   class="btn btn-primary">Nuevo Usuario</a>
 
             </div>
 
         </div>
     </div>
+                                        <a  href="FormularioAltaUsuario.aspx"   class="btn btn-primary" style="margin-top:30px;">Nuevo Usuario</a>
 
 </asp:Content>

@@ -49,10 +49,10 @@ namespace Negocio
 
             Acceso.setearQuery("ProcedimientoAlmacenadoconlacosayelrollbackyeso");
 
-            Acceso.agregarParametro("@idUsuario  ",);
-            Acceso.agregarParametro("@ImporteTotal  ",);
-            Acceso.agregarParametro("@Fecha  ",);
-            Acceso.agregarParametro("@Estado  ",);
+            //Acceso.agregarParametro("@idUsuario  ",);
+            //Acceso.agregarParametro("@ImporteTotal  ",);
+            //Acceso.agregarParametro("@Fecha  ",);
+            //Acceso.agregarParametro("@Estado  ",);
             Acceso.ejecutarAccion();
 
 
