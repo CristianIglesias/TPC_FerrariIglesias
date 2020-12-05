@@ -41,7 +41,7 @@ namespace Negocio
 
             }
         }
-        public void Agregar(Pedido pedido )
+        public void Agregar(Pedido pedido)
         {
             try
             {
@@ -60,11 +60,11 @@ namespace Negocio
 
                 throw;
             }
-            
+
 
         }
 
-        public long UbicarID ()
+        public long UbicarID()
         {
 
             long IdAux;
@@ -85,10 +85,36 @@ namespace Negocio
 
                 throw;
             }
-             
 
         }
+        public List<Pedido> ListarPorUser(long Id)
+        {
+            AccesoDatos Acceso = new AccesoDatos();
+            List<Pedido> Lista = new List<Pedido>();
+            Acceso.setearQuery("Select Id, IdUsuario, IdEstado, Fecha, Importe from Pedidos where @IdUser = IdUsuario");
+            try
+            {
+                Acceso.agregarParametro("@IdUser", Id);
+                Acceso.ejecutarLector();
+                Acceso.lector = Acceso.comando.ExecuteReader();
+                while (Acceso.lector.Read())
+                {
+                    Pedido Aux = new Pedido();
+                    Aux.IdPedido = Acceso.lector.GetInt64(0);
+                    Aux.IdUsuario = Acceso.lector.GetByte(1);
+                    Aux.Estado = Acceso.lector.GetString(2);
+                    Aux.Fecha = Acceso.lector.GetDateTime(3);
+                    Lista.Add(Aux);
+                }
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+               
+                throw ex;
+            }
 
+        }
 
     }
 }

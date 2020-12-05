@@ -133,3 +133,9 @@ alter table Usuarios
 add constraint NombreUsuario  unique (NombreUsuario)
 
 --Cambios que ya están hechos para la proxima ejecución 
+
+
+delete from Pedidos
+delete from Detalle
+truncate table Pedidos 
+truncate table Detalle
