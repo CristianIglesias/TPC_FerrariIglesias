@@ -15,13 +15,23 @@ namespace TPC_Ferrari_Iglesias
         protected void Page_Load(object sender, EventArgs e)
         {
             
+
+
             if(Session["alguienNuevo"] != null)
             {
                 Usuario usuario;
                 usuario = (Usuario) Session["alguienNuevo"];
                 NombreUsuario.InnerText = usuario.NombreUsuario;
                 //nombreUsuario es el id que tiene la p el  el front en el nav bar
+
+                nvIniciarS.Visible = false; // oculta el elemento
+                if(usuario.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)
+                {
+                    nvHome.Visible = true; // si no es el admin 
+                }
             }
+
+
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)

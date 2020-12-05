@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Error" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Exito.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Exito" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h3> Ha ocurrido un error al guardar el registro</h3>
+            <h3>EXITOOOO</h3>
         </div>
     </form>
 </body>

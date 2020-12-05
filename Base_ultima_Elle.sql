@@ -98,18 +98,21 @@ go
 
 create table Detalle (
 --Id bigint not null primary Key identity (1,1),
-IdProducto bigint not null primary key,
+IdProducto bigint not null ,
 IdPedido bigint not null foreign key references Pedidos (Id),
 PrecioActual money not  null,
 CantidadPedida tinyint not null,
 UrlImagen varchar (900),
 Nombre varchar(50) not Null,
+primary key (IdProducto, IdPedido)
 )
 go
 
 alter table Detalle
 add constraint FK_Detalle_IdProducto foreign key (IdProducto) references Producto (Id)
 go
+
+
 
 create table Pagos (
 IdPedido bigint not null primary Key,

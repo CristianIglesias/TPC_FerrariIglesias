@@ -130,6 +130,7 @@
     <Content Include="EliminarProducto.aspx" />
     <Content Include="EliminarUsuario.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Exito.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FormularioAlta.aspx" />
     <Content Include="FormularioAltaUsuario.aspx" />
@@ -352,6 +353,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exito.aspx.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exito.aspx.designer.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioAlta.aspx.cs">
       <DependentUpon>FormularioAlta.aspx</DependentUpon>

@@ -84,6 +84,11 @@ namespace TPC_Ferrari_Iglesias
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+           
+            
             Page.Validate();
             if (!Page.IsValid)
                 return;
@@ -114,10 +119,21 @@ namespace TPC_Ferrari_Iglesias
                 ProductoNegocio negocio = new ProductoNegocio();
 
                 if (productin.Id == 0)
+                {
                     negocio.Agregar(productin);
+                }
                 else
                     negocio.Modificar(productin);
 
+                    Response.Redirect("Exito.aspx", false);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Error.aspx");
+                 
             }
         }
 

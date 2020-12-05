@@ -71,13 +71,13 @@ namespace Negocio
             try
             {
                 AccesoDatos acceso = new AccesoDatos();
-                acceso.setearQuery("select max(id) from Pedidos ");
+                acceso.setearQuery("select max(id) from Pedidos "); // selecciono el ultimo id DE LA TABLA PEDIDO   
                 acceso.ejecutarLector();
                 acceso.lector = acceso.comando.ExecuteReader();
                 acceso.lector.Read(); //No hace falta while porque es un solo registro :)
-                IdAux = acceso.lector.GetInt64(0);
+                IdAux = acceso.lector.GetInt64(0); //se lo asigno
                 acceso.cerrarConexion();
-                return IdAux;
+                return IdAux; // retorno ese id
 
             }
             catch (Exception)

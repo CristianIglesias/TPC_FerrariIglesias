@@ -49,11 +49,11 @@
             <div class="container">
                 <div class="navbar-header">
                    
-                    <a class="navbar-brand" runat="server" href="~/">Home &nbsp ~</a>
+                    <a class="navbar-brand" visible="false" id="nvHome" runat="server" href="~/">Home &nbsp ~</a>
                     <a class="navbar-brand" runat="server" href="~/Catalogo">Catálogo  &nbsp~</a>
                     <a class="navbar-brand" runat="server" href="~/Carrito">Carrito  &nbsp ~ </a>
-                    <a class="navbar-brand" runat="server" href="~/AbmProductos">Abm Productos </a>
-                    <a class="navbar-brand" runat="server" href="~/Login">Iniciar sesión  &nbsp ~ </a>
+                   <%-- <a class="navbar-brand" runat="server" href="~/AbmProductos">Abm Productos </a>--%>
+                    <a class="navbar-brand" visible="true" id="nvIniciarS" runat="server" href="~/Login">Iniciar sesión  &nbsp ~ </a>
                     <%--este nombreusuario lo usamos en el codigo para, si hay alguien logueado lo diga en el nav bar  --%>
                     <p id="NombreUsuario" class="navbar-brand" runat="server"> </p>
                     <asp:Label Text="" ID="lblContadorCarro" runat="server" /> 

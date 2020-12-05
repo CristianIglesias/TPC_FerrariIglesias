@@ -17,7 +17,7 @@ namespace Dominio
         //Si yo fuese a traer el estado directamente por medio de una view...
         //Realmente hace falta que un obj Pedido tenga un obj Estado con su id y nombre dentro del mismo?
 
-        public Pedido(Usuario pepito, List<ItemCarrito> Listinha)
+        public Pedido(Usuario pepito, List<ItemCarrito> Listinha) // lo inicializo con los valores  
         {
             ImporteTotal = 0;
             foreach (var item in Listinha)
@@ -29,6 +29,8 @@ namespace Dominio
             IdUsuario = pepito.Id;
 
         }
+
+       
 
         public Pedido()
         { }

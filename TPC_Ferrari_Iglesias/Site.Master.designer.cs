@@ -15,6 +15,24 @@ namespace TPC_Ferrari_Iglesias
     {
 
         /// <summary>
+        /// Control nvHome.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor nvHome;
+
+        /// <summary>
+        /// Control nvIniciarS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor nvIniciarS;
+
+        /// <summary>
         /// Control NombreUsuario.
         /// </summary>
         /// <remarks>

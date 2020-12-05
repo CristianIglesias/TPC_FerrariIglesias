@@ -22,7 +22,7 @@ END
 
 
 
-CREATE procedure sp_InsertarUsuario(
+alter procedure sp_InsertarUsuario(
 --tabla usuarios--
 @NombreUsuario varchar (100),
 @Contraseña varchar (15),
@@ -47,7 +47,7 @@ begin
 insert into Usuarios (NombreUsuario,Contraseña,IdTipoUsuario,Estado) 
 values (@NombreUsuario, @Contraseña ,@IdTipoUsuario ,@Estado)
 
---select @idUsuario = Usuarios.Id from Usuarios where @NombreUsuario = Usuarios.NombreUsuario
+select @idUsuario = Usuarios.Id from Usuarios where @NombreUsuario = Usuarios.NombreUsuario
 
 
 insert into DatosPersonales(IdUsuario, Nombre,Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email) 

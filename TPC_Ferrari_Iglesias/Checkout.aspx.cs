@@ -27,7 +27,7 @@ namespace TPC_Ferrari_Iglesias
                 Response.Redirect("Login.aspx");
             }
                 pepito = (Usuario)Session["alguienNuevo"];
-                pepito = negocio.CargarDatosEnvio(pepito);
+                pepito = negocio.CargarDatosEnvio(pepito); // le mando a pepito que es el usuario completo para despues poder vincularlo con los datos personales
 
             //Cargar formsito de datos Dirección
             if (!IsPostBack)
@@ -37,29 +37,48 @@ namespace TPC_Ferrari_Iglesias
                 txtDireccion.Text = pepito.Direccion.ToString();
                 txtNroTelefono.Text = pepito.NroTelefono.ToString();
 
-                // aca iria la pregunta, si se logueo sigue y sino es un response.redirect al login
-                // esta pregunta se hace a traves de la session
+               
             }
 
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
+            try
+            {
+                ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
             PedidosNegocio negocio = new PedidosNegocio();
             
             ItemCarritoNegocio itemCarritoNegocio = new ItemCarritoNegocio();
 
-            Pedido pedido = new Pedido(pepito,ListaAux);
+            Pedido pedido = new Pedido();
+            pedido.ImporteTotal = 0;
+            foreach (ItemCarrito item in ListaAux) // lista aux tiene al carrito
+            {
+                pedido.ImporteTotal += item.PrecioActual;
+            }
+            pedido.Fecha = DateTime.Now;
+            pedido.Estado = "1";
+            pedido.IdUsuario = pepito.Id;
+
             negocio.Agregar(pedido);
             long idAux = negocio.UbicarID();
             pedido.IdPedido = idAux;
             foreach (var item in ListaAux)
             {
                 //conseguir id 
-                item.IdPedido = idAux;
-                itemCarritoNegocio.AgregarDetalle(item);
+                item.IdPedido = idAux; // mediante esta asignacion lo que hago es relacionar el id del ultimo pedido obtenido y se lo asigno al item pedido pero del detalle
+                itemCarritoNegocio.AgregarDetalle(item); //item ya estaba casi listo para guardarlo en la db solo le faltaba esta magia de asignar los id del pedido para poder despues relacionarlos
 
+            }
+
+           
+                Response.Redirect("Compra.aspx");
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
 
