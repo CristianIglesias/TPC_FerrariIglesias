@@ -40,7 +40,9 @@ namespace Negocio
 
 //El tema es que hay que rearmar la query, capaz incluso hacer una vista y asignar bien todos los datos, no es que no está mostrando... Directamente no están cargandose los datos.
                     }
+
                 }
+                datos.cerrarConexion();
                 return Lista;
             }
             catch (Exception ex)
@@ -54,99 +56,148 @@ namespace Negocio
             AccesoDatos Acceso = new AccesoDatos();
 
             //insert.
+            try
+            {
+                Acceso.setearQuery("Update  Usuarios set (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado) where id = @idUsuario");
 
-            Acceso.setearQuery("Update  Usuarios set (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado) where id = @idUsuario");
-
-            Acceso.agregarParametro("@idUsuario", pepito.Id);
-            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
-            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
-            Acceso.agregarParametro("@Estado", pepito.Estado);
-            Acceso.ejecutarAccion();
+                Acceso.agregarParametro("@idUsuario", pepito.Id);
+                Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+                Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
+                Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+                Acceso.agregarParametro("@Estado", pepito.Estado);
+                Acceso.ejecutarAccion();
 
 
-            Acceso.cerrarConexion();
+                Acceso.cerrarConexion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
         }
         public void ModificarDatosPersonales(Usuario pepito)
         {
-            AccesoDatos Acceso = new AccesoDatos();
-            Acceso.setearQuery("update  DatosPersonales set (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad) where idUsuario =  @id");
-            Acceso.agregarParametro("@ID       ", pepito.Id);
-            Acceso.agregarParametro("@Nombre   ", pepito.Nombre);
-            Acceso.agregarParametro("@Apellido ", pepito.Apellido);
-            Acceso.agregarParametro("@Email    ", pepito.Email);
-            Acceso.agregarParametro("@DNI      ", pepito.DNI);
-            Acceso.agregarParametro("@FechaNac ", pepito.FechaNacimiento);
-            Acceso.agregarParametro("@Genero   ", pepito.Genero);
-            Acceso.agregarParametro("@Telefono ", pepito.NroTelefono);
-            Acceso.agregarParametro("@CP       ", pepito.CodigoPost);
-            Acceso.agregarParametro("@Direccion", pepito.Direccion);
-            Acceso.agregarParametro("@Ciudad   ", pepito.Ciudad);
-            Acceso.ejecutarAccion();
 
-            Acceso.cerrarConexion();
+            try
+            {
+                AccesoDatos Acceso = new AccesoDatos();
+                Acceso.setearQuery("update  DatosPersonales set (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad) where idUsuario =  @id");                Acceso.agregarParametro("@ID       ", pepito.Id);
+                Acceso.agregarParametro("@Nombre   ", pepito.Nombre);
+                Acceso.agregarParametro("@Apellido ", pepito.Apellido);
+                Acceso.agregarParametro("@Email    ", pepito.Email);
+                Acceso.agregarParametro("@DNI      ", pepito.DNI);
+                Acceso.agregarParametro("@FechaNac ", pepito.FechaNacimiento);
+                Acceso.agregarParametro("@Genero   ", pepito.Genero);
+                Acceso.agregarParametro("@Telefono ", pepito.NroTelefono);
+                Acceso.agregarParametro("@CP       ", pepito.CodigoPost);
+                Acceso.agregarParametro("@Direccion", pepito.Direccion);
+                Acceso.agregarParametro("@Ciudad   ", pepito.Ciudad);
+                Acceso.ejecutarAccion();
+
+                Acceso.cerrarConexion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
         public void BajaLogica(Usuario pepito)
         {
             pepito.Estado = false;
             AccesoDatos Acceso = new AccesoDatos();
-            Acceso.setearQuery("Update  Usuarios set (Estado) values (@Estado) where id = @idUsuario");
-            Acceso.agregarParametro("@ID", pepito.Id);
-            Acceso.agregarParametro("@Estado", pepito.Estado);
+
+            try
+            {
+                Acceso.setearQuery("Update  Usuarios set (Estado) values (@Estado) where id = @idUsuario");
+                Acceso.agregarParametro("@ID", pepito.Id);
+                Acceso.agregarParametro("@Estado", pepito.Estado);
+                Acceso.ejecutarAccion();
+                Acceso.cerrarConexion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public Usuario Login (Usuario user)
         {
             AccesoDatos datos = new AccesoDatos();
             //va a ir a la db y va a buscar al usuario por user y por pass
-            datos.setearQuery("select Id, Contraseña, NombreUsuario, IdTipoUsuario, Estado  from Usuarios where NombreUsuario = @NombreUsuario and Contraseña =@Contraseña ");
-            Usuario usuario  = new Usuario();
-            // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
-            datos.agregarParametro("@Contraseña", user.Contrasenia); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
-            datos.agregarParametro("@NombreUsuario", user.NombreUsuario);
 
-            datos.ejecutarLector();
-            datos.lector = datos.comando.ExecuteReader();
-            // si devuelve hay que traer el id
-            if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+            try
             {
-                usuario.NombreUsuario = (string)datos.lector["NombreUsuario"];
-                usuario.Contrasenia = (string)datos.lector["Contraseña"];
-                usuario.Estado = (Boolean)datos.lector["Estado"];
-                usuario.TipoUsuario = (byte)datos.lector["IdTipoUsuario"];
-                usuario.Id = (long)datos.lector["Id"];
+                datos.setearQuery("select Id, Contraseña, NombreUsuario, IdTipoUsuario, Estado  from Usuarios where NombreUsuario = @NombreUsuario and Contraseña =@Contraseña ");
+                Usuario usuario = new Usuario();
+                // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
+                datos.agregarParametro("@Contraseña", user.Contrasenia); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
+                datos.agregarParametro("@NombreUsuario", user.NombreUsuario);
 
+                datos.ejecutarLector();
+                datos.lector = datos.comando.ExecuteReader();
+                // si devuelve hay que traer el id
+                if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+                {
+                    usuario.NombreUsuario = (string)datos.lector["NombreUsuario"];
+                    usuario.Contrasenia = (string)datos.lector["Contraseña"];
+                    usuario.Estado = (Boolean)datos.lector["Estado"];
+                    usuario.TipoUsuario = (byte)datos.lector["IdTipoUsuario"];
+                    usuario.Id = (long)datos.lector["Id"];
+
+                }
+                else
+                {
+                    usuario.Id = 0;
+                }
+               datos.cerrarConexion();
+                return usuario;
             }
-            else
+            catch (Exception)
             {
-                usuario.Id = 0;
-            }
 
-            return usuario;
+                throw;
+            }
+            
         }
 
         public Usuario CargarDatosEnvio (Usuario pepito)
         {
-
             AccesoDatos datos = new AccesoDatos();
-            //va a ir a la db y va a buscar al usuario por user y por pass
-            datos.setearQuery("select Direccion, CP, Ciudad, Telefono from DatosPersonales where @idUsuario = idUsuario ");
-            
-            // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
-            datos.agregarParametro("@idUsuario", pepito.Id); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
 
-            datos.ejecutarLector();
-            datos.lector = datos.comando.ExecuteReader();
-            // si devuelve hay que traer el id
-            if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+            try
             {
-                pepito.Direccion    = (string)datos.lector["Direccion"];
-                pepito.CodigoPost   = Convert.ToInt32(datos.lector["CP"]);
-                pepito.Ciudad    = (String)datos.lector["Ciudad"];
-                pepito.NroTelefono = (String)datos.lector["Telefono"];
-            }
+                //va a ir a la db y va a buscar al usuario por user y por pass
+                datos.setearQuery("select Direccion, CP, Ciudad, Telefono from DatosPersonales where @idUsuario = idUsuario ");
 
-            return pepito;
+                // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
+                datos.agregarParametro("@idUsuario", pepito.Id); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
+
+                datos.ejecutarLector();
+                datos.lector = datos.comando.ExecuteReader();
+                // si devuelve hay que traer el id
+                if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+                {
+                    pepito.Direccion = (string)datos.lector["Direccion"];
+                    pepito.CodigoPost = Convert.ToInt32(datos.lector["CP"]);
+                    pepito.Ciudad = (String)datos.lector["Ciudad"];
+                    pepito.NroTelefono = (String)datos.lector["Telefono"];
+                }
+                datos.cerrarConexion();
+                return pepito;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
 
@@ -154,28 +205,37 @@ namespace Negocio
         public void AgregarUsuarioCompletoConPa(Usuario pepito)
         {
             AccesoDatos Acceso = new AccesoDatos();
+            try
+            {
+
+                Acceso.setearQuery_conPa("sp_InsertarUsuario");
+
+                Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
+                Acceso.agregarParametro("@Contraseña   ", pepito.Contrasenia);
+                Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
+                Acceso.agregarParametro("@Estado       ", pepito.Estado);
+                Acceso.agregarParametro("@IdUsuario    ", pepito.Id);
+                Acceso.agregarParametro("@Nombre       ", pepito.Nombre);
+                Acceso.agregarParametro("@Apellido     ", pepito.Apellido);
+                Acceso.agregarParametro("@Email        ", pepito.Email);
+                Acceso.agregarParametro("@DNI          ", pepito.DNI);
+                Acceso.agregarParametro("@FechaNac     ", pepito.FechaNacimiento);
+                Acceso.agregarParametro("@Genero       ", pepito.Genero);
+                Acceso.agregarParametro("@Telefono     ", pepito.NroTelefono);
+                Acceso.agregarParametro("@CP           ", pepito.CodigoPost);
+                Acceso.agregarParametro("@Direccion    ", pepito.Direccion);
+                Acceso.agregarParametro("@Ciudad       ", pepito.Ciudad);
+                Acceso.ejecutarAccion();
+
+                Acceso.cerrarConexion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
 
-            Acceso.setearQuery_conPa("sp_InsertarUsuario");
-
-            Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-            Acceso.agregarParametro("@Contraseña   ", pepito.Contrasenia);
-            Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
-            Acceso.agregarParametro("@Estado       ", pepito.Estado);
-            Acceso.agregarParametro("@IdUsuario    ", pepito.Id);
-            Acceso.agregarParametro("@Nombre       ", pepito.Nombre);
-            Acceso.agregarParametro("@Apellido     ", pepito.Apellido);
-            Acceso.agregarParametro("@Email        ", pepito.Email);
-            Acceso.agregarParametro("@DNI          ", pepito.DNI);
-            Acceso.agregarParametro("@FechaNac     ", pepito.FechaNacimiento);
-            Acceso.agregarParametro("@Genero       ", pepito.Genero);
-            Acceso.agregarParametro("@Telefono     ", pepito.NroTelefono);
-            Acceso.agregarParametro("@CP           ", pepito.CodigoPost);
-            Acceso.agregarParametro("@Direccion    ", pepito.Direccion);
-            Acceso.agregarParametro("@Ciudad       ", pepito.Ciudad);
-            Acceso.ejecutarAccion();
-
-            Acceso.cerrarConexion();
         }
 
 

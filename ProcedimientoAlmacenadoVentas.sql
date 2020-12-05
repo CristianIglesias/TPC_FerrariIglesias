@@ -1,35 +1,48 @@
-create procedure SP_AgregarVenta (
-@Id bigint, --esto me parece	ue esta mal, poner el id aca, lo hago para poder relacionarlo con la tabla detalle
- --esto tampoco esta bien
-@IdUsuario bigint,
-@IdEstado tinyint,
-@Fecha date,
-@Importe money
+Insert into Pedidos (IdUsuario,Importe,Fecha,IdEstado)
+values (@idUsuario,@ImporteTotal,@Fecha,@Estado)
+
+Create procedure SP_AgregarDetalle (
+@idPedido bigint,
+@idProducto bigint,
+@CantidadPedida tinyint, 
+@UrlImagen varchar (900),
+@Nombre varchar (50),
+@PrecioActual money 
 )
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRANSACTION
-		DECLARE @PActual MONEY 
-		DECLARE @CantPedida tinyint
-		DECLARE @IdProducto bigint
-		Select  @PActual = PrecioActual from Detalle where IdPedido = @Id -- esto esta mal por el tema q..
-		Select   @CantPedida = CantidadPedida from Detalle where IdPedido = @Id -- esto esta mal por el tema q..
-		--ACA SEGURO VAN MAS COSAS
+as 
+begin --arranca la wea
 
-		INSERT INTO Pedidos (IdUsuario, IdEstado, Fecha, Importe ) 
-		VALUES (@IdUsuario ,@IdEstado, GETDATE(), @PActual* @CantPedida)
-		---ACA ME ESTOY LLENDO A CUALQUIER LADO, A LA TABLA PRODUCTO.
-		--HAY QUE VER COMO LLEGAR
+begin try -- arranca el try
+	begin transaction 
+	insert into Detalle (IdPedido, IdProducto, CantidadPedida, UrlImagen, Nombre, PrecioActual)
+	values
+	(@idPedido,@idProducto,@CantidadPedida,@UrlImagen,@Nombre,@PrecioActual)
+	update Producto set StockActual = StockActual-@CantidadPedida  
+	where id= @idProducto
+	IF @@ROWCOUNT  = 0
+	BEGIN RAISERROR('No se pudo guardar el detalle',16,1)
+	
+	END
+	
+	Commit transaction
+end try--termina el try
 
-		UPDATE  Producto SET StockActual = StockActual - @CantPedida WHERE  IdPedido = @Id 
-		COMMIT TRANSACTION 
+begin catch--arranca el catch
 
-END TRY
-BEGIN CATCH
-		ROLLBACK TRANSACTION 
-		RAISERROR ('no se pudo agregar la venta',16,1)
-END CATCH
+raiserror('No se pudo guardar el detalle', 16,1)
 
-END
+end catch--termina el catch
 
+end --termina el P_A
+
+
+exec SP_AgregarDetalle 1,1,3,'dasasd','adasdsad',50
+
+
+insert into pedidos (IdEstado, IdUsuario,Importe, Fecha) values (1, 1,10, '12-12-2020')
+select * from Pedidos
+select * from Detalle
+
+
+
+select max(id) from Pedidos 

@@ -2,8 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-
-
     <%-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -30,20 +28,6 @@
     
     <asp:Button runat="server"  style="background-color: #007aff;color: white; width:90px;height:39px;text-align: center;font-size: 16px;cursor: pointer; border-radius: 5px;border:none;" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
     </div>
-   <%-- <div class="form-group">
-        <asp:DropDownList runat="server" CssClass="form-control" ID="DropDownColor" DataValueField="" DataTextField="">
-            
-        </asp:DropDownList>
-        <asp:DropDownList runat="server">
-        </asp:DropDownList>
-    </div>--%>
-
-   <%-- <div>   
-        <asp:Label Text="alguito" runat="server" />
-        <asp:DropDownList runat="server" ID="DdlTipo" CssClass="form-control">
-            
-        </asp:DropDownList>
-    </div>--%>
 
     <div class="container">
         <div class="row">
@@ -59,7 +43,8 @@
                     <div class="card-body">
                         <img src="<%=item.Imagen%>" class="card-img-top" alt="...">
                         <h5 class="card-title">Producto: <%=item.Nombre %></h5>
-                        <h5 class="card-title">Precio: $<%=item.Precio %></h5>
+                        <h5 class="card-title">Precio: $<%=item.Precio %></h5>                        
+
                         <a href="Detalle.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Ver detalle</a>
                         <a href="Carrito.aspx?idArticulo=<%=item.Id.ToString()%>" class="btn btn-primary">Agregar</a>
 

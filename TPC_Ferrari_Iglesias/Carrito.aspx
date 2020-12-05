@@ -27,11 +27,11 @@
                 <table class="table">
                     <tr>
                         <td><strong>Nombre:</strong> </td>
-
                         <td><strong>Precio:</strong>  </td>
                         <td><strong>Imagen:</strong> </td>
-
-
+                        <td><strong>Cantidad Unidades:</strong> </td>
+                        <td><strong>Subtotal:</strong> </td>                        
+                        <td><strong>Acciones:</strong> </td>
                     </tr>
 
                     <%
@@ -47,7 +47,6 @@
                             <img src="<%=item.UrlImagen%>" style="width: 60px; height: 60px;" class="card-img-top" alt="...">
                         </td>
 
-                        <td></td>
 
 
                         <td>Cantidad unidades:
@@ -60,7 +59,6 @@
                         <td>
                             <a href="Detalle.aspx?idArticulo=<%=item.IdProducto.ToString()%>" class="btn btn-primary">Detalle</a>
                             <a href="Carrito.aspx?idArticulo=<%=item.IdProducto.ToString()%>&extra=<%=1.ToString()%>" class="btn btn-danger">Eliminar</a>
-
                         </td>
 
                     </tr>

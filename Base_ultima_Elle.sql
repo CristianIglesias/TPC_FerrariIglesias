@@ -48,7 +48,7 @@ Apellido varchar(100) not Null,
 DNI varchar (10) not null,
 FechaNac date not null,
 Genero varchar (20) null,
-Telefono int not null,
+Telefono varchar(20) not null,
 CP int not null,
 Direccion varchar(100) not null,
 Ciudad varchar(100) not null,
@@ -129,3 +129,4 @@ go
 alter table Usuarios 
 add constraint NombreUsuario  unique (NombreUsuario)
 
+--Cambios que ya están hechos para la proxima ejecución 

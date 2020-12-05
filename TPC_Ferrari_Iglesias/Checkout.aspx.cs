@@ -22,18 +22,16 @@ namespace TPC_Ferrari_Iglesias
                 ListaAux = new List<ItemCarrito>();
                 Session["ListaCarrito"] = ListaAux;
             }
-
             if (Session["alguienNuevo"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
-
-
-            //Cargar formsito de datos Dirección
-            if (IsPostBack)
-            {
                 pepito = (Usuario)Session["alguienNuevo"];
                 pepito = negocio.CargarDatosEnvio(pepito);
+
+            //Cargar formsito de datos Dirección
+            if (!IsPostBack)
+            {
                 txtCiudad.Text = pepito.Ciudad.ToString();
                 txtCodPost.Text = pepito.CodigoPost.ToString();
                 txtDireccion.Text = pepito.Direccion.ToString();
@@ -43,24 +41,27 @@ namespace TPC_Ferrari_Iglesias
                 // esta pregunta se hace a traves de la session
             }
 
-            //protected void btnComprar_Click(object sender, EventArgs e)
-            //{
-            //    PedidosNegocio negocio = new Negocio.PedidosNegocio();
-            //    Pedido pedido = new Pedido();
-            //    List<ItemCarrito> carrito = (List<ItemCarrito>)Session["ListaCarrito"];
-            //    negocio.Agregar(pedido, carrito);
-
-
-
-            //}
         }
 
         protected void btnComprar_Click(object sender, EventArgs e)
         {
-            PedidosNegocio negocio = new Negocio.PedidosNegocio();
-            Pedido pedido = new Pedido();
-            List<ItemCarrito> carrito = (List<ItemCarrito>)Session["ListaCarrito"];
-            negocio.Agregar(pedido, carrito);
+            ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
+            PedidosNegocio negocio = new PedidosNegocio();
+            
+            ItemCarritoNegocio itemCarritoNegocio = new ItemCarritoNegocio();
+
+            Pedido pedido = new Pedido(pepito,ListaAux);
+            negocio.Agregar(pedido);
+            long idAux = negocio.UbicarID();
+            pedido.IdPedido = idAux;
+            foreach (var item in ListaAux)
+            {
+                //conseguir id 
+                item.IdPedido = idAux;
+                itemCarritoNegocio.AgregarDetalle(item);
+
+            }
+
 
         }
     }

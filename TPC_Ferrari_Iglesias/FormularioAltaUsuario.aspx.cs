@@ -95,7 +95,7 @@ namespace TPC_Ferrari_Iglesias
                     pepito.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
                     pepito.Genero = txtGenero.Text;
                     pepito.NroTelefono = txtTelefono.Text;
-                    pepito.CodigoPost = Convert.ToInt32(txtTelefono.Text);
+                    pepito.CodigoPost = Convert.ToInt32(txtCodPost.Text);
                     pepito.Direccion = txtDireccion.Text;
                     pepito.Ciudad = txtCiudad.Text;
                     pepito.Estado = true;

@@ -41,26 +41,53 @@ namespace Negocio
 
             }
         }
-        public void Agregar(Pedido pedido, List<ItemCarrito> carro)
+        public void Agregar(Pedido pedido )
         {
+            try
+            {
+                AccesoDatos Acceso = new AccesoDatos();
+                Acceso.setearQuery("Insert into Pedidos (IdUsuario,Importe,Fecha,IdEstado) values(@idUsuario, @ImporteTotal, @Fecha, @Estado)");
+                Acceso.agregarParametro("@idUsuario    ", pedido.IdUsuario);
+                Acceso.agregarParametro("@ImporteTotal ", pedido.ImporteTotal);
+                Acceso.agregarParametro("@Fecha        ", pedido.Fecha);
+                Acceso.agregarParametro("@Estado       ", pedido.Estado);
+                Acceso.ejecutarAccion();
+                Acceso.cerrarConexion();
 
-            AccesoDatos Acceso = new AccesoDatos();
+            }
+            catch (Exception)
+            {
 
-
-            Acceso.setearQuery("ProcedimientoAlmacenadoconlacosayelrollbackyeso");
-
-            //Acceso.agregarParametro("@idUsuario  ",);
-            //Acceso.agregarParametro("@ImporteTotal  ",);
-            //Acceso.agregarParametro("@Fecha  ",);
-            //Acceso.agregarParametro("@Estado  ",);
-            Acceso.ejecutarAccion();
-
-
-            Acceso.cerrarConexion();
+                throw;
+            }
+            
 
         }
 
+        public long UbicarID ()
+        {
 
+            long IdAux;
+            try
+            {
+                AccesoDatos acceso = new AccesoDatos();
+                acceso.setearQuery("select max(id) from Pedidos ");
+                acceso.ejecutarLector();
+                acceso.lector = acceso.comando.ExecuteReader();
+                acceso.lector.Read(); //No hace falta while porque es un solo registro :)
+                IdAux = acceso.lector.GetInt64(0);
+                acceso.cerrarConexion();
+                return IdAux;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+             
+
+        }
 
 
     }

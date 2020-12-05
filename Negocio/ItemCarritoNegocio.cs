@@ -35,6 +35,7 @@ namespace Negocio
                         Lista.Add(Aux);
                     
                 }
+                Acceso.cerrarConexion();
                 return Lista;
 
 
@@ -49,5 +50,30 @@ namespace Negocio
 
         }
 
+
+
+        public void  AgregarDetalle(ItemCarrito item)
+        {
+            try
+            {
+                AccesoDatos Acceso = new AccesoDatos();
+                Acceso.setearQuery_conPa("SP_AgregarDetalle");
+
+                Acceso.agregarParametro("@IdProducto     ", item.IdProducto);
+                Acceso.agregarParametro("@idPedido       ", item.IdPedido);
+                Acceso.agregarParametro("@PrecioActual   ", item.PrecioActual);
+                Acceso.agregarParametro("@CantidadPedida ", item.CantidadPedida);
+                Acceso.agregarParametro("@UrlImagen      ", item.UrlImagen);
+                Acceso.agregarParametro("@Nombre         ", item.NombreActual);
+                Acceso.ejecutarAccion();
+                Acceso.cerrarConexion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
     }
 }

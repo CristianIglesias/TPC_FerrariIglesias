@@ -22,7 +22,7 @@ END
 
 
 
-create procedure sp_InsertarUsuario(
+CREATE procedure sp_InsertarUsuario(
 --tabla usuarios--
 @NombreUsuario varchar (100),
 @Contraseña varchar (15),
@@ -36,7 +36,7 @@ create procedure sp_InsertarUsuario(
 @Dni varchar(20),
 @FechaNac date,
 @Genero varchar(20),
-@Telefono int,
+@Telefono varchar(20),
 @CP int ,
 @Direccion varchar(100),
 @Ciudad varchar(100),
@@ -57,3 +57,7 @@ values (@IdUsuario, @Nombre, @Apellido ,@Dni,@FechaNac,@Genero,@Telefono, @CP, @
 end 
 
 select * from Usuarios left join DatosPersonales on Usuarios.id = DatosPersonales.IdUsuario
+
+
+select * from Pedidos
+select * from Detalle

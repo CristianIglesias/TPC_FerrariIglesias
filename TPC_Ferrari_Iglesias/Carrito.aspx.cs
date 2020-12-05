@@ -15,7 +15,7 @@ namespace TPC_Ferrari_Iglesias
         public Productos Producto;
         long IdAux;
         //int IdAux;
-        public int extra ;
+        public int extra;
         public ItemCarrito Detalle;
         public List<ItemCarrito> ListaAux;
         public Decimal Subtotal;
@@ -23,14 +23,14 @@ namespace TPC_Ferrari_Iglesias
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
-            
+
             try
             {
                 IdAux = Convert.ToInt32(Request.QueryString["idArticulo"]);
-                extra= Convert.ToInt32(Request.QueryString["extra"]);
+                extra = Convert.ToInt32(Request.QueryString["extra"]);
                 Liston = negocio.Listar();
                 Producto = Liston.Find(x => x.Id == IdAux);
-                
+
 
 
                 //parche para que acceder directo al carrito funcione, que es lo que me está haciendo pinchar ahora.
@@ -44,8 +44,8 @@ namespace TPC_Ferrari_Iglesias
                     }
                     else
 
-                    { 
-                        ListaAux = (List<ItemCarrito>)Session["ListaCarrito"]; 
+                    {
+                        ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
                     }
                     return;//estos todavía existen, me había olvidado
                     //esta validación que agregué resuelve el problema. Ese problema era, que mas abajo
@@ -65,17 +65,17 @@ namespace TPC_Ferrari_Iglesias
                 //fin del parche/toqueteo
                 if (IdAux > 0 && extra == 1)
                 {
-                   
-                            ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];//traeme lo que tenemos en session
+
+                    ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];//traeme lo que tenemos en session
                     foreach (var item in ListaAux)
                     {
                         if (IdAux == item.IdProducto)
 
-                        { 
+                        {
                             ListaAux.Remove(item);
                             Session["ListaCarrito"] = ListaAux;
                             Response.Redirect("Carrito.aspx");
-                            
+
                         }
                     }
 
@@ -96,13 +96,29 @@ namespace TPC_Ferrari_Iglesias
                         ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];// mi lista con los Items del carrito q agregue en session
                         foreach (var item in ListaAux)
                         {
-                            if(item.IdProducto == IdAux)
+                            if (item.IdProducto == IdAux)
                             {
-                                item.CantidadPedida ++;
-                                Session["ListaCarrito"] = ListaAux;
-                                return;
+                                item.CantidadPedida++;
+                                foreach (var Producto in Liston)//listaCatalo
+                                {
+                                    if (IdAux == Producto.Id)
+                                    {
+                                        if (Producto.StockActual >= item.CantidadPedida)
+                                        {
+                                            Session["ListaCarrito"] = ListaAux;
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            item.CantidadPedida--;
+                                            Session["ListaCarrito"] = ListaAux;
+                                            return;
+                                        }
+                                    }
+                                }
+
                             }
-                                                    
+
                         }
 
                         Detalle.CantidadPedida = 1;
@@ -112,7 +128,7 @@ namespace TPC_Ferrari_Iglesias
                     }
 
                     //calcular cantidad de veces que está el articulo en la lista
-                }   
+                }
 
             }
             catch (Exception)
