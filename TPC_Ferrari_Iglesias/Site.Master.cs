@@ -25,9 +25,20 @@ namespace TPC_Ferrari_Iglesias
                 //nombreUsuario es el id que tiene la p el  el front en el nav bar
 
                 nvIniciarS.Visible = false; // oculta el elemento
+                nvOpcionesUsuario.Visible = true; //muestra el botoncito para llegar a las opciones de usuario.
+
+                if (Session["ListaCarrito"] != null)
+                {
+                    lblContadorCarro.Text = "Items En Carrito: "+((List<ItemCarrito>)Session["ListaCarrito"]).Count.ToString();
+
+
+                }
+
+
                 if(usuario.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)
                 {
                     nvHome.Visible = true; // si no es el admin 
+                    nvOpcionesUsuario.InnerText = "Listado De Compras/ Opciones de Administrador.";
                 }
             }
 

@@ -9,7 +9,7 @@
 
 
         <%
-            if (((List<Dominio.ItemCarrito>)Session.Contents["ListaCarrito"]).Count == 0)
+            if (((List<Dominio.ItemCarrito>)Session.Contents["ListaPedidos"]).Count == 0)
             {
         %>
         <p>Ups, No tenés pedidos Registrados! </p>

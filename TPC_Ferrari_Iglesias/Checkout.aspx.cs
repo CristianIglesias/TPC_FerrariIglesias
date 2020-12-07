@@ -58,7 +58,7 @@ namespace TPC_Ferrari_Iglesias
                 pedido.ImporteTotal += item.PrecioActual;
             }
             pedido.Fecha = DateTime.Now;
-            pedido.Estado = "1";
+            pedido.Estado = 1;
             pedido.IdUsuario = pepito.Id;
 
             negocio.Agregar(pedido);

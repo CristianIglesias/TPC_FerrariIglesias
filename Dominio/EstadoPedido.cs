@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public  class TipoUsuarioConstante
+    public class EstadoPedido
     {
-       public const   byte ADMINISTRADOR = 1;
-       public  const  byte CLIENTE = 2;
-
+        public int Id;
+        public string Descripcion;
     }
 }

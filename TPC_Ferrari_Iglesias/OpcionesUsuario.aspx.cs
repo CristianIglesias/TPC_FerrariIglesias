@@ -10,7 +10,7 @@ using Negocio;
 namespace TPC_Ferrari_Iglesias
 {
     public partial class OpcionesUsuario : System.Web.UI.Page
-    {           
+    {
         public Usuario user;
         public UsuarioNegocio negocio;
         public Pedido esteEspecifico;
@@ -23,6 +23,10 @@ namespace TPC_Ferrari_Iglesias
             esteEspecifico = new Pedido();
             listaPedidos = new List<Pedido>();
             negocioPedidos = new PedidosNegocio();
+            EstadoPedidoNegocio estadonegocio = new EstadoPedidoNegocio();
+
+            List<EstadoPedido> ListaEstados = estadonegocio.Listar();
+
 
             user = (Usuario)Session["alguienNuevo"];
 
@@ -32,7 +36,7 @@ namespace TPC_Ferrari_Iglesias
             {
                 Response.Redirect("Login.aspx");
             }
-            if (user.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)
+            if (user.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)//Si el user es ADMIN, TENGO QUE HABILITARLE UNA MANERA DE EDITAR LOS ESTADOS DE LOS PEDIDOS.
             {//bueno, cargar las listas.
                 if (Session["ListaPedidos"] == null)
                 {
@@ -51,11 +55,6 @@ namespace TPC_Ferrari_Iglesias
 
             }
             ///OPCIONESusuario.aspx.cs
-
-
-
-
-
 
         }
     }

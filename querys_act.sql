@@ -7,12 +7,12 @@ use Remeras_Elle_CC
  insert into TipoUsuario (Nombre ) values ('Cliente' )
  select nombre from TipoUsuario
  
- UPDATE TipoUsuario
- SET Nombre = 'Cliente'
- WHERE id = 2
+ --UPDATE TipoUsuario
+ --SET Nombre = 'Cliente'
+ --WHERE id = 2
  
- delete from TipoUsuario 
- where id = 3
+ --delete from TipoUsuario 
+ --where id = 3
  
  
  insert into TipoPagos(Nombre ) values ('MercadoLibre' )
@@ -26,6 +26,7 @@ use Remeras_Elle_CC
 
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('2','500','Remera 3', 'M', 'Remerita divertidita', 'Blanca','https://risataweb.com.ar/wp-content/uploads/2018/07/remera-gaa.jpg', 1,10, 100 )								
  insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg', 1,10, 100  )
+
 
  Select p.Id, --0
  p.IdTipo,--1
@@ -105,3 +106,7 @@ select * from DatosPersonales
  select * from DatosPersonales
 
   select u.Contraseña, u.Id, u.IdTipoUsuario, u.NombreUsuario, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario
+
+
+  
+  

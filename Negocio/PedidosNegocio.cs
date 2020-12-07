@@ -26,9 +26,10 @@ namespace Negocio
                 {
                     Pedido Aux = new Pedido();
                     Aux.IdPedido = Acceso.lector.GetInt64(0);
-                    Aux.IdUsuario = Acceso.lector.GetByte(1);
-                    Aux.Estado = Acceso.lector.GetString(2);
+                    Aux.IdUsuario = Acceso.lector.GetInt64(1);
+                    Aux.Estado = Acceso.lector.GetByte(2);
                     Aux.Fecha = Acceso.lector.GetDateTime(3);
+                    Aux.ImporteTotal = Acceso.lector.GetSqlMoney(4);
                     Lista.Add(Aux);
                 }
                 return Lista;
@@ -101,9 +102,10 @@ namespace Negocio
                 {
                     Pedido Aux = new Pedido();
                     Aux.IdPedido = Acceso.lector.GetInt64(0);
-                    Aux.IdUsuario = Acceso.lector.GetByte(1);
-                    Aux.Estado = Acceso.lector.GetString(2);
+                    Aux.IdUsuario = Acceso.lector.GetInt64(1);
+                    Aux.Estado = Acceso.lector.GetByte(2);
                     Aux.Fecha = Acceso.lector.GetDateTime(3);
+                    Aux.ImporteTotal = Acceso.lector.GetSqlMoney(4);
                     Lista.Add(Aux);
                 }
                 return Lista;
