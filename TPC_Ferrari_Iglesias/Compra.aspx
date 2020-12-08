@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Compra.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Compra" %>
+﻿<%@ Page Language="C#"  AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Compra.aspx.cs" Inherits="TPC_Ferrari_Iglesias.Compra" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -14,7 +14,6 @@
                 <td><%=item.CantidadPedida%></td>
                  <td> <img src="<%=item.UrlImagen%>"  style="width: 60px; height: 60px;" class="card-img-top" /></td>
                 
-
                 <td></td>
             </tr>
             <% } %>

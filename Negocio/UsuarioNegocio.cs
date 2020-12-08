@@ -14,7 +14,7 @@ namespace Negocio
         {
             AccesoDatos datos = new AccesoDatos();
             List<Usuario> Lista = new List<Usuario>();
-            datos.setearQuery("select u.Id, u.Contraseña,  u.IdTipoUsuario, u.NombreUsuario, u.Estado, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario");
+            datos.setearQuery("select u.Id, u.NombreUsuario, u.Contraseña, u.IdTipoUsuario,u.Estado, dp.Nombre,dp.Apellido,dp.DNI,dp.fechaNac,dp.genero,dp.telefono,dp.cp,dp.direccion,dp.ciudad,dp.email from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario");
             try
             {
                 datos.ejecutarLector();
@@ -22,23 +22,28 @@ namespace Negocio
                 while (datos.lector.Read())
                 {
                     Usuario aux = new Usuario();
-                    aux.Estado = datos.lector.GetSqlBoolean(4);
-                    if(aux.Estado==true)
-                    { 
-                    aux.Id = (int)datos.lector.GetInt64(0);
-                    aux.Contrasenia = (string)datos.lector["Contraseña"];
-                    aux.TipoUsuario = (byte)datos.lector.GetByte(2);
-                    aux.NombreUsuario = (string)datos.lector["NombreUsuario"];
-                    aux.Nombre = (string)datos.lector["Nombre"];
-                    aux.Apellido = (string)datos.lector["Apellido"];
-                    aux.DNI = datos.lector.GetString(7);
-                    
+                    aux.Estado = (bool)datos.lector["Estado"];
+                    if (aux.Estado == true)
+                    {
+                        aux.Id = (int)datos.lector.GetInt64(0);
+
+                        aux.NombreUsuario = (string)datos.lector["NombreUsuario"];
+                        aux.Contrasenia = (string)datos.lector["Contraseña"];
+                        aux.TipoUsuario = (byte)datos.lector.GetByte(3);
+                        aux.Nombre = (string)datos.lector["Nombre"];
+                        aux.Apellido = (string)datos.lector["Apellido"];
+                        aux.DNI = datos.lector.GetString(7);
+                        aux.FechaNacimiento = (DateTime)datos.lector["fechaNac"];
+                        aux.Genero = (string)datos.lector["genero"];
+                        aux.NroTelefono = (string)datos.lector["telefono"];
+                        aux.CodigoPost = (int)datos.lector["cp"];
+                        aux.Direccion = (string)datos.lector["direccion"];
+                        aux.Ciudad = (string)datos.lector["ciudad"];
+                        aux.Email = (string)datos.lector["email"];
+                        Lista.Add(aux);
 
 
-                    Lista.Add(aux);
-
-
-//El tema es que hay que rearmar la query, capaz incluso hacer una vista y asignar bien todos los datos, no es que no está mostrando... Directamente no están cargandose los datos.
+                        //El tema es que hay que rearmar la query, capaz incluso hacer una vista y asignar bien todos los datos, no es que no está mostrando... Directamente no están cargandose los datos.
                     }
 
                 }
@@ -58,7 +63,7 @@ namespace Negocio
             //insert.
             try
             {
-                Acceso.setearQuery("Update  Usuarios set (NombreUsuario, Contraseña, IdTipoUsuario,Estado) values (@NombreUsuario,@Contraseña,@IdTipoUsuario,@Estado) where id = @idUsuario");
+                Acceso.setearQuery("Update  Usuarios set NombreUsuario=@NombreUsuario, Contraseña=@Contraseña, IdTipoUsuario=@IdTipoUsuario, Estado=@Estado where id = @idUsuario");
 
                 Acceso.agregarParametro("@idUsuario", pepito.Id);
                 Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
@@ -76,7 +81,7 @@ namespace Negocio
 
                 throw;
             }
-          
+
         }
         public void ModificarDatosPersonales(Usuario pepito)
         {
@@ -84,7 +89,8 @@ namespace Negocio
             try
             {
                 AccesoDatos Acceso = new AccesoDatos();
-                Acceso.setearQuery("update  DatosPersonales set (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad) where idUsuario =  @id");                Acceso.agregarParametro("@ID       ", pepito.Id);
+                Acceso.setearQuery("update  DatosPersonales set Nombre=@Nombre, Apellido=@Apellido, Email=@Email, DNI=@DNI, FechaNac=@FechaNac, Genero=@Genero, Telefono=@Telefono, CP=@CP, Direccion=@Direccion, Ciudad=@Ciudad where idUsuario =  @id");
+                Acceso.agregarParametro("@ID       ", pepito.Id);
                 Acceso.agregarParametro("@Nombre   ", pepito.Nombre);
                 Acceso.agregarParametro("@Apellido ", pepito.Apellido);
                 Acceso.agregarParametro("@Email    ", pepito.Email);
@@ -124,10 +130,10 @@ namespace Negocio
 
                 throw;
             }
-           
+
         }
 
-        public Usuario Login (Usuario user)
+        public Usuario Login(Usuario user)
         {
             AccesoDatos datos = new AccesoDatos();
             //va a ir a la db y va a buscar al usuario por user y por pass
@@ -156,7 +162,7 @@ namespace Negocio
                 {
                     usuario.Id = 0;
                 }
-               datos.cerrarConexion();
+                datos.cerrarConexion();
                 return usuario;
             }
             catch (Exception)
@@ -164,10 +170,10 @@ namespace Negocio
 
                 throw;
             }
-            
+
         }
 
-        public Usuario CargarDatosEnvio (Usuario pepito)
+        public Usuario CargarDatosEnvio(Usuario pepito)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -197,7 +203,7 @@ namespace Negocio
 
                 throw;
             }
-           
+
         }
 
 
@@ -217,7 +223,6 @@ namespace Negocio
                 Acceso.agregarParametro("@IdUsuario    ", pepito.Id);
                 Acceso.agregarParametro("@Nombre       ", pepito.Nombre);
                 Acceso.agregarParametro("@Apellido     ", pepito.Apellido);
-                Acceso.agregarParametro("@Email        ", pepito.Email);
                 Acceso.agregarParametro("@DNI          ", pepito.DNI);
                 Acceso.agregarParametro("@FechaNac     ", pepito.FechaNacimiento);
                 Acceso.agregarParametro("@Genero       ", pepito.Genero);
@@ -225,6 +230,7 @@ namespace Negocio
                 Acceso.agregarParametro("@CP           ", pepito.CodigoPost);
                 Acceso.agregarParametro("@Direccion    ", pepito.Direccion);
                 Acceso.agregarParametro("@Ciudad       ", pepito.Ciudad);
+                Acceso.agregarParametro("@Email        ", pepito.Email);
                 Acceso.ejecutarAccion();
 
                 Acceso.cerrarConexion();

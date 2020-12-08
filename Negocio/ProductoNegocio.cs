@@ -97,7 +97,7 @@ namespace Negocio
             try
             {
                 AccesoDatos Acceso = new AccesoDatos();
-                Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio, Estado =@Estado, StockMinimo =@StockMinimo, StockActual =@StockActual  where id=@Id");
+                Acceso.setearQuery("Update Producto set idTipo=@IdTipo, Nombre=@Nombre, Descripcion=@Descripcion, Color=@Color, UrlImagen=@Imagen, Talle=@Talle, Precio = @Precio, Estado=@Estado, StockMinimo =@StockMinimo, StockActual =@StockActual  where id=@Id");
                 Acceso.agregarParametro("@Id", productin.Id);
                 Acceso.agregarParametro("@IdTipo", productin.TipoRemera.Id);
                 Acceso.agregarParametro("@Nombre", productin.Nombre);

@@ -46,3 +46,6 @@ select * from Detalle
 
 
 select max(id) from Pedidos 
+
+
+

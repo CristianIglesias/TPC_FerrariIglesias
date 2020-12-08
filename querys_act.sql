@@ -70,6 +70,7 @@ join TipoProducto as Tipos on P.IdTipo = tipos.Id
  select IdUsuario, Nombre, Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad from DatosPersonales
 
  select * from Usuarios
+ select * from DatosPersonales
 
   set dateformat dmy
 
@@ -85,6 +86,20 @@ join TipoProducto as Tipos on P.IdTipo = tipos.Id
    Direccion,
    Ciudad
    ) 
+values (
+14,
+'Silvano',
+'Lopez',
+'ESTEMAIL@MAIL.VERGA',
+'11539557',
+'20-02-1970',
+'f',
+'1155998384',
+'1617',
+'Austria Sur 196',
+'Troncos del talar')
+
+
 --query usada en la app ~
 insert into DatosPersonales (Nombre, Apellido, Email, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad) VALUES (@Nombre,@Apellido, @Email, @DNI, @FechaNac,@Genero,@Telefono,@CP,@Direccion,@Ciudad)
 --query usada en la app ~
@@ -104,9 +119,16 @@ select * from DatosPersonales
 
 
  select * from DatosPersonales
+ select * from usuarios left join DatosPersonales on id= IdUsuario
 
   select u.Contraseña, u.Id, u.IdTipoUsuario, u.NombreUsuario, dp.Nombre, dp.Apellido, dp.DNI from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario
 
 
   
+  select u.Id, u.NombreUsuario, u.Contraseña, u.IdTipoUsuario,u.Estado, dp.Nombre,dp.Apellido,dp.DNI,dp.fechaNac,dp.genero,dp.telefono,dp.cp,dp.direccion,dp.ciudad,dp.email from Usuarios as u join DatosPersonales as dp on u.Id = dp.IdUsuario
+
+  Update  Usuarios set NombreUsuario=@NombreUsuario, Contraseña=@Contraseña, IdTipoUsuario=@IdTipoUsuario, Estado=@Estado where id = @idUsuario
+  
+  
+  update  DatosPersonales set Nombre=@Nombre, Apellido=@Apellido, Email=@Email, DNI=@DNI, FechaNac=@FechaNac, Genero=@Genero, Telefono=@Telefono, CP=@CP, Direccion=@Direccion, Ciudad=@Ciudad where idUsuario =  @id
   

@@ -76,7 +76,7 @@
                 <asp:TextBox runat="server" ID="txtTelefono" CssClass="caja" />
                       <asp:RequiredFieldValidator ErrorMessage="El NÚMERO DE TÉLEFONO es un campo obligatorio"  ForeColor="Red" ControlToValidate="txtTelefono" runat="server" />
                       <%--<asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números"  ValidationExpression="^[0-9]{1,10}$"  ControlToValidate="txtTelefono" runat="server" />--%>
-                      <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red"  ControlToValidate="txtTelefono" runat="server" ValidationExpression="^[0-9]{1,10}$"   />
+                      <asp:RegularExpressionValidator ErrorMessage="Solo aceptamos números" ForeColor="Red"  ControlToValidate="txtTelefono" runat="server" ValidationExpression="^[0-9]{0,10}$"   />
                   </div>
                   <div>
                 <asp:Label Text="Código Postal" runat="server" CssClass="label" />

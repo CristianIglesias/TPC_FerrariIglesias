@@ -15,13 +15,12 @@ namespace TPC_Ferrari_Iglesias
         protected void Page_Load(object sender, EventArgs e)
         {
             
-
-
             if(Session["alguienNuevo"] != null)
             {
                 Usuario usuario;
                 usuario = (Usuario) Session["alguienNuevo"];
                 NombreUsuario.InnerText = usuario.NombreUsuario;
+                btnLogOut.Visible = true;
                 //nombreUsuario es el id que tiene la p el  el front en el nav bar
 
                 nvIniciarS.Visible = false; // oculta el elemento
@@ -30,7 +29,6 @@ namespace TPC_Ferrari_Iglesias
                 if (Session["ListaCarrito"] != null)
                 {
                     lblContadorCarro.Text = "Items En Carrito: "+((List<ItemCarrito>)Session["ListaCarrito"]).Count.ToString();
-
 
                 }
 
@@ -49,7 +47,7 @@ namespace TPC_Ferrari_Iglesias
         {
             
             Session["alguienNuevo"] = null;
-                
+            Response.Redirect("Catalogo.aspx");
 
         }
     }

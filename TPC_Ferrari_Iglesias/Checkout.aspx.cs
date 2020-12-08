@@ -36,8 +36,6 @@ namespace TPC_Ferrari_Iglesias
                 txtCodPost.Text = pepito.CodigoPost.ToString();
                 txtDireccion.Text = pepito.Direccion.ToString();
                 txtNroTelefono.Text = pepito.NroTelefono.ToString();
-
-               
             }
 
         }

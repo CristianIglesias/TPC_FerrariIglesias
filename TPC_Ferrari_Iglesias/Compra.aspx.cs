@@ -13,7 +13,12 @@ namespace TPC_Ferrari_Iglesias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //
+            if (Session["ListaCarrito"] == null)
+            {
+                Response.Redirect("Catalogo.aspx");
+            }
+            else Session["ListaCarrito"] = null;
         }
     }
 }

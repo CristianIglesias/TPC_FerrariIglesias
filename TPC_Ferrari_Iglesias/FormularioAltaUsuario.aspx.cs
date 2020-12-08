@@ -23,6 +23,8 @@ namespace TPC_Ferrari_Iglesias
             {
                 if (IsPostBack)
                 {
+                    if (IdUser != null)
+                    { pepito.Id = Convert.ToInt64(IdUser); }
                     pepito.Nombre = txtNombre.Text;
                     pepito.Apellido = txtApellido.Text;
                     pepito.NombreUsuario = txtNombreUsuario.Text;
@@ -32,7 +34,7 @@ namespace TPC_Ferrari_Iglesias
                     pepito.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
                     pepito.Genero = txtGenero.Text;
                     pepito.NroTelefono = txtTelefono.Text;
-                    pepito.CodigoPost = Convert.ToInt32(txtTelefono.Text);
+                    pepito.CodigoPost = Convert.ToInt32(txtCodPost.Text);
                     pepito.Direccion = txtDireccion.Text;
                     pepito.Ciudad = txtCiudad.Text;
                 }
@@ -45,14 +47,14 @@ namespace TPC_Ferrari_Iglesias
             }
             if (IdUser != null) //Si viene a editar un usuario...
                                 //Siento que estamos haciendo rara la edición de los usuarios... Como que no lo veo siendo tan simple en una página web real...
-                                //para hacer una edición mas real, necesitaríamos armarle un menú al cliente, donde pueda ver los pedidos que hizo y bueno, capaz también darle la Opción de editarse 
-                                
+                                //para hacer una edición mas real, necesitaríamos armarle un menú al cliente, donde pueda ver los pedidos que hizo y bueno, capaz también darle la Opción de editarse           
             {
                 if (Session.Contents["ListaUsuarios"] == null)
                 {
                     Session.Add("ListaUsuarios", negocio.Listar());
                 }
-                pepito = ((List<Usuario>)Session.Contents["ListaUsuarios"]).Find(X => X.Id.ToString().Contains(IdUser));
+                if (!IsPostBack)
+                    pepito = ((List<Usuario>)Session.Contents["ListaUsuarios"]).Find(X => X.Id.ToString().Contains(IdUser));
 
                 txtNombre.Text = pepito.Nombre;
                 txtApellido.Text = pepito.Apellido;
@@ -99,7 +101,7 @@ namespace TPC_Ferrari_Iglesias
                     pepito.Direccion = txtDireccion.Text;
                     pepito.Ciudad = txtCiudad.Text;
                     pepito.Estado = true;
-                    pepito.TipoUsuario = 1;
+                    pepito.TipoUsuario = 2;
                 }
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 if (pepito.Id == 0)
@@ -108,13 +110,14 @@ namespace TPC_Ferrari_Iglesias
                     //pepito.Id=negocio.UbicarUltimoID(pepito); //Ubica el id del usuario que se acaba de agregar a la base de datos, para que sea el id de usuario en DatosPersonales     
                     //negocio.AgregarDatosPersonales(pepito); 
                     negocio.AgregarUsuarioCompletoConPa(pepito);
+                    Response.Redirect("Exito.aspx");
                 }
                 else
                 {
                     negocio.ModificarUsuario(pepito);
                     negocio.ModificarDatosPersonales(pepito);
+                    Response.Redirect("Exito.aspx");
                 }
-
 
             }
         }

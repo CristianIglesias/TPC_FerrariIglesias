@@ -4,16 +4,15 @@
 
     <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px;">
 
-        <a href="FormularioAltaUsuario.aspx?idUsuario=<%= ((Dominio.Usuario)Session.Contents["alguienNuevo"]).Id%>" class="btn btn-primary">Editar Datos del Usuario </a>
-        
+<%--                <a id="btnEditarUser" runat="server"  href="FormularioAltaUsuario.aspx?idUsuario=<%=((Dominio.Usuario)Session.Contents["alguienNuevo"]).Id%>"  visible="false"   class="btn btn-primary">Editar Datos Personales </a>--%>
 
-
+        <a href="AbmUsuarios" class="btn btn-primary" visible="false" id="btnAbmUsuarios" runat="server">Acceso al ABM Usuarios</a>
         <%
-            if (((List<Dominio.ItemCarrito>)Session.Contents["ListaPedidos"]).Count == 0)
+            if (((List<Dominio.Pedido>)Session.Contents["ListaPedidos"]).Count == 0)
             {
         %>
         <p>Ups, No tenés pedidos Registrados! </p>
-     
+
         <%
                 //Response.Redirect("Catalogo.aspx");
                 //Lo comento porque puede ser que el usuario quiera editar datos, mas que ver pedidos. Está bien que muestre la página vacía 
@@ -39,8 +38,7 @@
                         <td>
                             <%=item.Fecha %>
                         </td>
-                        <td
-                            ><%=item.IdPedido %>
+                        <td><%=item.IdPedido %>
 
                         </td>
                         <td>
@@ -49,9 +47,11 @@
                         <td>
                             <%=item.Estado%>
                         </td>
+
                         <td>
-                            <a href="Detalle.aspx?idArticulo=<%=item.IdPedido%>" class="btn btn-primary">Detalle</a>
+                            <a href="DetalleCompra.aspx?IdPedido=<%=item.IdPedido%>" class="btn btn-primary">Ver detalle de compra</a>
                         </td>
+
                     </tr>
 
 

@@ -12,7 +12,7 @@ namespace Negocio
         {
             AccesoDatos Acceso = new AccesoDatos();
             List<EstadoPedido> Lista = new List<EstadoPedido>();
-            Acceso.setearQuery("Select id, Nombre From Estados");
+            Acceso.setearQuery("Select id, NombreEstado From Estados");
             try
             {
                 Acceso.ejecutarLector();

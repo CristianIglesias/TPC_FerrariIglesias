@@ -127,6 +127,7 @@
     <Content Include="css\popup.css" />
     <Content Include="Default.aspx" />
     <Content Include="Detalle.aspx" />
+    <Content Include="DetalleCompra.aspx" />
     <Content Include="EliminarProducto.aspx" />
     <Content Include="EliminarUsuario.aspx" />
     <Content Include="Error.aspx" />
@@ -332,6 +333,13 @@
     </Compile>
     <Compile Include="Detalle.aspx.designer.cs">
       <DependentUpon>Detalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCompra.aspx.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleCompra.aspx.designer.cs">
+      <DependentUpon>DetalleCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminarProducto.aspx.cs">
       <DependentUpon>EliminarProducto.aspx</DependentUpon>
