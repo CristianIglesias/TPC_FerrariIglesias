@@ -18,6 +18,24 @@ namespace TPC_Ferrari_Iglesias
             ListaUsuarios = negocioUsuario.Listar();
             Session.Add("ListaUsuarios", ListaUsuarios);
 
+            if (Session["alguienNuevo"] != null)
+            {
+                Usuario usuario;
+                usuario = (Usuario)Session["alguienNuevo"];
+
+
+                if (usuario.TipoUsuario != TipoUsuarioConstante.ADMINISTRADOR)
+                {
+                    Response.Redirect("Catalogo.aspx");
+                }
+                
+            }
+            else
+            {
+                Response.Redirect("Catalogo.aspx");
+            }
+
+
 
         }
     }

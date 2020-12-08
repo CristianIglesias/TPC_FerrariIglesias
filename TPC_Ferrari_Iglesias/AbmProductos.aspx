@@ -8,7 +8,7 @@
             <asp:GridView ID="DgvProductos" CssClass="table-primary" runat="server">
             </asp:GridView>
             <br />--%>
-    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;">
+    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px; border-radius:5px;">
         <div class="row">
             <div class="col">
                 <table class="table">

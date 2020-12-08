@@ -29,9 +29,9 @@ namespace TPC_Ferrari_Iglesias
                 if (Session["ListaCarrito"] != null)
                 {
                     lblContadorCarro.Text = "Items En Carrito: "+((List<ItemCarrito>)Session["ListaCarrito"]).Count.ToString();
-
+                    lblContadorCarro.Visible = true;
                 }
-
+                
 
                 if(usuario.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)
                 {
@@ -40,7 +40,7 @@ namespace TPC_Ferrari_Iglesias
                 }
             }
 
-
+            
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)

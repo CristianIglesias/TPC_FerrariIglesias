@@ -24,7 +24,7 @@
         </a>
     </div>--%>
     <div>
-    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" style="margin-bottom:10px; margin-top:20px; width:400px; height:30px;" placeholder="Buscá la remera que querés" />
+    <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" style="margin-bottom:10px; margin-top:20px; " placeholder="Buscá la remera que querés" />
     
     <asp:Button runat="server"  style="background-color: #007aff;color: white; width:90px;height:39px;text-align: center;font-size: 16px;cursor: pointer; border-radius: 5px;border:none;" ID="btnBuscar" OnClick="btnBuscar_Click" Text="Buscar"/>
     </div>

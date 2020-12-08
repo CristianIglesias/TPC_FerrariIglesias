@@ -57,8 +57,8 @@
         </div>
     </div>
     <div style="margin-top:30px;">
-    <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>
-    <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>
+   <%-- <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>--%>
+    <a href="Catalogo.aspx" class="btn btn-primary">Continuar comprando</a>
     </div>
 
 

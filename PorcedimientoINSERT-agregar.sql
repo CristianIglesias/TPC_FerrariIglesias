@@ -22,7 +22,7 @@ END
 
 
 
-alter procedure sp_InsertarUsuario(
+create procedure sp_InsertarUsuario(
 --tabla usuarios--
 @NombreUsuario varchar (100),
 @Contraseña varchar (15),

@@ -2,11 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px;">
+        <a href="AbmUsuarios" class="btn btn-primary" visible="false" id="btnAbmUsuarios" style="margin-bottom:20px; margin-top:20px;" runat="server">Acceso al ABM Usuarios</a>
+    <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px; border-radius:5px;">
 
 <%--                <a id="btnEditarUser" runat="server"  href="FormularioAltaUsuario.aspx?idUsuario=<%=((Dominio.Usuario)Session.Contents["alguienNuevo"]).Id%>"  visible="false"   class="btn btn-primary">Editar Datos Personales </a>--%>
 
-        <a href="AbmUsuarios" class="btn btn-primary" visible="false" id="btnAbmUsuarios" runat="server">Acceso al ABM Usuarios</a>
         <%
             if (((List<Dominio.Pedido>)Session.Contents["ListaPedidos"]).Count == 0)
             {
@@ -65,7 +65,7 @@
     </div>
     <div style="margin-top: 30px;">
         <a href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
-        <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>
+   <%--     <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>--%>
     </div>
 
 

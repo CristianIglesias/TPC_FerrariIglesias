@@ -16,7 +16,7 @@
 </html>--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;">
+    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;  border-radius:5px;">
         <div class="row">
             <div class="col">
                 <table class="table">

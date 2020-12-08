@@ -18,6 +18,25 @@ namespace TPC_Ferrari_Iglesias
             ProductoNegocio Carlos = new ProductoNegocio();
             listaABM = Carlos.Listar();
             Session.Add("ListaCatalogo", listaABM);
+
+
+            if (Session["alguienNuevo"] != null)
+            {
+                Usuario usuario;
+                usuario = (Usuario)Session["alguienNuevo"];
+
+
+                if (usuario.TipoUsuario != TipoUsuarioConstante.ADMINISTRADOR)
+                {
+                    Response.Redirect("Catalogo.aspx");
+                }
+
+            }
+            else
+            {
+                Response.Redirect("Catalogo.aspx");
+            }
+
         }
     }
 }

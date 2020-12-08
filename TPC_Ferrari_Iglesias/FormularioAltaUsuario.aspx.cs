@@ -74,6 +74,14 @@ namespace TPC_Ferrari_Iglesias
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
+
+            //Page.Validate();
+            //if (!Page.IsValid)
+            //    return;
+
+
+
             if (pepito == null)
                 pepito = new Usuario();
             else

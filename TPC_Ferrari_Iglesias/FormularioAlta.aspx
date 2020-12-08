@@ -22,7 +22,9 @@
                 <div>
                     <asp:Label Text="Nombre:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtNombre" CssClass="caja" />
-                </div>
+                     <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtNombre" runat="server" />
+                     <asp:RegularExpressionValidator ErrorMessage="Ups, solo admitimos letras"  ForeColor="Red" ControlToValidate="txtNombre" runat="server" ValidationExpression="^[a-zA-Z ]*$" />     
+                    </div>
 
 
                 <div class="form-group">
@@ -39,19 +41,25 @@
                 <div>
                     <asp:Label Text="Descripción:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtDescripcion" CssClass="caja" />
-
+                    <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtDescripcion" runat="server" />
+                     <asp:RegularExpressionValidator ErrorMessage="Ups, solo admitimos letras"  ForeColor="Red" ControlToValidate="txtDescripcion" runat="server" ValidationExpression="^[a-zA-Z ]*$" />     
                 </div>
                 <div>
                     <asp:Label Text="Talle:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtTalle" CssClass="caja"  />
+                     <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtTalle" runat="server" />
                 </div>
+                <div>
                 <asp:Label Text="Color:" runat="server" CssClass="label" />
                 <asp:TextBox runat="server" ID="txtColor" maxlegth="20" CssClass="caja" />
-               <%-- <asp:RangeValidator ErrorMessage="El valor es incorrecto" MaximumValue="20" MinimumValue="0" ControlToValidate="txtColor" runat="server" />--%>
-                <div>
+                 <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtColor" runat="server" />
+                     <asp:RegularExpressionValidator ErrorMessage="Ups, solo admitimos letras"  ForeColor="Red" ControlToValidate="txtColor" runat="server" ValidationExpression="^[a-zA-Z ]*$" />     
+                </div>
+                    <div>
                     <asp:Label Text="Imagen:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtImagen" CssClass="caja" />
-                </div>
+                     <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtColor" runat="server" />
+                        </div>
                 <div>
                     <asp:Label Text="Precio:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtPrecio" CssClass="caja" />
@@ -63,10 +71,14 @@
                  <div>
                     <asp:Label Text="Stock actual:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtStockActual" CssClass="caja" />
-                </div>
+                     <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtStockActual" runat="server" />
+                     <asp:RegularExpressionValidator ErrorMessage="Ups, solo admitimos números"  ForeColor="Red" ControlToValidate="txtStockActual" runat="server" ValidationExpression="^[0-9]{0,10}$" />
+                 </div>
                  <div>
                     <asp:Label Text="Stock mínimo:" runat="server" CssClass="label" />
                     <asp:TextBox runat="server" ID="txtStockMinimo" CssClass="caja" />
+                      <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ForeColor="Red" ControlToValidate="txtStockMinimo" runat="server" />
+                     <asp:RegularExpressionValidator ErrorMessage="Ups, solo admitimos números"  ForeColor="Red" ControlToValidate="txtStockMinimo" runat="server" ValidationExpression="^[0-9]{0,10}$" />
                 </div>
                 <div style="margin-top: 30px; margin-bottom: 20px">
                     <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button" OnClick="btnGuardar_Click" runat="server" />
