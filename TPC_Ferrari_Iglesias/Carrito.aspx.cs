@@ -56,17 +56,26 @@ namespace TPC_Ferrari_Iglesias
                 if (IdAux > 0 && extra == 1)// Si viene a eliminar 
                 {
                     ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];//traeme lo que tenemos en session
-                    foreach (var item in ListaAux)
-                    {
-                        if (IdAux == item.IdProducto)
-                        {
-                            ListaAux.Remove(item);
-                            Session["ListaCarrito"] = ListaAux;
-                            CalcularImporteTotal(ListaAux);
+                    //foreach (var item in ListaAux)
+                    //{
+                    //    if (IdAux == item.IdProducto)
+                    //    {
+                    //        ListaAux.Remove(item);
+                    //        Session["ListaCarrito"] = ListaAux;
+                    //        CalcularImporteTotal(ListaAux);
 
-                            Response.Redirect("Carrito.aspx");
-                        }
-                    }
+                    //        Response.Redirect("Carrito.aspx");
+                    //    }
+                    //}
+                    int indice;
+                    indice = ListaAux.FindIndex(x => x.IdProducto == IdAux);
+                  
+                    ListaAux.RemoveAt(indice);
+                    Session["ListaCarrito"] = ListaAux;
+                    CalcularImporteTotal(ListaAux);
+
+                    Response.Redirect("Carrito.aspx",false); // si lo ponemos en false sigue ejecutandose el codigo
+                    return;
                 }
                 else//Si viene a hacer otra cosa.
                 {
@@ -112,9 +121,9 @@ namespace TPC_Ferrari_Iglesias
                             }
 
                         }
-                        CalcularImporteTotal(ListaAux);
                         Detalle.CantidadPedida = 1;
                         ListaAux.Add(Detalle);
+                        CalcularImporteTotal(ListaAux);
                         Session.Add("ListaCarrito", ListaAux);
                         //Session["ListaCarrito"] = ListCarritoaux; esto es lo mismo que Session["ListaAux"] = ListaAux;
                     }
@@ -124,21 +133,24 @@ namespace TPC_Ferrari_Iglesias
                 }
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //HAY QUE REDIRECCIONARLO A UNA PAG DE ERROR
                 Response.Redirect("error.aspx");
-                throw;
+                
             }
         }
 
         public void CalcularImporteTotal(List<ItemCarrito> ListaAux)
         {
             SqlMoney AcumuladorImporte = 0;
-            foreach (var item in ListaAux)
-            {
-                AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
-            }
+            //foreach (var item in ListaAux)
+            //{
+            //    AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
+            //}
+
+            ListaAux.ForEach(x =>AcumuladorImporte+= x.CantidadPedida*x.PrecioActual);
+           
             lblTotal.Text = "Total a Pagar = " + AcumuladorImporte.ToString();
             
         }

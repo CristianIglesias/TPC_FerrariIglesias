@@ -36,10 +36,12 @@
             </div>
 
         </div>
-                                    <asp:Label Text="Total" ID="lblTotal"  style="font-weight:bold;margin-right: 100px;" runat="server" />
          
     </div>
-     <a href="Catalogo.aspx" class="btn btn-primary" style="margin-top: 40px;margin-bottom:30px">Continuar comprando</a>
+    <div  style="text-align:right;margin-top:30px; font-weight:bold;">                                
+    <asp:Label Text="Total" ID="lblTotal" style="padding:10px; border-radius:5px" class="btn-primary" runat="server" />
+    </div>
+        <a href="Catalogo.aspx" class="btn btn-primary" style="margin-top: 40px;margin-bottom:30px">Continuar comprando</a>
 
 
 

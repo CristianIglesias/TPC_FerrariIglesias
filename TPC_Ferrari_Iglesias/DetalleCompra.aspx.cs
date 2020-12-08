@@ -45,12 +45,12 @@ namespace TPC_Ferrari_Iglesias
             }
 
 
-            SqlMoney AcumuladorImporte = 0;
-            foreach (var item in (List<ItemCarrito>)Session["Compra"])
-            {
-                AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
-            }
-            lblTotal.Text = "Total a Pagar = " + AcumuladorImporte.ToString();
+            //SqlMoney AcumuladorImporte = 0;
+            //foreach (var item in (List<ItemCarrito>)Session["Compra"])
+            //{
+            //    AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
+            //}
+            //lblTotal.Text = "Total a Pagar = " + AcumuladorImporte.ToString();
 
 
             if (((Usuario)Session["alguienNuevo"]).TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)

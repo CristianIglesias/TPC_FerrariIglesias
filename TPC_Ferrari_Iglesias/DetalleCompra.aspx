@@ -56,19 +56,19 @@
             </div>
 
         </div>
-        <asp:Label Text="Total" ID="lblTotal" class="btn-primary" runat="server" />
+       <%-- <asp:Label Text="Total" ID="lblTotal" class="btn-primary" runat="server" />--%>
     </div>
 
     <%-- Ddl --%>
     <div>
 
-        <div class="form-group" v>
+        <div class="form-group" >
             <asp:Label Text="Estado del Pedido:" runat="server" CssClass="label" Visible="false" />
-            <asp:DropDownList runat="server" CssClass="caja" ID="DdlEstados" AutoPostBack="false" Visible="false"></asp:DropDownList>
+            <asp:DropDownList runat="server" CssClass="form-control" style="margin-top:10px;" ID="DdlEstados" AutoPostBack="false" Visible="false"></asp:DropDownList>
         </div>
 
         <div style="margin-top: 30px; margin-bottom: 20px">
-            <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button" OnClick="btnGuardar_Click" runat="server" />
+            <asp:Button Text="Guardar" ID="btnGuardar" Style="margin-top: 30px; margin-bottom:50px; background-color: #007aff; color: white; width: 90px; height: 39px; text-align: center; font-size: 16px; cursor: pointer; border-radius: 5px; border: none;" OnClick="btnGuardar_Click" runat="server" />
             <a href="OpcionesUsuario.aspx" class="btn btn-primary">Cancelar    </a>
 
         </div>

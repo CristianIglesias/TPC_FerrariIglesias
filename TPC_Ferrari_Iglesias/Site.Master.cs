@@ -42,7 +42,7 @@ namespace TPC_Ferrari_Iglesias
                 if(usuario.TipoUsuario == TipoUsuarioConstante.ADMINISTRADOR)
                 {
                     nvHome.Visible = true; // si no es el admin 
-                    nvOpcionesUsuario.InnerText = "Listado De Compras/ Opciones de Administrador.";
+                    nvOpcionesUsuario.InnerText = "Compras/Opciones";
                 }
                 
             }

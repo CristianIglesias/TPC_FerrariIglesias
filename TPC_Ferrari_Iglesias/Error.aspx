@@ -12,7 +12,9 @@
     <form id="form1" runat="server">
            <div class="container" style="background-color:lightslategray; width: 400px; height:200px; border-radius:5px; margin-top: 60px;">
             <h1 style="color:white"> UPS!!! Ha ocurrido un error al guardar el registro :(</h1>
-        </div>
+           <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>
+           </div>
+     
     </form>
 </body>
 </html>

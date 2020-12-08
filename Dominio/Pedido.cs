@@ -13,6 +13,8 @@ namespace Dominio
         public SqlMoney ImporteTotal { get; set; }
         public SqlDateTime Fecha { get; set; }
         public byte Estado { get; set; }
+
+       
         //public EstadoPedido Estado { get; set;}
         //Si yo fuese a traer el estado directamente por medio de una view...
         //Realmente hace falta que un obj Pedido tenga un obj Estado con su id y nombre dentro del mismo?
