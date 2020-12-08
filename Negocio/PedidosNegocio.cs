@@ -117,6 +117,26 @@ namespace Negocio
             }
 
         }
+        public void ActualizarEstado(Pedido pedidin)
+        {
+            try
+            {
+                AccesoDatos Acceso = new AccesoDatos();
+                Acceso.setearQuery("update Pedidos set  IdEstado = @Estado  where id = @idPedido");
+                Acceso.agregarParametro("@idPedido     ", pedidin.IdPedido);
+                Acceso.agregarParametro("@Estado", pedidin.Estado);
+                Acceso.ejecutarAccion();
+                Acceso.cerrarConexion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
 
     }
 }

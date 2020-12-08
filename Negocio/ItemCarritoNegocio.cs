@@ -54,10 +54,6 @@ namespace Negocio
 
 
 
-
-
-
-
         public void  AgregarDetalle(ItemCarrito item)
         {
             try

@@ -34,7 +34,9 @@
                     <% } %>
                 </table>
             </div>
+
         </div>
+                                    <asp:Label Text="Total" ID="lblTotal"  style="font-weight:bold;margin-right: 100px;" runat="server" />
          
     </div>
      <a href="Catalogo.aspx" class="btn btn-primary" style="margin-top: 40px;margin-bottom:30px">Continuar comprando</a>

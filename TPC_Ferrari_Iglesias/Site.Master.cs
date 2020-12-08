@@ -28,7 +28,13 @@ namespace TPC_Ferrari_Iglesias
 
                 if (Session["ListaCarrito"] != null)
                 {
-                    lblContadorCarro.Text = "Items En Carrito: "+((List<ItemCarrito>)Session["ListaCarrito"]).Count.ToString();
+                    List<ItemCarrito> ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
+                    int CantidadCarrito = 0;
+                    foreach (var item in ListaAux)
+                    {
+                        CantidadCarrito += item.CantidadPedida;
+                    }
+                    lblContadorCarro.Text = "Items En Carrito: "+ CantidadCarrito.ToString();
                     lblContadorCarro.Visible = true;
                 }
                 
@@ -38,6 +44,7 @@ namespace TPC_Ferrari_Iglesias
                     nvHome.Visible = true; // si no es el admin 
                     nvOpcionesUsuario.InnerText = "Listado De Compras/ Opciones de Administrador.";
                 }
+                
             }
 
             
@@ -47,8 +54,9 @@ namespace TPC_Ferrari_Iglesias
         {
             
             Session["alguienNuevo"] = null;
-            Response.Redirect("Catalogo.aspx");
+            Session["ListaPedidos"] = null;
 
+            Response.Redirect("Catalogo.aspx");
         }
     }
 }

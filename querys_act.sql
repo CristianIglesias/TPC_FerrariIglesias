@@ -1,23 +1,22 @@
 use Remeras_Elle_CC
 
 
+ insert into Estados(NombreEstado ) values ('Recibido' )
+ insert into Estados(NombreEstado ) values ('En Preparacion' )
+ insert into Estados(NombreEstado ) values ('En Camino' )
+ 
 
 
  insert into TipoUsuario (Nombre ) values ('Administrador' )
  insert into TipoUsuario (Nombre ) values ('Cliente' )
  select nombre from TipoUsuario
  
- --UPDATE TipoUsuario
- --SET Nombre = 'Cliente'
- --WHERE id = 2
- 
- --delete from TipoUsuario 
- --where id = 3
  
  
  insert into TipoPagos(Nombre ) values ('MercadoLibre' )
- insert into Estados(NombreEstado ) values ('En proceso' )
  
+
+ select * from Estados
  
  insert into tipoProducto(Nombre ) values ('Escote V' )
  insert into tipoProducto(Nombre ) values ('Americana' )
@@ -132,3 +131,10 @@ select * from DatosPersonales
   
   update  DatosPersonales set Nombre=@Nombre, Apellido=@Apellido, Email=@Email, DNI=@DNI, FechaNac=@FechaNac, Genero=@Genero, Telefono=@Telefono, CP=@CP, Direccion=@Direccion, Ciudad=@Ciudad where idUsuario =  @id
   
+  select * from Pedidos
+
+  update Pedidos set @idEstado = Estado where id = @idPedido
+
+  select * from Estados
+
+

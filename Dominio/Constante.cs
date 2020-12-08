@@ -12,4 +12,5 @@ namespace Dominio
        public  const  byte CLIENTE = 2;
 
     }
+
 }

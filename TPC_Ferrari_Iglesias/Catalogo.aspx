@@ -2,27 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <%-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://i.pinimg.com/564x/05/5a/76/055a76df0b82356df7a157a8ad038611.jpg" class="d-block w-100" alt="..." style="height: 500px; width: 100px">
-            </div>
-            <div class="carousel-item">
-                <img src="https://i.pinimg.com/564x/41/79/aa/4179aa2b7e8aab362b012aecd919b225.jpg" class="d-block w-100" alt="..." style="height: 500px; width: 100px">
-            </div>
-            <div class="carousel-item">
-                <img src="https://i.pinimg.com/564x/3a/9f/77/3a9f77289952c946df209326f9f6db11.jpg" class="d-block w-100" alt="..." style="height: 500px; width: 100px">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>        
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>--%>
     <div>
     <asp:TextBox runat="server" type="text" class="form-control" ID="txtBuscador" style="margin-bottom:10px; margin-top:20px; " placeholder="Buscá la remera que querés" />
     

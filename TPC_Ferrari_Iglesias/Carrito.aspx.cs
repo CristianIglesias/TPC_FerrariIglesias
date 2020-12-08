@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlTypes;
 
 namespace TPC_Ferrari_Iglesias
 {
@@ -14,16 +15,14 @@ namespace TPC_Ferrari_Iglesias
         public List<Productos> Liston;
         public Productos Producto;
         long IdAux;
-        //int IdAux;
         public int extra;
         public ItemCarrito Detalle;
         public List<ItemCarrito> ListaAux;
         public Decimal Subtotal;
-
+        public SqlMoney AcumuladorImporte = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             ProductoNegocio negocio = new ProductoNegocio();
-
             try
             {
                 IdAux = Convert.ToInt32(Request.QueryString["idArticulo"]);
@@ -31,11 +30,7 @@ namespace TPC_Ferrari_Iglesias
                 Liston = negocio.Listar();
                 Producto = Liston.Find(x => x.Id == IdAux);
 
-
-
-                //parche para que acceder directo al carrito funcione, que es lo que me está haciendo pinchar ahora.
-
-                if (IdAux == 0)//Esto es cuando entra sin querer agregar, tipo para ver los articulos que estén cargados en el carro.
+                if (IdAux == 0)//Si entra desde el botón carrito.
                 {
                     if (Session["ListaCarrito"] == null) //Si la lista no llegó a instanciarse
                     {
@@ -43,45 +38,37 @@ namespace TPC_Ferrari_Iglesias
                         Session["ListaCarrito"] = ListaAux;
                     }
                     else
-
                     {
                         ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];
                     }
-                    return;//estos todavía existen, me había olvidado
-                    //esta validación que agregué resuelve el problema. Ese problema era, que mas abajo
-                    //se agregaba un producto que podía ser nulo a la lista, en el caso de que la lista recibía nulo
-                    //simplemente pinchaba.
-                    //Solución? Poner un retorno para dividir los caminos. 
 
+                    CalcularImporteTotal(ListaAux);
+ 
+                    return;
                 }
 
                 Detalle = new ItemCarrito();
-
                 Detalle.IdProducto = Producto.Id;
                 Detalle.NombreActual = Producto.Nombre;
                 Detalle.PrecioActual = Producto.Precio;
                 Detalle.UrlImagen = Producto.Imagen;
 
-                //fin del parche/toqueteo
-                if (IdAux > 0 && extra == 1)
+                if (IdAux > 0 && extra == 1)// Si viene a eliminar 
                 {
-
                     ListaAux = (List<ItemCarrito>)Session["ListaCarrito"];//traeme lo que tenemos en session
                     foreach (var item in ListaAux)
                     {
                         if (IdAux == item.IdProducto)
-
                         {
                             ListaAux.Remove(item);
                             Session["ListaCarrito"] = ListaAux;
-                            Response.Redirect("Carrito.aspx");
+                            CalcularImporteTotal(ListaAux);
 
+                            Response.Redirect("Carrito.aspx");
                         }
                     }
-
-
                 }
-                else
+                else//Si viene a hacer otra cosa.
                 {
                     if (Session["ListaCarrito"] == null)
                     {
@@ -89,6 +76,8 @@ namespace TPC_Ferrari_Iglesias
                         Detalle.CantidadPedida = 1;
                         ListaAux.Add(Detalle);
                         Session["ListaCarrito"] = ListaAux;
+                        CalcularImporteTotal(ListaAux);
+
                     }
                     else
                     {
@@ -99,43 +88,61 @@ namespace TPC_Ferrari_Iglesias
                             if (item.IdProducto == IdAux)
                             {
                                 item.CantidadPedida++;
-                                foreach (var Producto in Liston)//listaCatalo
+                                foreach (var Producto in Liston)//listaCatalogo
                                 {
                                     if (IdAux == Producto.Id)
                                     {
-                                        if (Producto.StockActual >= item.CantidadPedida)
+                                        if (Producto.StockActual >= item.CantidadPedida)//se vakuda el stock 
                                         {
                                             Session["ListaCarrito"] = ListaAux;
+                                            CalcularImporteTotal(ListaAux);
+
                                             return;
                                         }
                                         else
                                         {
                                             item.CantidadPedida--;
                                             Session["ListaCarrito"] = ListaAux;
+                                            CalcularImporteTotal(ListaAux);
+
                                             return;
                                         }
                                     }
                                 }
-
                             }
 
                         }
-
+                        CalcularImporteTotal(ListaAux);
                         Detalle.CantidadPedida = 1;
                         ListaAux.Add(Detalle);
                         Session.Add("ListaCarrito", ListaAux);
                         //Session["ListaCarrito"] = ListCarritoaux; esto es lo mismo que Session["ListaAux"] = ListaAux;
                     }
 
-                    //calcular cantidad de veces que está el articulo en la lista
-                }
 
+
+                }
+                
             }
             catch (Exception)
             {
                 //HAY QUE REDIRECCIONARLO A UNA PAG DE ERROR
+                Response.Redirect("error.aspx");
                 throw;
             }
         }
+
+        public void CalcularImporteTotal(List<ItemCarrito> ListaAux)
+        {
+            SqlMoney AcumuladorImporte = 0;
+            foreach (var item in ListaAux)
+            {
+                AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
+            }
+            lblTotal.Text = "Total a Pagar = " + AcumuladorImporte.ToString();
+            
+        }
     }
+   
 }
+

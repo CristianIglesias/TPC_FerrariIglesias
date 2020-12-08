@@ -1,17 +1,17 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master"  AutoEventWireup="true" CodeBehind="DetalleCompra.aspx.cs" Inherits="TPC_Ferrari_Iglesias.DetalleCompra" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DetalleCompra.aspx.cs" Inherits="TPC_Ferrari_Iglesias.DetalleCompra" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%-- va a recibir un id pedido en la querystring y va a mostrar los detalles del mismo al user :) --%>
 
-    
-    <div class="container" style="background-color:lightslategray; width: 100%; margin-top: 30px;">
+
+    <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px;">
 
 
 
         <%
             if (((List<Dominio.ItemCarrito>)Session.Contents["ListaDetalle"]).Count == 0)
             {
-   
+
                 Response.Redirect("Catalogo.aspx");
             }
             else
@@ -24,7 +24,7 @@
                         <td><strong>Precio:</strong>  </td>
                         <td><strong>Imagen:</strong> </td>
                         <td><strong>Cantidad Unidades:</strong> </td>
-                        <td><strong>Subtotal:</strong> </td>                        
+                        <td><strong>Subtotal:</strong> </td>
                     </tr>
 
                     <%
@@ -35,17 +35,17 @@
                         <td>
                             <%=item.NombreActual %>
                         </td>
-                        <td>
-                            $<%=item.PrecioActual %></td>
+                        <td>$<%=item.PrecioActual %></td>
                         <td>
                             <img src="<%=item.UrlImagen%>" style="width: 60px; height: 60px;" class="card-img-top" alt="...">
                         </td>
                         <td>
-                           <%=item.CantidadPedida %>
+                            <%=item.CantidadPedida %>
                         </td>
                         <td>$
                             <%=item.CantidadPedida * item.PrecioActual%>
                         </td>
+
                     </tr>
 
                     <%  } //Esta llave cierra el forEach
@@ -54,11 +54,30 @@
                     %>
                 </table>
             </div>
+
+        </div>
+        <asp:Label Text="Total" ID="lblTotal" class="btn-primary" runat="server" />
+    </div>
+
+    <%-- Ddl --%>
+    <div>
+
+        <div class="form-group" v>
+            <asp:Label Text="Estado del Pedido:" runat="server" CssClass="label" Visible="false" />
+            <asp:DropDownList runat="server" CssClass="caja" ID="DdlEstados" AutoPostBack="false" Visible="false"></asp:DropDownList>
+        </div>
+
+        <div style="margin-top: 30px; margin-bottom: 20px">
+            <asp:Button Text="Guardar" ID="btnGuardar" CssClass="button" OnClick="btnGuardar_Click" runat="server" />
+            <a href="OpcionesUsuario.aspx" class="btn btn-primary">Cancelar    </a>
+
         </div>
     </div>
-    <div style="margin-top:30px;">
-   <%-- <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>--%>
-    <a href="Catalogo.aspx" class="btn btn-primary">Continuar comprando</a>
+
+    <%-- Botón Continuar comprando --%>
+    <div style="margin-top: 30px;">
+        <%-- <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>--%>
+        <a href="Catalogo.aspx" class="btn btn-primary">Continuar comprando</a>
     </div>
 
 

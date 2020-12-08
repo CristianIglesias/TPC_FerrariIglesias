@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using System.Data.SqlTypes;
 namespace TPC_Ferrari_Iglesias
 {
     public partial class Checkout : System.Web.UI.Page
@@ -37,6 +38,7 @@ namespace TPC_Ferrari_Iglesias
                 txtDireccion.Text = pepito.Direccion.ToString();
                 txtNroTelefono.Text = pepito.NroTelefono.ToString();
             }
+            CalcularImporteTotal((List<ItemCarrito>)Session["ListaCarrito"]);
 
         }
 
@@ -69,8 +71,6 @@ namespace TPC_Ferrari_Iglesias
                 itemCarritoNegocio.AgregarDetalle(item); //item ya estaba casi listo para guardarlo en la db solo le faltaba esta magia de asignar los id del pedido para poder despues relacionarlos
 
             }
-
-           
                 Response.Redirect("Compra.aspx");
             }
             catch (Exception)
@@ -80,6 +80,16 @@ namespace TPC_Ferrari_Iglesias
             }
 
 
+        }
+        public void CalcularImporteTotal(List<ItemCarrito> ListaAux)
+        {
+            SqlMoney AcumuladorImporte = 0;
+            foreach (var item in ListaAux)
+            {
+                AcumuladorImporte += (item.CantidadPedida * item.PrecioActual);
+            }
+            lblTotal.Text = "Total a Pagar = " + AcumuladorImporte;
+            return;
         }
     }
 }

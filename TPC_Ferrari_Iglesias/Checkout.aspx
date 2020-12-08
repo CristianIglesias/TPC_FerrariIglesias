@@ -60,6 +60,8 @@
                 </table>
             </div>
         </div>
+                        <asp:Label Text="Total" ID="lblTotal"  class="btn-primary" runat="server" />
+
       </div>
     <div class="container" style="background-color: lightslategray;  width: 25%;height: 70%;margin: 100px; border-radius: 5px; margin-top: 30px;">
         <%--  <div class="jumbotron" style="background-color: lightslategray; width: 100%; margin-top: 30px;">--%>

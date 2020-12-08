@@ -2,10 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-        <a href="AbmUsuarios" class="btn btn-primary" visible="false" id="btnAbmUsuarios" style="margin-bottom:20px; margin-top:20px;" runat="server">Acceso al ABM Usuarios</a>
-    <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px; border-radius:5px;">
+    <% Dominio.Usuario pepe = new Dominio.Usuario();
+        pepe = (Dominio.Usuario)Session.Contents["alguienNuevo"];%>
 
-<%--                <a id="btnEditarUser" runat="server"  href="FormularioAltaUsuario.aspx?idUsuario=<%=((Dominio.Usuario)Session.Contents["alguienNuevo"]).Id%>"  visible="false"   class="btn btn-primary">Editar Datos Personales </a>--%>
+
+    <a href="FormularioAltaUsuario.aspx?idUsuario=<%= pepe.Id.ToString()%>" class="btn btn-primary">Editar Datos Personales </a>
+    <a href="AbmUsuarios" class="btn btn-primary" visible="false" id="btnAbmUsuarios" style="margin-bottom: 20px; margin-top: 20px;" runat="server">Acceso al ABM Usuarios</a>
+    <div class="container" style="background-color: lightslategray; width: 100%; margin-top: 30px; border-radius: 5px;">
 
         <%
             if (((List<Dominio.Pedido>)Session.Contents["ListaPedidos"]).Count == 0)
@@ -65,7 +68,7 @@
     </div>
     <div style="margin-top: 30px;">
         <a href="Catalogo.aspx" class="btn btn-primary">Seguir Comprando</a>
-   <%--     <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>--%>
+        <%--     <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>--%>
     </div>
 
 

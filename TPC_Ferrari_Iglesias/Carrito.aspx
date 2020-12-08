@@ -72,6 +72,7 @@
             </div>
         </div>
     </div>
+                <asp:Label Text="Total" ID="lblTotal"  class="btn-primary" runat="server" />
     <div style="margin-top:30px;">
     <a href="Catalogo.aspx" class="btn btn-primary" >Seguir Comprando</a>
     <a href="Checkout.aspx" class="btn btn-primary">Comprar</a>
