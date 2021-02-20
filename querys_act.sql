@@ -23,8 +23,8 @@ use Remeras_Elle_CC
 
  select * from TipoProducto
 
- insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('2','500','Remera 3', 'M', 'Remerita divertidita', 'Blanca','https://risataweb.com.ar/wp-content/uploads/2018/07/remera-gaa.jpg', 1,10, 100 )								
- insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg', 1,10, 100  )
+ insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual,IdColor , IdTalle  ) values('2','500','Remera 3', 'M', 'Remerita divertidita', 'Blanca','https://risataweb.com.ar/wp-content/uploads/2018/07/remera-gaa.jpg', 1,10, 100 )								
+ insert into Producto (idTipo, Precio, Nombre, Talle, Descripcion, Color, UrlImagen, Estado, StockMinimo, StockActual,IdColor , IdTalle  ) values('1','600','REMERA 2', 'M', 'remera 2',             'Blanca','https://d26lpennugtm8s.cloudfront.net/stores/614/713/products/remera-negra1-cc730d45f908741d3e15874484548741-1024-1024.jpg', 1,10, 100  )
 
 
  Select p.Id, --0
@@ -61,7 +61,7 @@ join TipoProducto as Tipos on P.IdTipo = tipos.Id
 
  insert into Usuarios ( 
  NombreUsuario, Contraseña, IdTipoUsuario, Estado
- ) values('SoyAdmin','SoyAdmin',1, )
+ ) values('SoyAdmin','SoyAdmin',1, 1 )
 
 
  select Id, NombreUsuario, Contraseña, IdTipoUsuario from Usuarios
@@ -86,7 +86,7 @@ join TipoProducto as Tipos on P.IdTipo = tipos.Id
    Ciudad
    ) 
 values (
-14,
+3,
 'Silvano',
 'Lopez',
 'ESTEMAIL@MAIL.VERGA',

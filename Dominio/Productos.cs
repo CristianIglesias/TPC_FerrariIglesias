@@ -17,7 +17,7 @@ namespace Dominio
         public string Color { get; set; }
         public string Imagen { get; set; }
         public SqlMoney Precio { get; set; }
-        public SqlBoolean Estado { get; set; }
+        public bool Estado { get; set; }
         public int StockActual { get; set; }
         public int StockMinimo { get; set; }
         

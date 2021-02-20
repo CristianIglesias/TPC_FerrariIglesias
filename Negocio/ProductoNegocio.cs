@@ -29,14 +29,14 @@ namespace Negocio
                   
                         Aux.Id = Acceso.lector.GetInt64(0);
                         Aux.TipoRemera.Id = Acceso.lector.GetByte(1);
-                        Aux.Precio = Acceso.lector.GetSqlMoney(2);
+                        Aux.Precio = Acceso.lector.GetDecimal(2);
                         Aux.Nombre = Acceso.lector.GetString(3);
                         Aux.TipoRemera.Descripcion = Acceso.lector.GetString(5);
                         Aux.Talle = (string)Acceso.lector["Talle"];
                         Aux.Descripcion = (string)Acceso.lector["Descripcion"];
                         Aux.Color = (string)Acceso.lector["Color"];
                         Aux.Imagen = Acceso.lector.GetString(7);
-                        Aux.Estado = Acceso.lector.GetSqlBoolean(8);
+                        Aux.Estado = Acceso.lector.GetBoolean(8);
                         Aux.StockMinimo = Acceso.lector.GetInt32(9);
                         Aux.StockActual = Acceso.lector.GetInt32(10);
                     if (Aux.Estado == true)

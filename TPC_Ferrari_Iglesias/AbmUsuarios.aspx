@@ -28,6 +28,7 @@
                         <td><strong>APELLIDO</strong></td>
                         <td><strong>DNI</strong></td>
                         <td><strong>TIPO-USUARIO</strong></td>
+                        <td><strong>Promedio Compras</strong></td>
                     </tr>
                     <%foreach (var item in ((List<Dominio.Usuario>)Session["ListaUsuarios"]))
                         {%>
@@ -40,6 +41,7 @@
                         <td><%=item.Apellido%></td>
                         <td><%=item.DNI%></td>
                         <td><%=item.TipoUsuario%></td>
+                        <td><%       %></td>
                     <td><a href="FormularioAltaUsuario.aspx?idUsuario=<%= item.Id.ToString()%>" class="btn btn-primary">Editar Datos del Usuario </a></td>
                     <td><a href="EliminarUsuario.aspx?idUsuario=<%= item.Id.ToString()%>" class="btn btn-danger">Eliminar del listado.(Baja Lógica)</a></td>
                     </tr>

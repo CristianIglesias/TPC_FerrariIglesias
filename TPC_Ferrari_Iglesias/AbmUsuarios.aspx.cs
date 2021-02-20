@@ -16,6 +16,10 @@ namespace TPC_Ferrari_Iglesias
         {
             UsuarioNegocio negocioUsuario = new UsuarioNegocio();
             ListaUsuarios = negocioUsuario.Listar();
+
+            //ListaUsuarios = negocioUsuario.ListarConView();
+
+
             Session.Add("ListaUsuarios", ListaUsuarios);
 
             if (Session["alguienNuevo"] != null)

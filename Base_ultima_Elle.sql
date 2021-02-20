@@ -1,8 +1,9 @@
---Create Database Remeras_Elle_CC
+--Create Database Remeras_DB
 
 --go
---use  Remeras_Elle_CC
+--use  Remeras_DB
 --go
+
 
 create table TipoUsuario (
 Id tinyint not null primary Key identity (1,1),
@@ -78,23 +79,48 @@ alter table Pedidos
 add constraint FK_Pedidos_Usuarios foreign key (IdUsuario) references  Usuarios (Id)
 go
 
+create table Talles (
+Id tinyint not null primary Key identity (1,1),
+Nombre varchar(50) not Null
+)
+go
+
+create table Color (
+Id tinyint not null primary Key identity (1,1),
+Nombre varchar(50) not Null
+)
+go
+
+
 create table Producto (
 Id bigint not null primary Key identity (1,1),
 IdTipo tinyint not null foreign key references TipoProducto (Id),
 Precio money not  null,
 UrlImagen varchar (900),
 Nombre varchar(50) not Null,
-Talle Varchar(20) not null,
+
+--Talle Varchar(20) not null,
+IdTalle  tinyint not null,
+
+--Color varchar (50),
+IdColor  tinyint not null,
+
 Descripcion varchar (100) not null,
 Estado bit not null,
-Color varchar (50),
+
 StockMinimo int not null,
 StockActual int not null
 
 )
 go
 
+alter table Producto
+add constraint FK_Productos_Talles foreign key (IdTalle) references  Talles (Id)
+go
 
+alter table Producto
+add constraint FK_Productos_Color foreign key (IdColor) references  Color(Id)
+go
 
 create table Detalle (
 --Id bigint not null primary Key identity (1,1),
