@@ -28,6 +28,9 @@ namespace Dominio
         public Int32 CodigoPost { get; set; }
         public string Direccion { get; set; }
         public string Ciudad { get; set; }
+
+        public int CantidadCompras { get; set; }
+        public decimal PromedioCommpras { get; set; }
         
     }
 }

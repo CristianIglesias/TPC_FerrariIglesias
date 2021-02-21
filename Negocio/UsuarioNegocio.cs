@@ -247,6 +247,43 @@ namespace Negocio
         }
 
 
+        
+        public List<Usuario> ListarReporteViewXid()
+        {
+            List<Usuario> Lista = new List<Usuario>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearQuery(" select Idusuario, NombreUsuario, nombre, Apellido, CantidadCompras, PromedioCompras from VW_ListaPromedioCompras");
+                datos.ejecutarLector();
+                datos.lector = datos.comando.ExecuteReader();
+                while (datos.lector.Read())
+                {
+                    Usuario aux = new Usuario();
+
+                    aux.Id = (long)datos.lector["Idusuario"];
+                    aux.NombreUsuario = (string)datos.lector["NombreUsuario"];
+                    aux.Nombre = (string)datos.lector["Nombre"];
+                    aux.Apellido = (string)datos.lector["Apellido"];
+                    aux.CantidadCompras = (int)datos.lector["CantidadCompras"];
+                    aux.PromedioCommpras = (Decimal)datos.lector["PromedioCompras"];
+                    Lista.Add(aux);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return Lista;
+
+        }
+
+
+
 
         //public void AgregarUsuario(Usuario pepito)
         //{

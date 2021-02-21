@@ -101,7 +101,7 @@ namespace TPC_Ferrari_Iglesias
                                 {
                                     if (IdAux == Producto.Id)
                                     {
-                                        if (Producto.StockActual >= item.CantidadPedida)//se vakuda el stock 
+                                        if (Producto.StockActual >= item.CantidadPedida)//se valida el stock 
                                         {
                                             Session["ListaCarrito"] = ListaAux;
                                             CalcularImporteTotal(ListaAux);
@@ -111,6 +111,7 @@ namespace TPC_Ferrari_Iglesias
                                         else
                                         {
                                             item.CantidadPedida--;
+                                            //habría que 
                                             Session["ListaCarrito"] = ListaAux;
                                             CalcularImporteTotal(ListaAux);
 
@@ -119,7 +120,6 @@ namespace TPC_Ferrari_Iglesias
                                     }
                                 }
                             }
-
                         }
                         Detalle.CantidadPedida = 1;
                         ListaAux.Add(Detalle);
