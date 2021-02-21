@@ -67,7 +67,7 @@ namespace Negocio
 
                 Acceso.agregarParametro("@idUsuario", pepito.Id);
                 Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-                Acceso.agregarParametro("@Contraseña", pepito.Contrasenia);
+                Acceso.agregarParametro("@Contraseña", Encrypt.Encriptar(pepito.Contrasenia));
                 Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
                 Acceso.agregarParametro("@Estado", pepito.Estado);
                 Acceso.ejecutarAccion();
@@ -143,14 +143,16 @@ namespace Negocio
                 datos.setearQuery("select Id, Contraseña, NombreUsuario, IdTipoUsuario, Estado  from Usuarios where NombreUsuario = @NombreUsuario and Contraseña =@Contraseña ");
                 Usuario usuario = new Usuario();
                 // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
+                user.Contrasenia = Encrypt.Encriptar(user.Contrasenia);
                 datos.agregarParametro("@Contraseña", user.Contrasenia); // User es lo que ingrso el usuario en la texbox que me viene por parametro del login
                 datos.agregarParametro("@NombreUsuario", user.NombreUsuario);
 
-                datos.ejecutarLector();
+                datos.ejecutarLector();//abre la conexion 
                 datos.lector = datos.comando.ExecuteReader();
                 // si devuelve hay que traer el id
-                if (datos.lector.Read()) // si leyo  le voy a asignar los datos al usuario
+                if (datos.lector.HasRows) // si leyo  le voy a asignar los datos al usuario
                 {
+                    datos.lector.Read();
                     usuario.NombreUsuario = (string)datos.lector["NombreUsuario"];
                     usuario.Contrasenia = (string)datos.lector["Contraseña"];
                     usuario.Estado = (Boolean)datos.lector["Estado"];
@@ -207,7 +209,6 @@ namespace Negocio
         }
 
 
-
         public void AgregarUsuarioCompletoConPa(Usuario pepito)
         {
             AccesoDatos Acceso = new AccesoDatos();
@@ -217,7 +218,8 @@ namespace Negocio
                 Acceso.setearQuery_conPa("sp_InsertarUsuario");
 
                 Acceso.agregarParametro("@NombreUsuario", pepito.NombreUsuario);
-                Acceso.agregarParametro("@Contraseña   ", pepito.Contrasenia);
+                //Encriptamos la Contraseña.
+                Acceso.agregarParametro("@Contraseña   ", Encrypt.Encriptar(pepito.Contrasenia));
                 Acceso.agregarParametro("@IdTipoUsuario", pepito.TipoUsuario);
                 Acceso.agregarParametro("@Estado       ", pepito.Estado);
                 Acceso.agregarParametro("@IdUsuario    ", pepito.Id);

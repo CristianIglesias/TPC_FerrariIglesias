@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OpcionesUsuario.aspx.cs" Inherits="TPC_Ferrari_Iglesias.OpcionesUsuario" %>
+﻿ <%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OpcionesUsuario.aspx.cs" Inherits="TPC_Ferrari_Iglesias.OpcionesUsuario" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

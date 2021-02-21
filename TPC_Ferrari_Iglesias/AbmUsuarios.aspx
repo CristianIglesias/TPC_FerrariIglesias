@@ -28,7 +28,8 @@
                         <td><strong>APELLIDO</strong></td>
                         <td><strong>DNI</strong></td>
                         <td><strong>TIPO-USUARIO</strong></td>
-                        <td><strong>Promedio Compras</strong></td>
+                        <td><strong>Cantidad Compras</strong></td>
+                        <td><strong>Ticket Promedio</strong></td>
                     </tr>
                     <%foreach (var item in ((List<Dominio.Usuario>)Session["ListaUsuarios"]))
                         {%>
