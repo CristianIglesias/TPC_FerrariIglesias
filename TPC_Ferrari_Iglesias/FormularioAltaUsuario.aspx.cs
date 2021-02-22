@@ -81,7 +81,6 @@ namespace TPC_Ferrari_Iglesias
             //    return;
 
 
-
             if (pepito == null)
                 pepito = new Usuario();
             else
@@ -110,6 +109,15 @@ namespace TPC_Ferrari_Iglesias
                     pepito.Ciudad = txtCiudad.Text;
                     pepito.Estado = true;
                     pepito.TipoUsuario = 2;
+
+                    if (pepito.FechaNacimiento <= Convert.ToDateTime("01-01-1900") || pepito.FechaNacimiento > DateTime.Now)
+                    {
+                        txtFechaNac.Text = "Fecha No Valida.";
+                        Response.Redirect("FormularioAltaUsuario.aspx");
+                    }
+
+
+
                 }
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 if (pepito.Id == 0)

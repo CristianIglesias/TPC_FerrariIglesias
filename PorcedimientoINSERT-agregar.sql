@@ -1,4 +1,4 @@
-alter PROCEDURE sp_InsertarRegistro(
+create PROCEDURE sp_InsertarRegistro(
 @IdTipo tinyint,
 @Precio money,
 @UrlImagen varchar(900),
@@ -15,17 +15,14 @@ AS
 BEGIN
   INSERT INTO Producto(IdTipo,Precio,UrlImagen,Nombre,Talle,Descripcion,Estado,Color,StockMinimo,StockActual) 
   VALUES(@IdTipo,@Precio,@UrlImagen,@Nombre,@Talle,@Descripcion,@Estado,@Color,@StockMinimo,@StockActual)
+  
 END
-
-
-
-
 
 
 create procedure sp_InsertarUsuario(
 --tabla usuarios--
 @NombreUsuario varchar (100),
-@Contraseña varchar (15),
+@Contraseña varchar (200),
 @IdTipoUsuario tinyint,
 @Estado bit,
 --Tabla Datos Personales--
@@ -43,6 +40,8 @@ create procedure sp_InsertarUsuario(
 @Email varchar(100)
 )as 
 begin
+begin try
+begin transaction
 
 insert into Usuarios (NombreUsuario,Contraseña,IdTipoUsuario,Estado) 
 values (@NombreUsuario, @Contraseña ,@IdTipoUsuario ,@Estado)
@@ -51,6 +50,17 @@ set @idUsuario =  IDENT_CURRENT ('Usuarios')
 
 insert into DatosPersonales(IdUsuario, Nombre,Apellido, DNI, FechaNac, Genero, Telefono, CP, Direccion, Ciudad, Email) 
 values (@IdUsuario, @Nombre, @Apellido ,@Dni,@FechaNac,@Genero,@Telefono, @CP, @Direccion, @Ciudad, @Email)
+
+
+
+commit transaction
+end try
+begin catch 
+rollback transaction
+raiserror (':( No se pudo guardar el usuario',16,1)
+
+end catch
+
 
 
 end 

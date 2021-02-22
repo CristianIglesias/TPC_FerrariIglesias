@@ -240,7 +240,7 @@ namespace Negocio
             catch (Exception)
             {
 
-                throw;
+               throw;
             }
 
 
