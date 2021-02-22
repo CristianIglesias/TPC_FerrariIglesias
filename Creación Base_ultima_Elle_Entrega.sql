@@ -12,11 +12,16 @@ go
 create table Usuarios (
 Id bigint not null primary Key identity (1,1),
 NombreUsuario varchar(200) not Null,
-Contraseña varchar (100) not null,
+Contraseña varchar (200) not null,
 IdTipoUsuario tinyint not null foreign key references TipoUsuario(Id),
 Estado bit not null
 )
 go
+alter table Usuarios 
+add constraint NombreUsuario  unique (NombreUsuario)
+go
+
+
 create table Estados (
 Id tinyint not null primary Key identity (1,1),
 NombreEstado varchar(20) not Null
@@ -53,6 +58,10 @@ go
 alter table DatosPersonales
 add constraint FK_DatosPersonales_IdUsuario foreign key (IdUsuario)references Usuarios (Id)
 go
+alter table DatosPersonales 
+add constraint DNI  unique (DNI)
+go
+
 create table Pedidos (
 Id bigint not null primary Key identity (1,1),
 IdUsuario bigint not null,
@@ -107,6 +116,5 @@ go
 alter table Pagos
 add constraint FK_Pagos_TipoPagos foreign key (IdTipoPago)  references TipoPagos (Id)
 go
-alter table Usuarios 
-add constraint NombreUsuario  unique (NombreUsuario)
+
 
