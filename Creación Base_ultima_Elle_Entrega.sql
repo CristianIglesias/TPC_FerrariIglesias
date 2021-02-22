@@ -11,7 +11,7 @@ Nombre varchar(50) not Null
 go
 create table Usuarios (
 Id bigint not null primary Key identity (1,1),
-NombreUsuario varchar(200) not Null,
+NombreUsuario varchar(15) not Null,
 Contraseña varchar (200) not null,
 IdTipoUsuario tinyint not null foreign key references TipoUsuario(Id),
 Estado bit not null

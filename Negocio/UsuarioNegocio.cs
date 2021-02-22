@@ -140,6 +140,9 @@ namespace Negocio
 
             try
             {
+
+                //datos.setearQuery_conPa("SP_Login");
+               
                 datos.setearQuery("select Id, Contraseña, NombreUsuario, IdTipoUsuario, Estado  from Usuarios where NombreUsuario = @NombreUsuario and Contraseña =@Contraseña ");
                 Usuario usuario = new Usuario();
                 // osea user.contr.. es lo que pone el usuario en la textb y se lo  mando atraves de la variable @contras a la query
